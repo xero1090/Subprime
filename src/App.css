@@ -1,0 +1,16 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  overflow-y: hidden;
+  margin: 0;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
