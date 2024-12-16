@@ -13,7 +13,8 @@
     "@react-spring/parallax": "^9.7.5",
     "motion": "^11.14.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-spring": "^9.7.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
