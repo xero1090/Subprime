@@ -61,23 +61,36 @@ function App() {
           style={{
             display: "flex",
             justifyContent: "center",
+            alignItems: "center",
+            position: "relative",
             backgroundColor: "black",
             color: "white",
+            overflow: "hidden", // Prevents SVG overflow issues
           }}
           offset={1} // Start the transition at the first page
           speed={0.7}
           factor={2.5}
         >
-          <animated.img
-            src={lightbeam}
+          <div
             style={{
-              ...beamStyle, // Using beamStyle for lightbeam as well
               position: "absolute",
               width: "100%",
               height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-            alt="Light Beam"
-          />
+          >
+            <animated.img
+              src={lightbeam}
+              style={{
+                ...beamStyle, // Reuse the animation styles
+                width: "auto", // Ensure scaling maintains aspect ratio
+                height: "auto", // Adjust as needed
+              }}
+              alt="Light Beam"
+            />
+          </div>
         </ParallaxLayer>
 
         <ParallaxLayer
