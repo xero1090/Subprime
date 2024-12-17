@@ -1,114 +1,157 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { useState } from "react";
+import { useSpring, animated } from "react-spring";
 import "./App.css";
+import PageIndicator from "./components/PageIndicator";
 
 function App() {
+  const [showLightBeam, setShowLightBeam] = useState(false);
+
+  // Animation for fading elements
+  const beamStyle = useSpring({
+    opacity: showLightBeam ? 0 : 1,
+    config: { duration: 500 },
+  });
+
+  // Scroll handler for triggering animations
+  const handleScroll = (currentScroll) => {
+    const threshold = window.innerHeight * 0.8; // Adjust trigger point
+    if (currentScroll >= threshold && !showLightBeam) {
+      setShowLightBeam(true);
+    }
+  };
+
   return (
-    <div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
-      <Parallax pages={4} style={{ background: "#1a1a1a" }}>
-        {/* Hero Section */}
+    <>
+      <Parallax
+        id="parallax"
+        pages={5}
+        onScroll={(e) => handleScroll(e.currentTarget.scrollTop)}
+        style={{ margin: 0, padding: 0 }}
+      >
+        {/* HERO SECTION */}
         <ParallaxLayer
           offset={0}
-          speed={0.2}
+          speed={0}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            background: "linear-gradient(to bottom, #000000, #333333)",
+            height: "100vh",
+            background: "linear-gradient(to bottom, #000000, #1a1a1a)",
           }}
         >
           <div>
             <h1 style={{ fontSize: "4rem", color: "white", textAlign: "center" }}>
-              Welcome to SUBPRIME
+              SUBPRIMED
             </h1>
             <p
               style={{
                 fontSize: "1.5rem",
                 color: "lightgray",
-                marginTop: "1rem",
                 textAlign: "center",
+                marginTop: "1rem",
               }}
             >
-              A seamless parallax experience awaits.
+              Experience a seamless journey.
             </p>
           </div>
         </ParallaxLayer>
 
-        {/* Discover Section */}
+        {/* DISCOVER SECTION */}
         <ParallaxLayer
-          offset={0.8}
-          speed={0.3}
+          offset={1}
+          speed={0}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            background: "#1a1a1a",
+            height: "100vh",
+            backgroundColor: "#1a1a1a",
           }}
         >
-          <h2 style={{ fontSize: "3rem", color: "white", textAlign: "center" }}>
-            Discover.
-          </h2>
-        </ParallaxLayer>
-
-        {/* Create Section */}
-        <ParallaxLayer
-          offset={1.6}
-          speed={0.5}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            background: "#333333",
-          }}
-        >
-          <h2 style={{ fontSize: "3rem", color: "white", textAlign: "center" }}>
-            Create.
-          </h2>
-        </ParallaxLayer>
-
-        {/* Innovate Section */}
-        <ParallaxLayer
-          offset={2.4}
-          speed={0.7}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            background: "#4d4d4d",
-          }}
-        >
-          <h2 style={{ fontSize: "3rem", color: "white", textAlign: "center" }}>
-            Innovate.
-          </h2>
-        </ParallaxLayer>
-
-        {/* Footer Section */}
-        <ParallaxLayer
-          offset={3}
-          speed={0.2}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            background: "#666666",
-          }}
-        >
-          <h1 style={{ fontSize: "2.5rem", color: "white", textAlign: "center" }}>
-            Thank You for Visiting!
-          </h1>
-          <p
+          <animated.h2
             style={{
-              fontSize: "1.2rem",
-              color: "lightgray",
-              marginTop: "1rem",
-              textAlign: "center",
+              fontSize: "3rem",
+              color: "white",
+              ...beamStyle,
             }}
           >
-            Scroll with purpose, create with passion.
-          </p>
+            Discover.
+          </animated.h2>
+        </ParallaxLayer>
+
+        {/* CREATE SECTION */}
+        <ParallaxLayer
+          offset={2}
+          speed={0}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            backgroundColor: "#333333",
+          }}
+        >
+          <animated.h2
+            style={{
+              fontSize: "3rem",
+              color: "white",
+              ...beamStyle,
+            }}
+          >
+            Create.
+          </animated.h2>
+        </ParallaxLayer>
+
+        {/* INNOVATE SECTION */}
+        <ParallaxLayer
+          offset={3}
+          speed={0}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            backgroundColor: "#4d4d4d",
+          }}
+        >
+          <h2 style={{ fontSize: "3rem", color: "white" }}>Innovate.</h2>
+        </ParallaxLayer>
+
+        {/* FOOTER SECTION */}
+        <ParallaxLayer
+          offset={4}
+          speed={0}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            backgroundColor: "#666666",
+          }}
+        >
+          <div>
+            <h1 style={{ fontSize: "2.5rem", color: "white", textAlign: "center" }}>
+              Thank You for Visiting!
+            </h1>
+            <p
+              style={{
+                fontSize: "1.2rem",
+                color: "lightgray",
+                marginTop: "1rem",
+                textAlign: "center",
+              }}
+            >
+              Scroll with purpose, create with passion.
+            </p>
+          </div>
         </ParallaxLayer>
       </Parallax>
-    </div>
+
+      {/* PAGE INDICATOR */}
+      <PageIndicator />
+    </>
   );
 }
 
