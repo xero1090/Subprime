@@ -11,6 +11,10 @@ h1 {
 }
 
 html {
-  scroll-behavior: smooth;
+  
+  scroll-snap-type: y mandatory;
   box-sizing: border-box;
+}
+body > div {
+  scroll-snap-align: center;
 }

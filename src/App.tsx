@@ -1,127 +1,114 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import { useState } from "react";
-import { useSpring, animated } from "react-spring";
-import beam from "./assets/beam.svg";
-import lightbeam from "./assets/light_beam.svg";
 import "./App.css";
-import PageIndicator from "./components/PageIndicator";
 
 function App() {
-  const [showLightBeam, setShowLightBeam] = useState(false);
-
-  // Animation styles for fading between images
-  const beamStyle = useSpring({
-    opacity: showLightBeam ? 0 : 1,
-    config: { duration: 500 },
-  });
-
-  // Function to handle scroll events
-  const handleScroll = (currentScroll) => {
-    const threshold = window.innerHeight; // Adjust based on when you want the transition
-    if (currentScroll >= threshold && !showLightBeam) {
-      setShowLightBeam(true);
-    }
-  };
-
   return (
-    <>
-      <Parallax
-        id="parallax"
-        pages={5}
-        onScroll={(e) => handleScroll(e.currentTarget.scrollTop)}
-      >
+    <div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
+      <Parallax pages={4} style={{ background: "#1a1a1a" }}>
+        {/* Hero Section */}
         <ParallaxLayer
+          offset={0}
+          speed={0.2}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "black",
-            color: "white",
-            zIndex: -1,
+            background: "linear-gradient(to bottom, #000000, #333333)",
           }}
-          sticky={{ start: 0, end: 2 }}
         >
-          {/* Beam Image */}
-          <animated.img
-            src={beam}
-            style={{
-              ...beamStyle,
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-            }}
-            alt="Beam"
-          />
           <div>
-            <h1>SUBPRIMED</h1>
+            <h1 style={{ fontSize: "4rem", color: "white", textAlign: "center" }}>
+              Welcome to SUBPRIME
+            </h1>
+            <p
+              style={{
+                fontSize: "1.5rem",
+                color: "lightgray",
+                marginTop: "1rem",
+                textAlign: "center",
+              }}
+            >
+              A seamless parallax experience awaits.
+            </p>
           </div>
         </ParallaxLayer>
 
+        {/* Discover Section */}
         <ParallaxLayer
+          offset={0.8}
+          speed={0.3}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            position: "relative",
-            backgroundColor: "black",
-            color: "white",
-            overflow: "hidden", // Prevents SVG overflow issues
+            background: "#1a1a1a",
           }}
-          offset={1} // Start the transition at the first page
-          speed={0.7}
-          factor={2.5}
         >
-          <div
+          <h2 style={{ fontSize: "3rem", color: "white", textAlign: "center" }}>
+            Discover.
+          </h2>
+        </ParallaxLayer>
+
+        {/* Create Section */}
+        <ParallaxLayer
+          offset={1.6}
+          speed={0.5}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "#333333",
+          }}
+        >
+          <h2 style={{ fontSize: "3rem", color: "white", textAlign: "center" }}>
+            Create.
+          </h2>
+        </ParallaxLayer>
+
+        {/* Innovate Section */}
+        <ParallaxLayer
+          offset={2.4}
+          speed={0.7}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "#4d4d4d",
+          }}
+        >
+          <h2 style={{ fontSize: "3rem", color: "white", textAlign: "center" }}>
+            Innovate.
+          </h2>
+        </ParallaxLayer>
+
+        {/* Footer Section */}
+        <ParallaxLayer
+          offset={3}
+          speed={0.2}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "#666666",
+          }}
+        >
+          <h1 style={{ fontSize: "2.5rem", color: "white", textAlign: "center" }}>
+            Thank You for Visiting!
+          </h1>
+          <p
             style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              fontSize: "1.2rem",
+              color: "lightgray",
+              marginTop: "1rem",
+              textAlign: "center",
             }}
           >
-            <animated.img
-              src={lightbeam}
-              style={{
-                ...beamStyle, // Reuse the animation styles
-                width: "auto", // Ensure scaling maintains aspect ratio
-                height: "auto", // Adjust as needed
-              }}
-              alt="Light Beam"
-            />
-          </div>
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            backgroundColor: "black",
-            color: "white",
-          }}
-          offset={2}
-          speed={0.7}
-          factor={2.5}
-        >
-          <h1>ABOUT</h1>
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            backgroundColor: "gray",
-            color: "white",
-            zIndex: -1,
-          }}
-          sticky={{ start: 3, end: 5 }}
-        >
-          <h1>FOOTER</h1>
+            Scroll with purpose, create with passion.
+          </p>
         </ParallaxLayer>
       </Parallax>
-      <PageIndicator />
-    </>
+    </div>
   );
 }
 
