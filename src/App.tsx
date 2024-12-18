@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import "./App.css";
 import PageIndicator from "./components/PageIndicator";
 
 function App() {
   const [showLightBeam, setShowLightBeam] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
 
   // Animation for fading elements
   const beamStyle = useSpring({
@@ -13,9 +14,13 @@ function App() {
   });
 
   // Scroll handler for triggering animations
-  const handleScroll = (currentScroll) => {
+  const handleScroll = (e) => {
+    const scrollTop = e.target.scrollTop;
+    const newPage = Math.round(scrollTop / window.innerHeight);
+    setCurrentPage(newPage);
+
     const threshold = window.innerHeight * 0.8; // Adjust trigger point
-    if (currentScroll >= threshold && !showLightBeam) {
+    if (scrollTop >= threshold && !showLightBeam) {
       setShowLightBeam(true);
     }
   };
@@ -27,7 +32,7 @@ function App() {
         overflowY: "scroll",
         scrollSnapType: "y mandatory",
       }}
-      onScroll={(e) => handleScroll(e.target.scrollTop)}
+      onScroll={handleScroll}
     >
       {/* HERO SECTION */}
       <div
@@ -138,13 +143,13 @@ function App() {
               textAlign: "center",
             }}
           >
-            Scroll with purpose, create with passion.
+            Scroll with purpose , create with passion.
           </p>
         </div>
       </div>
 
       {/* PAGE INDICATOR */}
-      <PageIndicator />
+      <PageIndicator currentPage={currentPage} totalPages={5} />
     </div>
   );
 }
