@@ -22,7 +22,7 @@ function App() {
   };
 
   return (
-    <>
+    <div style={{ height: "100vh", overflow: "hidden" }}>
       <Parallax
         id="parallax"
         pages={5}
@@ -34,10 +34,10 @@ function App() {
           offset={0}
           speed={0}
           style={{
+            height: "100vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
             background: "linear-gradient(to bottom, #000000, #1a1a1a)",
           }}
         >
@@ -63,10 +63,10 @@ function App() {
           offset={1}
           speed={0}
           style={{
+            height: "100vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
             backgroundColor: "#1a1a1a",
           }}
         >
@@ -86,10 +86,10 @@ function App() {
           offset={2}
           speed={0}
           style={{
+            height: "100vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
             backgroundColor: "#333333",
           }}
         >
@@ -109,10 +109,10 @@ function App() {
           offset={3}
           speed={0}
           style={{
+            height: "100vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
             backgroundColor: "#4d4d4d",
           }}
         >
@@ -124,10 +124,10 @@ function App() {
           offset={4}
           speed={0}
           style={{
+            height: "100vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
             backgroundColor: "#666666",
           }}
         >
@@ -138,7 +138,7 @@ function App() {
             <p
               style={{
                 fontSize: "1.2rem",
-                color: "lightgray",
+                color: " lightgray",
                 marginTop: "1rem",
                 textAlign: "center",
               }}
@@ -151,7 +151,7 @@ function App() {
 
       {/* PAGE INDICATOR */}
       <PageIndicator />
-    </>
+    </div>
   );
 }
 
