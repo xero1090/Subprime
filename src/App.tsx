@@ -4,25 +4,21 @@ import "./App.css";
 import PageIndicator from "./components/PageIndicator";
 
 function App() {
-  const [showLightBeam, setShowLightBeam] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
 
-  // Animation for fading elements
-  const beamStyle = useSpring({
-    opacity: showLightBeam ? 0 : 1,
-    config: { duration: 500 },
-  });
+  // Animation style generators
+  const getSectionAnimation = (index: number) => {
+    return useSpring({
+      opacity: currentPage === index ? 1 : 0,
+      transform: currentPage === index ? "translateY(0px)" : "translateY(50px)",
+      config: { duration: 500 },
+    });
+  };
 
-  // Scroll handler for triggering animations
-  const handleScroll = (e) => {
-    const scrollTop = e.target.scrollTop;
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const scrollTop = e.currentTarget.scrollTop;
     const newPage = Math.round(scrollTop / window.innerHeight);
     setCurrentPage(newPage);
-
-    const threshold = window.innerHeight * 0.8; // Adjust trigger point
-    if (scrollTop >= threshold && !showLightBeam) {
-      setShowLightBeam(true);
-    }
   };
 
   return (
@@ -45,9 +41,9 @@ function App() {
           scrollSnapAlign: "start",
         }}
       >
-        <div>
+        <animated.div style={getSectionAnimation(0)}>
           <h1 style={{ fontSize: "4rem", color: "white", textAlign: "center" }}>
-            SUBPRIMED
+            SUBPRIME
           </h1>
           <p
             style={{
@@ -59,7 +55,7 @@ function App() {
           >
             Experience a seamless journey.
           </p>
-        </div>
+        </animated.div>
       </div>
 
       {/* DISCOVER SECTION */}
@@ -77,7 +73,7 @@ function App() {
           style={{
             fontSize: "3rem",
             color: "white",
-            ...beamStyle,
+            ...getSectionAnimation(1),
           }}
         >
           Discover.
@@ -99,7 +95,7 @@ function App() {
           style={{
             fontSize: "3rem",
             color: "white",
-            ...beamStyle,
+            ...getSectionAnimation(2),
           }}
         >
           Create.
@@ -117,7 +113,15 @@ function App() {
           scrollSnapAlign: "start",
         }}
       >
-        <h2 style={{ fontSize: "3rem", color: "white" }}>Innovate.</h2>
+        <animated.h2
+          style={{
+            fontSize: "3rem",
+            color: "white",
+            ...getSectionAnimation(3),
+          }}
+        >
+          Innovate.
+        </animated.h2>
       </div>
 
       {/* FOOTER SECTION */}
@@ -131,7 +135,7 @@ function App() {
           scrollSnapAlign: "start",
         }}
       >
-        <div>
+        <animated.div style={getSectionAnimation(4)}>
           <h1 style={{ fontSize: "2.5rem", color: "white", textAlign: "center" }}>
             Thank You for Visiting!
           </h1>
@@ -143,9 +147,9 @@ function App() {
               textAlign: "center",
             }}
           >
-            Scroll with purpose , create with passion.
+            Scroll with purpose, create with passion.
           </p>
-        </div>
+        </animated.div>
       </div>
 
       {/* PAGE INDICATOR */}

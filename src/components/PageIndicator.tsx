@@ -1,24 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParallaxScroll } from "../hooks/useParallaxScroll";
+interface PageIndicatorProps {
+  currentPage: number;
+  totalPages: number;
+}
 
-// interface props {
-//   scrollProgress: number;
-// }
-
-const PageIndicator = () => {
-  const [activePage, setActivePage] = useState(1);
-  const totalPages = 5; // Assuming there are 5 pages
-  const scrollProgress = useParallaxScroll();
-
-  useEffect(() => {
-    setActivePage(
-      Math.min(
-        totalPages,
-        Math.max(1, Math.ceil((scrollProgress / 100) * totalPages))
-      )
-    );
-  }, [scrollProgress]);
-
+const PageIndicator: React.FC<PageIndicatorProps> = ({ currentPage, totalPages }) => {
   return (
     <div
       style={{
@@ -32,11 +17,13 @@ const PageIndicator = () => {
         alignItems: "center",
       }}
     >
-      <div id="page-1" className="indicator"></div>
-      <div id="page-2" className="indicator"></div>
-      <div id="page-3" className="indicator"></div>
-      <div id="page-4" className="indicator"></div>
-      <div id="page-5" className="indicator"></div>
+      {Array.from({ length: totalPages }, (_, index) => (
+        <div
+          key={index}
+          id={`page-${index + 1}`}
+          className={`indicator${currentPage === index ? " active" : ""}`}
+        />
+      ))}
 
       <style>
         {`
@@ -47,7 +34,7 @@ const PageIndicator = () => {
                 background-color: grey;
                 margin: 5px 0;
             }
-            #page-${activePage} {
+            .indicator.active {
                 width: 10px;
                 height: 10px;
                 background-color: white;
