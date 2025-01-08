@@ -1,29 +1,78 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import "./App.css";
 import PageIndicator from "./components/PageIndicator";
 
 function App() {
-  const [showLightBeam, setShowLightBeam] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  const discoverRef = useRef(null);
+  const createRef = useRef(null); // Reference for the Create section
+  const [showDiscover, setShowDiscover] = useState(false);
+  const [showCreate, setShowCreate] = useState(false); // State for Create section visibility
 
-  // Animation for fading elements
-  const beamStyle = useSpring({
-    opacity: showLightBeam ? 0 : 1,
+  // Animation for Discover section
+  const discoverBeamStyle = useSpring({
+    opacity: showDiscover ? 1 : 0,
+    transform: showDiscover ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
     config: { duration: 500 },
   });
 
-  // Scroll handler for triggering animations
+  // Animation for Create section
+  const createBeamStyle = useSpring({
+    opacity: showCreate ? 1 : 0,
+    transform: showCreate ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
+    config: { duration: 500 },
+  });
+
+  // Scroll handler to update current page
   const handleScroll = (e) => {
     const scrollTop = e.target.scrollTop;
     const newPage = Math.round(scrollTop / window.innerHeight);
     setCurrentPage(newPage);
-
-    const threshold = window.innerHeight * 0.8; // Adjust trigger point
-    if (scrollTop >= threshold && !showLightBeam) {
-      setShowLightBeam(true);
-    }
   };
+
+  useEffect(() => {
+    // Observer for Discover section
+    const discoverObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowDiscover(true);
+        } else {
+          setShowDiscover(false);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    // Observer for Create section
+    const createObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowCreate(true);
+        } else {
+          setShowCreate(false);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (discoverRef.current) {
+      discoverObserver.observe(discoverRef.current);
+    }
+
+    if (createRef.current) {
+      createObserver.observe(createRef.current);
+    }
+
+    return () => {
+      if (discoverRef.current) {
+        discoverObserver.unobserve(discoverRef.current);
+      }
+      if (createRef.current) {
+        createObserver.unobserve(createRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div
@@ -64,6 +113,7 @@ function App() {
 
       {/* DISCOVER SECTION */}
       <div
+        ref={discoverRef}
         style={{
           height: "100vh",
           display: "flex",
@@ -77,7 +127,7 @@ function App() {
           style={{
             fontSize: "3rem",
             color: "white",
-            ...beamStyle,
+            ...discoverBeamStyle, // Apply the animation style for Discover
           }}
         >
           Discover.
@@ -86,6 +136,7 @@ function App() {
 
       {/* CREATE SECTION */}
       <div
+        ref={createRef}
         style={{
           height: "100vh",
           display: "flex",
@@ -99,7 +150,7 @@ function App() {
           style={{
             fontSize: "3rem",
             color: "white",
-            ...beamStyle,
+            ...createBeamStyle, // Apply the animation style for Create
           }}
         >
           Create.
@@ -143,7 +194,7 @@ function App() {
               textAlign: "center",
             }}
           >
-            Scroll with purpose , create with passion.
+            Scroll with purpose, create with passion.
           </p>
         </div>
       </div>
