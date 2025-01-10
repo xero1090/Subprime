@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
-import { useParallaxScroll } from "../hooks/useParallaxScroll";
+import React from "react";
 
-// interface props {
-//   scrollProgress: number;
-// }
+type PageIndicatorProps = {
+  currentPage: number; // Current page index
+  totalPages: number;  // Total number of pages
+};
 
-const PageIndicator = () => {
-  const [activePage, setActivePage] = useState(1);
-  const totalPages = 5; // Assuming there are 5 pages
-  const scrollProgress = useParallaxScroll();
-
-  useEffect(() => {
-    setActivePage(
-      Math.min(
-        totalPages,
-        Math.max(1, Math.ceil((scrollProgress / 100) * totalPages))
-      )
-    );
-  }, [scrollProgress]);
-
+const PageIndicator: React.FC<PageIndicatorProps> = ({ currentPage, totalPages }) => {
   return (
     <div
       style={{
@@ -32,28 +19,19 @@ const PageIndicator = () => {
         alignItems: "center",
       }}
     >
-      <div id="page-1" className="indicator"></div>
-      <div id="page-2" className="indicator"></div>
-      <div id="page-3" className="indicator"></div>
-      <div id="page-4" className="indicator"></div>
-      <div id="page-5" className="indicator"></div>
-
-      <style>
-        {`
-            .indicator {
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-                background-color: grey;
-                margin: 5px 0;
-            }
-            #page-${activePage} {
-                width: 10px;
-                height: 10px;
-                background-color: white;
-            }
-            `}
-      </style>
+      {Array.from({ length: totalPages }).map((_, index) => (
+        <div
+          key={index}
+          className="indicator"
+          style={{
+            width: currentPage === index ? "10px" : "5px",
+            height: currentPage === index ? "10px" : "5px",
+            borderRadius: "50%",
+            backgroundColor: currentPage === index ? "white" : "grey",
+            margin: "5px 0",
+          }}
+        ></div>
+      ))}
     </div>
   );
 };

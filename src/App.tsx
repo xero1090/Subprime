@@ -7,9 +7,10 @@ function App() {
   const [currentPage, setCurrentPage] = useState(0);
   const discoverRef = useRef(null);
   const createRef = useRef(null); // Reference for the Create section
+  const innovateRef = useRef(null);
   const [showDiscover, setShowDiscover] = useState(false);
   const [showCreate, setShowCreate] = useState(false); // State for Create section visibility
-
+  const [showInnovate, setShowInnovate] = useState(false); // State for Create section visibility
   // Animation for Discover section
   const discoverBeamStyle = useSpring({
     opacity: showDiscover ? 1 : 0,
@@ -21,6 +22,12 @@ function App() {
   const createBeamStyle = useSpring({
     opacity: showCreate ? 1 : 0,
     transform: showCreate ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
+    config: { duration: 500 },
+  });
+
+  const innovateBeamStyle = useSpring({
+    opacity: showInnovate ? 1 : 0,
+    transform: showInnovate ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
     config: { duration: 500 },
   });
 
@@ -56,6 +63,17 @@ function App() {
       { threshold: 0.5 }
     );
 
+    const innovateObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowInnovate(true);
+        } else {
+          setShowInnovate(false);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
     if (discoverRef.current) {
       discoverObserver.observe(discoverRef.current);
     }
@@ -64,12 +82,19 @@ function App() {
       createObserver.observe(createRef.current);
     }
 
+    if (innovateRef.current) {
+      innovateObserver.observe(innovateRef.current);
+    }
+
     return () => {
       if (discoverRef.current) {
         discoverObserver.unobserve(discoverRef.current);
       }
       if (createRef.current) {
         createObserver.unobserve(createRef.current);
+      }
+      if (innovateRef.current) {
+        innovateObserver.unobserve(innovateRef.current);
       }
     };
   }, []);
@@ -159,6 +184,7 @@ function App() {
 
       {/* INNOVATE SECTION */}
       <div
+        ref={innovateRef}
         style={{
           height: "100vh",
           display: "flex",
@@ -168,7 +194,15 @@ function App() {
           scrollSnapAlign: "start",
         }}
       >
-        <h2 style={{ fontSize: "3rem", color: "white" }}>Innovate.</h2>
+        <animated.h2
+          style={{
+            fontSize: "3rem",
+            color: "white",
+            ...innovateBeamStyle, // Apply the animation style for Create
+          }}
+        >
+          Innovate.
+        </animated.h2>
       </div>
 
       {/* FOOTER SECTION */}
