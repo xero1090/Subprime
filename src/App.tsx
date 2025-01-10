@@ -2,6 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import "./App.css";
 import PageIndicator from "./components/PageIndicator";
+import { gsap } from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
+
+gsap.registerPlugin(TextPlugin);
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -9,8 +13,10 @@ function App() {
   const createRef = useRef(null); // Reference for the Create section
   const innovateRef = useRef(null);
   const [showDiscover, setShowDiscover] = useState(false);
-  const [showCreate, setShowCreate] = useState(false); // State for Create section visibility
-  const [showInnovate, setShowInnovate] = useState(false); // State for Create section visibility
+  const [showCreate, setShowCreate] = useState(false);
+  const [showInnovate, setShowInnovate] = useState(false);
+  const headingRef = useRef(null);
+
   // Animation for Discover section
   const discoverBeamStyle = useSpring({
     opacity: showDiscover ? 1 : 0,
@@ -39,6 +45,22 @@ function App() {
   };
 
   useEffect(() => {
+    gsap.fromTo(
+      headingRef.current,
+      {
+        text: "________", // Starting placeholder for the scrambling effect
+        scrambleText: { characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%", speed: 0.5 }, // Scramble speed
+      },
+      {
+        text: "SUBPRIME", // Target text
+        scrambleText: { characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%" }, // Characters pool
+        duration: 2, // Duration of the scramble effect
+        repeat: -1, // Infinite repeat
+        repeatDelay: 1.7, // Delay between repeats
+        ease: "none", // Linear easing for smooth effect
+      }
+    );
+
     // Observer for Discover section
     const discoverObserver = new IntersectionObserver(
       ([entry]) => {
@@ -120,21 +142,29 @@ function App() {
         }}
       >
         <div>
-          <h1 style={{ fontSize: "4rem", color: "white", textAlign: "center" }}>
-            SUBPRIMED
-          </h1>
-          <p
-            style={{
-              fontSize: "1.5rem",
-              color: "lightgray",
-              textAlign: "center",
-              marginTop: "1rem",
-            }}
-          >
-            Experience a seamless journey.
-          </p>
-        </div>
+        <h1
+          ref={headingRef}
+          style={{
+            fontSize: "4rem",
+            color: "white",
+            textAlign: "center",
+            fontFamily: "sans-serif",
+          }}
+        >
+          SUBPRIMED
+        </h1>
+        <p
+          style={{
+            fontSize: "1.5rem",
+            color: "lightgray",
+            textAlign: "center",
+            marginTop: "1rem",
+          }}
+        >
+          Experience a seamless journey.
+        </p>
       </div>
+    </div>
 
       {/* DISCOVER SECTION */}
       <div
