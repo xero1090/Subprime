@@ -16,6 +16,7 @@ function App() {
   const [showCreate, setShowCreate] = useState(false);
   const [showInnovate, setShowInnovate] = useState(false);
   const headingRef = useRef(null);
+  const canvasRef = useRef(null);
 
   // Animation for Discover section
   const discoverBeamStyle = useSpring({
@@ -45,79 +46,88 @@ function App() {
   };
 
   useEffect(() => {
-    gsap.fromTo(
-      headingRef.current,
-      {
-        text: "________", // Starting placeholder for the scrambling effect
-        scrambleText: { characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%", speed: 0.5 }, // Scramble speed
-      },
-      {
-        text: "SUBPRIME", // Target text
-        scrambleText: { characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%" }, // Characters pool
-        duration: 2, // Duration of the scramble effect
-        repeat: -1, // Infinite repeat
-        repeatDelay: 1.7, // Delay between repeats
-        ease: "none", // Linear easing for smooth effect
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    let animationFrameId;
+    const points = [];
+    const maxDistance = 150;
+  
+    const createPoints = () => {
+      const width = canvas.width;
+      const height = canvas.height;
+      for (let i = 0; i < 100; i++) {
+        points.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          dx: (Math.random() - 0.5) * 2,
+          dy: (Math.random() - 0.5) * 2,
+          radius: Math.random() * 2 + 1,
+        });
       }
-    );
-
-    // Observer for Discover section
-    const discoverObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowDiscover(true);
-        } else {
-          setShowDiscover(false);
+    };
+  
+    const drawLines = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+  
+      // Draw Points
+      points.forEach((point) => {
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgb(117, 252, 251)"; // Neon blue-purple effect
+        ctx.fill();
+      });
+  
+      // Connect Points
+      for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+          const dx = points[i].x - points[j].x;
+          const dy = points[i].y - points[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+  
+          if (distance < maxDistance) {
+            const opacity = 1 - distance / maxDistance;
+            ctx.beginPath();
+            ctx.moveTo(points[i].x, points[i].y);
+            ctx.lineTo(points[j].x, points[j].y);
+            ctx.strokeStyle = `rgba(173, 216, 230, ${opacity})`; // Neon line
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
         }
-      },
-      { threshold: 0.5 }
-    );
-
-    // Observer for Create section
-    const createObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowCreate(true);
-        } else {
-          setShowCreate(false);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    const innovateObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowInnovate(true);
-        } else {
-          setShowInnovate(false);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (discoverRef.current) {
-      discoverObserver.observe(discoverRef.current);
-    }
-
-    if (createRef.current) {
-      createObserver.observe(createRef.current);
-    }
-
-    if (innovateRef.current) {
-      innovateObserver.observe(innovateRef.current);
-    }
-
+      }
+    };
+  
+    const updatePoints = () => {
+      points.forEach((point) => {
+        point.x += point.dx;
+        point.y += point.dy;
+  
+        // Bounce off edges
+        if (point.x <= 0 || point.x >= canvas.width) point.dx *= -1;
+        if (point.y <= 0 || point.y >= canvas.height) point.dy *= -1;
+      });
+    };
+  
+    const animate = () => {
+      updatePoints();
+      drawLines();
+      animationFrameId = requestAnimationFrame(animate);
+    };
+  
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+  
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    createPoints();
+    animate();
+  
     return () => {
-      if (discoverRef.current) {
-        discoverObserver.unobserve(discoverRef.current);
-      }
-      if (createRef.current) {
-        createObserver.unobserve(createRef.current);
-      }
-      if (innovateRef.current) {
-        innovateObserver.unobserve(innovateRef.current);
-      }
+      window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
@@ -130,6 +140,20 @@ function App() {
       }}
       onScroll={handleScroll}
     >
+      {/* Canvas for Tessellation */}
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 0,
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none",
+        }}
+      ></canvas>
+
       {/* HERO SECTION */}
       <div
         style={{
@@ -139,6 +163,8 @@ function App() {
           alignItems: "center",
           background: "linear-gradient(to bottom, #000000, #1a1a1a)",
           scrollSnapAlign: "start",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <div>
@@ -151,7 +177,7 @@ function App() {
             fontFamily: "sans-serif",
           }}
         >
-          SUBPRIMED
+          SUBPRIME
         </h1>
         <p
           style={{
@@ -182,6 +208,7 @@ function App() {
           style={{
             fontSize: "3rem",
             color: "white",
+            zIndex: 2,
             ...discoverBeamStyle, // Apply the animation style for Discover
           }}
         >
@@ -205,6 +232,7 @@ function App() {
           style={{
             fontSize: "3rem",
             color: "white",
+            zIndex: 2,
             ...createBeamStyle, // Apply the animation style for Create
           }}
         >
@@ -228,6 +256,7 @@ function App() {
           style={{
             fontSize: "3rem",
             color: "white",
+            zIndex: 2,
             ...innovateBeamStyle, // Apply the animation style for Create
           }}
         >
