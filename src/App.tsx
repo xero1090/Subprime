@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import "./App.css";
-import PageIndicator from "./components/PageIndicator";
+import PageIndicator from "./components/PageIndicator/PageIndicator";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 
@@ -39,7 +39,7 @@ function App() {
   });
 
   // Scroll handler to update current page
-  const handleScroll = (e) => {
+  const handleScroll = (e: any) => {
     const scrollTop = e.target.scrollTop;
     const newPage = Math.round(scrollTop / window.innerHeight);
     setCurrentPage(newPage);
@@ -133,6 +133,7 @@ function App() {
 
   return (
     <div
+      id="app"
       style={{
         height: "100vh",
         overflowY: "scroll",
