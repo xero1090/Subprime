@@ -4,19 +4,23 @@ import "./App.css";
 import PageIndicator from "./components/PageIndicator/PageIndicator";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
+import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 
 gsap.registerPlugin(TextPlugin);
 
 function App() {
+  // State
   const [currentPage, setCurrentPage] = useState(0);
-  const discoverRef = useRef(null);
-  const createRef = useRef(null); // Reference for the Create section
-  const innovateRef = useRef(null);
   const [showDiscover, setShowDiscover] = useState(false);
   const [showCreate, setShowCreate] = useState(false);
   const [showInnovate, setShowInnovate] = useState(false);
+
+  // Refs
+  const discoverRef = useRef(null);
+  const createRef = useRef(null); // Reference for the Create section
+  const innovateRef = useRef(null);
   const headingRef = useRef(null);
-  const canvasRef = useRef(null);
+
 
   // Animation for Discover section
   const discoverBeamStyle = useSpring({
@@ -32,6 +36,7 @@ function App() {
     config: { duration: 500 },
   });
 
+  // Animation for Innovate section
   const innovateBeamStyle = useSpring({
     opacity: showInnovate ? 1 : 0,
     transform: showInnovate ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
@@ -43,95 +48,33 @@ function App() {
     const scrollTop = e.target.scrollTop;
     const newPage = Math.round(scrollTop / window.innerHeight);
     setCurrentPage(newPage);
+
+    // WORKS as long as the height of the sections is 100vh, should make dynamic
+    // Show Discover section
+    if (scrollTop >= window.innerHeight) {
+      setShowDiscover(true);
+    } else {
+      setShowDiscover(false);
+    }
+
+    // Show Create section
+    if (scrollTop >= window.innerHeight * 2) {
+      setShowCreate(true);
+    } else {
+      setShowCreate(false);
+    }
+
+    // Show Innovate section
+    if (scrollTop >= window.innerHeight * 3) {
+      setShowInnovate(true);
+    } else {
+      setShowInnovate(false);
+    }
   };
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    let animationFrameId;
-    const points = [];
-    const maxDistance = 150;
-  
-    const createPoints = () => {
-      const width = canvas.width;
-      const height = canvas.height;
-      for (let i = 0; i < 100; i++) {
-        points.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          dx: (Math.random() - 0.5) * 2,
-          dy: (Math.random() - 0.5) * 2,
-          radius: Math.random() * 2 + 1,
-        });
-      }
-    };
-  
-    const drawLines = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-  
-      // Draw Points
-      points.forEach((point) => {
-        ctx.beginPath();
-        ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgb(117, 252, 251)"; // Neon blue-purple effect
-        ctx.fill();
-      });
-  
-      // Connect Points
-      for (let i = 0; i < points.length; i++) {
-        for (let j = i + 1; j < points.length; j++) {
-          const dx = points[i].x - points[j].x;
-          const dy = points[i].y - points[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-  
-          if (distance < maxDistance) {
-            const opacity = 1 - distance / maxDistance;
-            ctx.beginPath();
-            ctx.moveTo(points[i].x, points[i].y);
-            ctx.lineTo(points[j].x, points[j].y);
-            ctx.strokeStyle = `rgba(173, 216, 230, ${opacity})`; // Neon line
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-    };
-  
-    const updatePoints = () => {
-      points.forEach((point) => {
-        point.x += point.dx;
-        point.y += point.dy;
-  
-        // Bounce off edges
-        if (point.x <= 0 || point.x >= canvas.width) point.dx *= -1;
-        if (point.y <= 0 || point.y >= canvas.height) point.dy *= -1;
-      });
-    };
-  
-    const animate = () => {
-      updatePoints();
-      drawLines();
-      animationFrameId = requestAnimationFrame(animate);
-    };
-  
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-  
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-    createPoints();
-    animate();
-  
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
+    <>
+    <AnimatedBackground />    
     <div
       id="app"
       style={{
@@ -141,20 +84,6 @@ function App() {
       }}
       onScroll={handleScroll}
     >
-      {/* Canvas for Tessellation */}
-      <canvas
-        ref={canvasRef}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 0,
-          width: "100%",
-          height: "100%",
-          pointerEvents: "none",
-        }}
-      ></canvas>
-
       {/* HERO SECTION */}
       <div
         style={{
@@ -296,6 +225,7 @@ function App() {
       {/* PAGE INDICATOR */}
       <PageIndicator currentPage={currentPage} totalPages={5} />
     </div>
+    </>
   );
 }
 
