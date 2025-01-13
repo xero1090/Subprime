@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./PageIndicator.module.css";
 
 type PageIndicatorProps = {
   currentPage: number; // Current page index
@@ -8,28 +9,27 @@ type PageIndicatorProps = {
 const PageIndicator: React.FC<PageIndicatorProps> = ({ currentPage, totalPages }) => {
   return (
     <div
-      style={{
-        position: "absolute",
-        bottom: "1%",
-        right: "2%",
-        zIndex: 100,
-        color: "white",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
+      className={styles.page_indicator__container}
     >
       {Array.from({ length: totalPages }).map((_, index) => (
         <div
           key={index}
-          className="indicator"
+          className={styles.page_indicator}
           style={{
             width: currentPage === index ? "10px" : "5px",
             height: currentPage === index ? "10px" : "5px",
-            borderRadius: "50%",
             backgroundColor: currentPage === index ? "white" : "grey",
-            margin: "5px 0",
           }}
+          onClick={() => {
+            console.log("Scrolling to page", index);
+            const scrollView = document.getElementById('app');
+            if (scrollView) {
+              scrollView.scrollTo({
+                top: window.innerHeight * index,
+                behavior: 'smooth',
+              });
+            }
+            }}
         ></div>
       ))}
     </div>

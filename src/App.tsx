@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import "./App.css";
-import PageIndicator from "./components/PageIndicator";
+import PageIndicator from "./components/PageIndicator/PageIndicator";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -32,7 +32,7 @@ function App() {
   });
 
   // Scroll handler to update current page
-  const handleScroll = (e) => {
+  const handleScroll = (e: any) => {
     const scrollTop = e.target.scrollTop;
     const newPage = Math.round(scrollTop / window.innerHeight);
     setCurrentPage(newPage);
@@ -101,6 +101,7 @@ function App() {
 
   return (
     <div
+      id="app"
       style={{
         height: "100vh",
         overflowY: "scroll",
@@ -121,7 +122,7 @@ function App() {
       >
         <div>
           <h1 style={{ fontSize: "4rem", color: "white", textAlign: "center" }}>
-            SUBPRIMED
+            SUBPRIME
           </h1>
           <p
             style={{
