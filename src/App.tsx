@@ -5,6 +5,7 @@ import PageIndicator from "./components/PageIndicator/PageIndicator";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
+import CustomCursor from "./components/CustomCursor/CustomCursor";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -88,67 +89,54 @@ function App() {
 
   return (
     <>
-      <AnimatedBackground />
-      <main
-        id="app"
+    <CustomCursor />
+    <AnimatedBackground />    
+    <div
+      id="app"
+      style={{
+        height: "100vh",
+        overflowY: "scroll",
+        scrollSnapType: "y mandatory",
+      }}
+      onScroll={handleScroll}
+    >
+      {/* HERO SECTION */}
+      <div
         style={{
           height: "100vh",
-          overflowY: "scroll",
-          scrollSnapType: "y mandatory",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          background: "linear-gradient(to bottom, #000000, #1a1a1a)",
+          scrollSnapAlign: "start",
+          position: "relative",
+          zIndex: 1,
         }}
-        onScroll={handleScroll}
       >
-        {/* HERO SECTION */}
-        <div
+        <div>
+        <h1
+          ref={headingRef}
           style={{
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#1a1a1a",
-            scrollSnapAlign: "start",
-            position: "relative",
-            zIndex: 1,
+            fontSize: "4rem",
+            color: "white",
+            textAlign: "center",
+            fontFamily: "sans-serif",
           }}
-          ref = {heroRef}
         >
-          <animated.div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              background: "radial-gradient(circle, rgba(75,75,75,1) 0%, rgba(26,26,26,0) 70%)",
-              width: "100%",
-              height: "100%",
-              zIndex: -1,
-              ...heroStyle,
-            }}
-          />
-          <div>
-            <h1
-              ref={headingRef}
-              style={{
-                fontSize: "4rem",
-                color: "white",
-                textAlign: "center",
-                fontFamily: "sans-serif",
-                zIndex: 2,
-              }}
-            >
-              SUBPRIME
-            </h1>
-            <p
-              style={{
-                fontSize: "1.5rem",
-                color: "lightgray",
-                textAlign: "center",
-                marginTop: "1rem",
-              }}
-            >
-              Experience a seamless journey.
-            </p>
-          </div>
-        </div>
+          SUBPRIME
+        </h1>
+        <p
+          style={{
+            fontSize: "1.5rem",
+            color: "lightgray",
+            textAlign: "center",
+            marginTop: "1rem",
+          }}
+        >
+          Experience a seamless journey.
+        </p>
+      </div>
+    </div>
 
         {/* DISCOVER SECTION */}
         <div
