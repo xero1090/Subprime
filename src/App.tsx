@@ -5,6 +5,7 @@ import PageIndicator from "./components/PageIndicator/PageIndicator";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
+import CustomCursor from "./components/CustomCursor/CustomCursor";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -74,6 +75,7 @@ function App() {
 
   return (
     <>
+    <CustomCursor />
     <AnimatedBackground />    
     <div
       id="app"
