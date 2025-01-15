@@ -91,7 +91,7 @@ function App() {
     <>
     <CustomCursor />
     <AnimatedBackground />    
-    <div
+    <main
       id="app"
       style={{
         height: "100vh",

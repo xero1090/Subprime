@@ -16,8 +16,8 @@ const PageIndicator: React.FC<PageIndicatorProps> = ({ currentPage, totalPages }
           key={index}
           className={styles.page_indicator}
           style={{
-            width: currentPage === index ? "10px" : "5px",
-            height: currentPage === index ? "10px" : "5px",
+            width: currentPage === index ? "14px" : "9px",
+            height: currentPage === index ? "14px" : "9px",
             backgroundColor: currentPage === index ? "white" : "grey",
           }}
           onClick={() => {
