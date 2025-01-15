@@ -51,12 +51,31 @@ function App() {
     config: { duration: 500 },
   });
 
+  // Animation for Hero Text Scrambling
+  useEffect(() => {
+    gsap.fromTo(
+      headingRef.current,
+      {
+        text: "________", // Starting placeholder
+        scrambleText: { characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%", speed: 0.5 },
+      },
+      {
+        text: "SUBPRIME", // Final text
+        scrambleText: { characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%" },
+        duration: 2,
+        repeat: -1,
+        repeatDelay: 1.7,
+        ease: "none",
+      }
+    );
+  }, []);
+
+  // Trigger Hero section animation
   useEffect(() => {
     setTimeout(() => {
       setShowHero(true);
-    }
-    , 300);
-  });
+    }, 300);
+  }, []);
 
   // Scroll handler to update current page
   const handleScroll = (e: any) => {
