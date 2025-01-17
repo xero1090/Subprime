@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
-
+import SmokeEffect from "./components/SmokeEffect/SmokeEffect";
 gsap.registerPlugin(TextPlugin);
 
 function App() {
@@ -132,6 +132,7 @@ function App() {
           zIndex: 1,
         }}
       >
+        <SmokeEffect />
         <div>
         <h1
           ref={headingRef}
