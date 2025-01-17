@@ -91,9 +91,14 @@ const AnimatedBackground = () => {
     };
 
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      const padding = 10; // Adjust as needed
+      canvas.width = window.innerWidth - scrollbarWidth - padding;
+      canvas.height = window.innerHeight - padding;
+      canvas.style.width = `${canvas.width}px`;
+      canvas.style.height = `${canvas.height}px`;
     };
+    
 
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
