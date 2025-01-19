@@ -84,6 +84,8 @@ h1, h2, p {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #555, #aaa);
   border-radius: 4px;
+  transition: background 0.5s ease;
+
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -93,3 +95,24 @@ h1, h2, p {
 ::-webkit-scrollbar-track {
   background: #1a1a1a;
 }
+
+/* Define multiple scrollbar colors */
+.scrollbar-section-1::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff5733, #ffbd69);
+}
+
+.scrollbar-section-2::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #33ff57, #69ffbd);
+}
+
+.scrollbar-section-3::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #5733ff, #bd69ff);
+}
+
+.scrollbar-section-4::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff33a8, #ff69d2);
+}
+/*change background of the track scroll.
+.scrollbar-section-1::-webkit-scrollbar-track {
+  background: #002244;
+}*/

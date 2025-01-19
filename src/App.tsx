@@ -112,6 +112,7 @@ function App() {
     <AnimatedBackground />    
     <main
       id="app"
+      className={`scrollbar-section-${currentPage}`}
       style={{
         height: "100vh",
         overflowY: "scroll",
