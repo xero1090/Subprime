@@ -3,41 +3,69 @@ import "./CustomCursor.css";
 
 const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const trailRef = useRef<HTMLDivElement>(null);
+  //const trailRef = useRef<HTMLDivElement>(null);
   const trailElements: HTMLDivElement[] = [];
+  let lastX = 0;
+  let lastY = 0;
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
       const { clientX, clientY } = e;
+
+      // Set custom cursor position
       if (cursorRef.current) {
-        const cursorSize = 20; // Width and height of the custom cursor
-        const offset = cursorSize / 2; // Half of the cursor size to center it
-        cursorRef.current.style.transform = `translate3d(${clientX - offset}px, ${clientY - offset}px, 0)`;
+        cursorRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
       }
-      createTrail(clientX, clientY);
+
+      // Calculate movement direction
+      const deltaX = clientX - lastX;
+      const deltaY = clientY - lastY;
+      const speed = Math.sqrt(deltaX ** 2 + deltaY ** 2);
+
+      if (speed > 5) {
+        createSparks(clientX, clientY, deltaX, deltaY);
+      }
+
+      lastX = clientX;
+      lastY = clientY;
     };
 
-   /* const disableRightClickCursor = (e: MouseEvent) => {
-      e.preventDefault(); // Prevent default right-click menu
-    };
-  */
+    const createSparks = (x: number, y: number, deltaX: number, deltaY: number) => {
+      const sparkCount = 8; // Number of sparks
+      for (let i = 0; i < sparkCount; i++) {
+        const spark = document.createElement("div");
+        spark.classList.add("cursor-spark");
 
-    const createTrail = (x: number, y: number) => {
-      if (trailRef.current) {
-        const trailElement = document.createElement("div");
-        trailElement.classList.add("cursor-trail");
-        trailElement.style.left = `${x}px`;
-        trailElement.style.top = `${y}px`;
-        document.body.appendChild(trailElement);
-        trailElements.push(trailElement);
+        // Randomize the angle with some bias in movement direction
+        const angleOffset = (Math.random() - 0.5) * Math.PI / 2; // ±45 degrees
+        const angle = Math.atan2(deltaY, deltaX) + angleOffset;
+        const speed = Math.random() * 6 + 4; // Speed range
 
+        // Calculate velocity based on angle
+        const velocityX = Math.cos(angle) * speed;
+        const velocityY = Math.sin(angle) * speed;
+
+        spark.style.left = `${x}px`;
+        spark.style.top = `${y}px`;
+
+        document.body.appendChild(spark);
+
+        // Animate the spark
+        spark.animate(
+          [
+            { transform: `translate(0, 0)`, opacity: 1 },
+            { transform: `translate(${velocityX * 10}px, ${velocityY * 10}px)`, opacity: 0 }
+          ],
+          {
+            duration: 600 + Math.random() * 300, // Random duration
+            easing: "ease-out",
+          }
+        );
+
+        // Remove spark after animation completes
         setTimeout(() => {
-          trailElement.style.opacity = "0";
-          setTimeout(() => {
-            document.body.removeChild(trailElement);
-            trailElements.shift();
-          }, 300);
-        }, 50);
+          spark.remove();
+        }, 1000);
       }
     };
 
@@ -87,12 +115,8 @@ const CustomCursor = () => {
     };
   }, []);
 
-  return (
-    <>
-      <div ref={cursorRef} className="custom-cursor"></div>
-      <div ref={trailRef}></div>
-    </>
-  );
+  return <div ref={cursorRef} className="custom-cursor"></div>;
+
 };
 
 export default CustomCursor;

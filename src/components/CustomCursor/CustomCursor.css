@@ -9,19 +9,40 @@
     z-index: 9999;
   }
 
-  .cursor-trail {
-    width: 15px;
-    height: 15px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    z-index: 9998;
-    filter: blur(8px);
-    transform: scale(1);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+ /* Sparks shooting out effect */
+.cursor-spark {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(45deg, rgb(240,255,255), rgb(255,255,255));
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  animation: spark-move 0.8s linear forwards, spark-fade 0.8s ease-out forwards;
+}
+
+/* Movement animation (straight line) */
+@keyframes spark-move {
+  0% {
+    transform: translate(0, 0);
   }
+  100% {
+    transform: translate(var(--velocity-x), var(--velocity-y));
+  }
+}
+
+/* Gradual fading effect */
+@keyframes spark-fade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+  
 
 
   .custom-cursor.cursor-hover {
