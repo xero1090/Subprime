@@ -12,23 +12,17 @@ gsap.registerPlugin(TextPlugin);
 function App() {
   // State
   const [currentPage, setCurrentPage] = useState(0);
-  const [showHero, setShowHero] = useState(false);
   const [showDiscover, setShowDiscover] = useState(false);
   const [showCreate, setShowCreate] = useState(false);
   const [showInnovate, setShowInnovate] = useState(false);
+  const [showFooter, setShowFooter] = useState(false);
 
   // Refs
-  const heroRef = useRef(null);
   const discoverRef = useRef(null);
   const createRef = useRef(null); // Reference for the Create section
   const innovateRef = useRef(null);
   const headingRef = useRef(null);
-
-    // Animation for Discover section
-    const heroStyle = useSpring({
-      opacity: showHero ? 1 : 0,
-      config: { duration: 1300 },
-    });
+  const footerRef = useRef(null);
     
   // Animation for Discover section
   const discoverBeamStyle = useSpring({
@@ -51,12 +45,19 @@ function App() {
     config: { duration: 500 },
   });
 
+  // Animation for Footer section
+  const FooterBeamStyle = useSpring({
+    opacity: showFooter ? 1 : 0,
+    transform: showFooter ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
+    config: { duration: 500 },
+  });
+
   // Animation for Hero Text Scrambling
   useEffect(() => {
     gsap.fromTo(
       headingRef.current,
       {
-        text: "________", // Starting placeholder
+        text: "$$$$$$$$", // Starting placeholder
         scrambleText: { characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%", speed: 0.5 },
       },
       {
@@ -70,12 +71,7 @@ function App() {
     );
   }, []);
 
-  // Trigger Hero section animation
-  useEffect(() => {
-    setTimeout(() => {
-      setShowHero(true);
-    }, 300);
-  }, []);
+ 
 
   // Scroll handler to update current page
   const handleScroll = (e: any) => {
@@ -103,6 +99,13 @@ function App() {
       setShowInnovate(true);
     } else {
       setShowInnovate(false);
+    }
+
+    // Show Footer section
+    if (scrollTop >= window.innerHeight * 4) {
+      setShowFooter(true);
+    } else {
+      setShowFooter(false);
     }
   };
 
@@ -233,36 +236,38 @@ function App() {
 
         {/* FOOTER SECTION */}
         <div
+          ref={footerRef}
           style={{
             height: "100vh",
-            display: "flex",
+            display: "flex",    
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#666666",
             scrollSnapAlign: "start",
           }}
         >
-          <div>
-            <h1
-              style={{
-                fontSize: "2.5rem",
-                color: "white",
-                textAlign: "center",
-              }}
-            >
-              Thank You for Visiting!
-            </h1>
-            <p
-              style={{
-                fontSize: "1.2rem",
-                color: "lightgray",
-                marginTop: "1rem",
-                textAlign: "center",
-              }}
-            >
-              Scroll with purpose, create with passion.
-            </p>
-          </div>
+          <animated.h2
+            style={{
+              fontSize: "3rem",
+              color: "white",
+              zIndex: 2,
+              ...FooterBeamStyle, // Apply the animation style for Create
+            }}
+          >
+            Thank You for Visiting!
+          </animated.h2>
+          <animated.p
+            style={{
+              fontSize: "1.2rem",
+              color: "lightgray",
+              marginTop: "1rem",
+              textAlign: "center",
+              ...FooterBeamStyle, // Apply animation style to paragraph if needed
+            }}
+          >
+            Scroll with purpose, create with passion.
+          </animated.p>
         </div>
 
         {/* PAGE INDICATOR */}
