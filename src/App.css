@@ -97,6 +97,10 @@ h1, h2, p {
 }
 
 /* Define multiple scrollbar colors */
+.scrollbar-section-0::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3c94f1, #75fcfb);
+}
+
 .scrollbar-section-1::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #ff5733, #ffbd69);
 }
