@@ -7,6 +7,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import SmokeEffect from "./components/SmokeEffect/SmokeEffect";
+import logo from "./assets/Black Logo Trans.png"
 gsap.registerPlugin(TextPlugin);
 
 function App() {
@@ -138,27 +139,7 @@ function App() {
       >
         <SmokeEffect />
         <div>
-        <h1
-          ref={headingRef}
-          style={{
-            fontSize: "4rem",
-            color: "white",
-            textAlign: "center",
-            fontFamily: "sans-serif",
-          }}
-        >
-          SUBPRIME
-        </h1>
-        <p
-          style={{
-            fontSize: "1.5rem",
-            color: "lightgray",
-            textAlign: "center",
-            marginTop: "1rem",
-          }}
-        >
-          Experience a seamless journey.
-        </p>
+        <img src={logo} alt="Subprime Logo"/>
       </div>
     </div>
 

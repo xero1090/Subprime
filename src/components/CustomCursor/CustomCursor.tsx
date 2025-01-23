@@ -14,7 +14,8 @@ const CustomCursor = () => {
 
       // Set custom cursor position
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
+        cursorRef.current.style.left = `${clientX}px`;
+        cursorRef.current.style.top = `${clientY}px`;
       }
 
       // Calculate movement direction

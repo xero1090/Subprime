@@ -5,6 +5,7 @@
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
+    transform: translate(-50%, -50%); /* Centers both horizontally and vertically */
     transition: transform 0s ease, width 0.1s ease, height 0.1s ease;
     z-index: 9999;
   }

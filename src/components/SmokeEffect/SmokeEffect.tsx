@@ -13,12 +13,14 @@ const SmokeEffect = () => {
       canvas.height = window.innerHeight;
     };
 
+    // Create a particle with random properties
     const createParticle = () => ({
       x: Math.random() * canvas.width,
       y: canvas.height + Math.random() * 50,
       size: Math.random() * 20 + 10,
       opacity: Math.random(),
       velocityY: Math.random() * -1.5 - 0.5,
+      color: Math.random() < 0.15 ? `rgba(173, 216, 230,` : `rgba(255, 255, 255,`, // 15% are light blue
     });
 
     const initParticles = () => {
@@ -32,15 +34,15 @@ const SmokeEffect = () => {
       particles.forEach((p, i) => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+        ctx.fillStyle = `${p.color} ${p.opacity})`; // Include opacity dynamically
         ctx.fill();
         p.y += p.velocityY;
-        if (p.y < -50) particles[i] = createParticle();
+        if (p.y < -50) particles[i] = createParticle(); // Recreate particle if it moves out of bounds
       });
       requestAnimationFrame(renderParticles);
     };
 
-    // Resize and initialize
+    // Resize canvas and initialize particles
     resizeCanvas();
     initParticles();
     renderParticles();
