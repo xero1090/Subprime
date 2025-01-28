@@ -70,13 +70,13 @@ const CustomCursor = () => {
       }
     };
 
-    const handleHover = (e: Event) => {
+    const handleHover = () => {
       if (cursorRef.current) {
         cursorRef.current.classList.add("cursor-hover");
       }
     };
 
-    const handleHoverOut = (e: Event) => {
+    const handleHoverOut = () => {
       if (cursorRef.current) {
         cursorRef.current.classList.remove("cursor-hover");
       }

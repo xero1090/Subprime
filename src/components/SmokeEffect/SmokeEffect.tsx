@@ -1,12 +1,23 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
+
+interface Particle {
+  x: number;
+  y: number;
+  size: number;
+  opacity: number;
+  velocityY: number;
+  color: string;
+}
 
 const SmokeEffect = () => {
-  const smokeRef = useRef(null);
+  const smokeRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const canvas = smokeRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
-    const particles = [];
+    if (!ctx) return;
+    const particles: Particle[] = [];
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
