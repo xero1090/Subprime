@@ -7,7 +7,11 @@ import { TextPlugin } from "gsap/TextPlugin";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import SmokeEffect from "./components/SmokeEffect/SmokeEffect";
-import logo from "./assets/Black Logo Trans.png"
+import logo from "./assets/Black Logo Trans.png";
+import BLogo from "./assets/Blitz Revised Logo.png";
+import ULogo from "./assets/2You.png";
+import Contact from "./assets/contact.png";
+
 gsap.registerPlugin(TextPlugin);
 
 function App() {
@@ -22,7 +26,6 @@ function App() {
   const discoverRef = useRef(null);
   const createRef = useRef(null); // Reference for the Create section
   const innovateRef = useRef(null);
-  const headingRef = useRef(null);
   const footerRef = useRef(null);
     
   // Animation for Discover section
@@ -52,27 +55,6 @@ function App() {
     transform: showFooter ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
     config: { duration: 500 },
   });
-
-  // Animation for Hero Text Scrambling
-  useEffect(() => {
-    gsap.fromTo(
-      headingRef.current,
-      {
-        text: "$$$$$$$$", // Starting placeholder
-        scrambleText: { characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%", speed: 0.5 },
-      },
-      {
-        text: "SUBPRIME", // Final text
-        scrambleText: { characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%" },
-        duration: 2,
-        repeat: -1,
-        repeatDelay: 1.7,
-        ease: "none",
-      }
-    );
-  }, []);
-
- 
 
   // Scroll handler to update current page
   const handleScroll = (e: any) => {
@@ -149,6 +131,7 @@ function App() {
           style={{
             height: "100vh",
             display: "flex",
+            flexDirection: "column", // Stack elements vertically
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#1a1a1a",
@@ -160,11 +143,43 @@ function App() {
               fontSize: "3rem",
               color: "white",
               zIndex: 2,
-              ...discoverBeamStyle, // Apply the animation style for Discover
+              textAlign: "center", // Ensure text is centered
+              marginBottom: "1rem", // Add space between text and logos
+              ...discoverBeamStyle, // Apply animation style
             }}
           >
-            Discover.
+            Our Stack
           </animated.h2>
+          
+          <div
+            style={{
+              display: "flex",
+              gap: "2rem", // Space between logos
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <a href="https://broker.myblitz.ca/" target="_blank">
+              <img src={BLogo} alt="Blitz Logo" />
+            </a>
+            <a href="">
+              <img src={ULogo} alt="2You Logo"/>
+            </a>
+            <a
+              href="https://lendwire.com/"
+              target="_blank" // Opens in a new tab
+              rel="noopener noreferrer" // Security best practices
+              style={{
+                fontSize: "3rem", // Match "Our Stack"
+                color: "white",
+                textAlign: "center",
+                textDecoration: "none", // Remove underline
+                fontWeight: "bold", // Optional: make it stand out
+              }}
+            >
+              Lendwire P2P
+            </a>
+          </div>
         </div>
 
         {/* CREATE SECTION */}
@@ -174,6 +189,7 @@ function App() {
             height: "100vh",
             display: "flex",
             justifyContent: "center",
+            flexDirection: "column",
             alignItems: "center",
             backgroundColor: "#333333",
             scrollSnapAlign: "start",
@@ -187,8 +203,102 @@ function App() {
               ...createBeamStyle, // Apply the animation style for Create
             }}
           >
-            Create.
+            Our Team
           </animated.h2>
+          <div
+            style={{
+              display: "flex",
+              gap: "2rem",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "2rem",
+            }}
+          >
+            <a 
+            href="https://www.linkedin.com/in/smarcmelo/"
+            target="_blank" 
+            style={{
+              fontSize: "2rem",
+              color: "white",
+              textAlign: "center",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}
+            >
+              Shawn-Marc Melo (Founder / CEO)
+            </a>
+            <a 
+            href="https://www.linkedin.com/in/ofir-d/"
+            target="_blank" 
+            style={{
+              fontSize: "2rem",
+              color: "white",
+              textAlign: "center",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}
+            >
+              Ofir David (Full-Stack Developer)
+            </a>
+            <a 
+            href="https://ca.linkedin.com/in/gursahib-preet-singh-66a11a168" 
+            target="_blank" 
+            style={{
+              fontSize: "2rem",
+              color: "white",
+              textAlign: "center",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}>
+              Sahib Singh (Full-Stack Developer)
+            </a>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              gap: "2rem",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "2rem",
+            }}
+          >
+            <a 
+            href="https://ca.linkedin.com/in/kevintran1090" 
+            target="_blank" 
+            style={{
+              fontSize: "2rem",
+              color: "white",
+              textAlign: "center",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}>
+              Kevin Tran (UI/UX Developer)
+            </a>
+            <a 
+            href="https://www.linkedin.com/in/joeychancpa/" 
+            target="_blank" 
+            style={{
+              fontSize: "2rem",
+              color: "white",
+              textAlign: "center",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}>
+              Joey Chan (UI/UX Developer)
+            </a>
+            <a 
+            href="https://www.linkedin.com/in/architmisra/" 
+            target="_blank" 
+            style={{
+              fontSize: "2rem",
+              color: "white",
+              textAlign: "center",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}>
+              Archit Misra (PR & Media Relations)
+            </a>
+          </div>
         </div>
 
         {/* INNOVATE SECTION */}
@@ -197,6 +307,7 @@ function App() {
           style={{
             height: "100vh",
             display: "flex",
+            flexDirection: "column", // Stack elements vertically
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#4d4d4d",
@@ -208,11 +319,57 @@ function App() {
               fontSize: "3rem",
               color: "white",
               zIndex: 2,
-              ...innovateBeamStyle, // Apply the animation style for Create
+              marginBottom: "1.5rem", // Space between title and input
+              ...innovateBeamStyle, // Apply animation
             }}
           >
-            Innovate.
+            Subscribe for Updates
           </animated.h2>
+
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              //handleSubscribe();
+            }}
+            style={{
+              display: "flex",
+              gap: "1rem",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "#333",
+              padding: "0.8rem",
+              borderRadius: "10px",
+            }}
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              required
+              style={{
+                padding: "0.8rem",
+                fontSize: "1rem",
+                border: "none",
+                borderRadius: "5px",
+                outline: "none",
+                width: "250px",
+              }}
+            />
+            <button
+              type="submit"
+              style={{
+                padding: "0.8rem 1.2rem",
+                fontSize: "1rem",
+                color: "white",
+                backgroundColor: "#007bff",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+                fontWeight: "bold",
+              }}
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
 
         {/* FOOTER SECTION */}
@@ -226,6 +383,7 @@ function App() {
             alignItems: "center",
             backgroundColor: "#666666",
             scrollSnapAlign: "start",
+            marginBottom: "2rem"
           }}
         >
           <animated.h2
@@ -236,19 +394,9 @@ function App() {
               ...FooterBeamStyle, // Apply the animation style for Create
             }}
           >
-            Thank You for Visiting!
+            Reach Out
           </animated.h2>
-          <animated.p
-            style={{
-              fontSize: "1.2rem",
-              color: "lightgray",
-              marginTop: "1rem",
-              textAlign: "center",
-              ...FooterBeamStyle, // Apply animation style to paragraph if needed
-            }}
-          >
-            Scroll with purpose, create with passion.
-          </animated.p>
+          <img src={Contact} alt="Contact" />
         </div>
 
         {/* PAGE INDICATOR */}
