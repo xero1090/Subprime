@@ -10,7 +10,7 @@ import SmokeEffect from "./components/SmokeEffect/SmokeEffect";
 import logo from "./assets/Black Logo Trans.png";
 import BLogo from "./assets/Blitz Revised Logo.png";
 import ULogo from "./assets/2You.png";
-import Contact from "./assets/contact.png";
+import Contact from "./assets/Contact.png";
 
 gsap.registerPlugin(TextPlugin);
 
