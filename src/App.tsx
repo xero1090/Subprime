@@ -8,9 +8,11 @@ import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackgrou
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import SmokeEffect from "./components/SmokeEffect/SmokeEffect";
 import logo from "./assets/Black Logo Trans.png";
-import BLogo from "./assets/Blitz Revised Logo.png";
-import ULogo from "./assets/2You.png";
-import Contact from "./assets/Contact.png";
+import BLogo from "./assets/Blitz Revised Logo-new.png";
+import ULogo from "./assets/2You-new2.png";
+import lendwire from "./assets/P2P-new.png"
+import { FaLinkedin } from "react-icons/fa";
+import ReCAPTCHA from "react-google-recaptcha";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -55,6 +57,47 @@ function App() {
     transform: showFooter ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
     config: { duration: 500 },
   });
+  
+  const teamMembers = [
+    { name: "Shawn-Marc Melo (Founder / CEO)", url: "https://www.linkedin.com/in/smarcmelo/" },
+    { name: "Ofir David (Full-Stack Developer)", url: "https://www.linkedin.com/in/ofir-d/" },
+    { name: "Sahib Singh (Full-Stack Developer)", url: "https://ca.linkedin.com/in/gursahib-preet-singh-66a11a168" },
+    { name: "Kevin Tran (UI/UX Developer)", url: "https://ca.linkedin.com/in/kevintran1090" },
+    { name: "Joey Chan (UI/UX Developer)", url: "https://www.linkedin.com/in/joeychancpa/" },
+    { name: "Archit Misra (PR & Media Relations)", url: "https://www.linkedin.com/in/architmisra/" },
+  ];
+
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!recaptchaToken) {
+      alert("Please complete the reCAPTCHA verification.");
+      return;
+    }
+
+    // Submit form logic here (e.g., send data to a backend)
+    console.log("Form submitted:", formData);
+
+    // Reset reCAPTCHA after submission
+    recaptchaRef.current?.reset();
+    setRecaptchaToken(null);
+  };
 
   // Scroll handler to update current page
   const handleScroll = (e: any) => {
@@ -166,18 +209,9 @@ function App() {
               <img src={ULogo} alt="2You Logo"/>
             </a>
             <a
-              href="https://lendwire.com/"
-              target="_blank" // Opens in a new tab
-              rel="noopener noreferrer" // Security best practices
-              style={{
-                fontSize: "3rem", // Match "Our Stack"
-                color: "white",
-                textAlign: "center",
-                textDecoration: "none", // Remove underline
-                fontWeight: "bold", // Optional: make it stand out
-              }}
+              href="https://lendwire.com/" target="_blank" // Opens in a new tab
             >
-              Lendwire P2P
+              <img src={lendwire} alt="Lendwire Logo"/>
             </a>
           </div>
         </div>
@@ -205,99 +239,56 @@ function App() {
           >
             Our Team
           </animated.h2>
+
           <div
             style={{
-              display: "flex",
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)", // 3 columns per row
               gap: "2rem",
-              alignItems: "center",
               justifyContent: "center",
+              alignItems: "center",
               marginTop: "2rem",
             }}
           >
-            <a 
-            href="https://www.linkedin.com/in/smarcmelo/"
-            target="_blank" 
-            style={{
-              fontSize: "2rem",
-              color: "white",
-              textAlign: "center",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}
-            >
-              Shawn-Marc Melo (Founder / CEO)
-            </a>
-            <a 
-            href="https://www.linkedin.com/in/ofir-d/"
-            target="_blank" 
-            style={{
-              fontSize: "2rem",
-              color: "white",
-              textAlign: "center",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}
-            >
-              Ofir David (Full-Stack Developer)
-            </a>
-            <a 
-            href="https://ca.linkedin.com/in/gursahib-preet-singh-66a11a168" 
-            target="_blank" 
-            style={{
-              fontSize: "2rem",
-              color: "white",
-              textAlign: "center",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}>
-              Sahib Singh (Full-Stack Developer)
-            </a>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              gap: "2rem",
-              alignItems: "center",
-              justifyContent: "center",
-              marginTop: "2rem",
-            }}
-          >
-            <a 
-            href="https://ca.linkedin.com/in/kevintran1090" 
-            target="_blank" 
-            style={{
-              fontSize: "2rem",
-              color: "white",
-              textAlign: "center",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}>
-              Kevin Tran (UI/UX Developer)
-            </a>
-            <a 
-            href="https://www.linkedin.com/in/joeychancpa/" 
-            target="_blank" 
-            style={{
-              fontSize: "2rem",
-              color: "white",
-              textAlign: "center",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}>
-              Joey Chan (UI/UX Developer)
-            </a>
-            <a 
-            href="https://www.linkedin.com/in/architmisra/" 
-            target="_blank" 
-            style={{
-              fontSize: "2rem",
-              color: "white",
-              textAlign: "center",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}>
-              Archit Misra (PR & Media Relations)
-            </a>
+            {teamMembers.map((person) => (
+              <div key={person.name} style={{ textAlign: "center" }}>
+                <a
+                  href={person.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: "2rem",
+                    color: "white",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    display: "block",
+                  }}
+                >
+                  {person.name}
+                </a>
+                <a
+                  href={person.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    fontSize: "1.5rem",
+                    color: "#0A66C2",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    marginTop: "0.5rem",
+                    padding: "0.5rem 1rem",
+                    backgroundColor: "white",
+                    borderRadius: "5px",
+                  }}
+                >
+                  <FaLinkedin />
+                  LinkedIn
+                </a>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -374,30 +365,94 @@ function App() {
 
         {/* FOOTER SECTION */}
         <div
-          ref={footerRef}
+        ref={footerRef}
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#666666",
+          scrollSnapAlign: "start",
+          marginBottom: "2rem"
+        }}
+      >
+        <animated.h2
           style={{
-            height: "100vh",
-            display: "flex",    
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#666666",
-            scrollSnapAlign: "start",
-            marginBottom: "2rem"
+            fontSize: "3rem",
+            color: "white",
+            zIndex: 2,
+            ...FooterBeamStyle, // Keep animation for "Reach Out"
           }}
         >
-          <animated.h2
+          Reach Out
+        </animated.h2>
+        <animated.form
+          style={{
+            display: "flex",
+            marginTop: "2rem",
+            flexDirection: "column",
+            alignItems: "center",
+            backgroundColor: "#444",
+            padding: "20px",
+            borderRadius: "10px",
+            maxWidth: "400px",
+            width: "100%",
+            color: "white",
+            gap: "10px"
+          }}
+          onSubmit={handleSubmit}
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+            style={{ padding: "10px", borderRadius: "5px", width: "100%" }}
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+            style={{ padding: "10px", borderRadius: "5px", width: "100%", marginTop: "1rem" }}
+          />
+
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleInputChange}
+            required
+            style={{ padding: "10px", borderRadius: "5px", width: "100%", marginTop: "1rem"  }}
+          />
+
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey="YOUR_RECAPTCHA_SITE_KEY"
+            onChange={handleRecaptchaChange}
+          />
+
+          <button
+            type="submit"
             style={{
-              fontSize: "3rem",
+              padding: "10px",
+              borderRadius: "5px",
+              backgroundColor: "#0A66C2",
               color: "white",
-              zIndex: 2,
-              ...FooterBeamStyle, // Apply the animation style for Create
+              cursor: "pointer",
+              width: "100%"
             }}
           >
-            Reach Out
-          </animated.h2>
-          <img src={Contact} alt="Contact" />
-        </div>
+            Submit
+          </button>
+        </animated.form>
+      </div>
 
         {/* PAGE INDICATOR */}
         <PageIndicator currentPage={currentPage} totalPages={5} />
