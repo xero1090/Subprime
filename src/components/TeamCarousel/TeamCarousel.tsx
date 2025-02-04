@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -32,19 +32,25 @@ const teamMembers = [
   {
     name: "Kevin Tran",
     role: "UI/UX Developer",
-    bio: "A passionate UI/UX Developer with a background in Mobile Computing at Sheridan College, He specializes in crafting unique, visually captivating websites that blend functionality with artistic flair. His approach is rooted in a deep appreciation for user-centered experiences.",
+    bio: "A passionate UI/UX Developer with a background in Computer Science at Sheridan College, He specializes in crafting unique, visually captivating websites that blend functionality with artistic flair. His approach is rooted in a deep appreciation for user-centered experiences.",
     url: "https://ca.linkedin.com/in/kevintran1090",
+  },
+  {
+    name: "Archit Misra",
+    role: "Senior Marketing Manager",
+    bio: "A results-driven marketing professional with an MBA in Marketing, specializing in digital strategy, brand management, and social media growth. Passionate about leveraging data-driven insights to optimize campaigns and enhance customer engagement. Combines creativity and analytics to drive impactful marketing solutions, business growth, and brand success.",
+    url: "https://www.linkedin.com/in/architmisra/",
   },
 ];
 
 const settings = {
   dots: true,
   infinite: true,
-  speed: 500,
-  slidesToShow: 3, // Show 3 cards at a time
+  speed: 250,
+  slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 6000,
   responsive: [
     { breakpoint: 1024, settings: { slidesToShow: 2 } },
     { breakpoint: 768, settings: { slidesToShow: 1 } },
@@ -59,53 +65,75 @@ const TeamCarousel = () => {
   };
 
   return (
-    <div style={{ width: "80%", margin: "auto", padding: "3rem 0" }}>
-      <h2 style={{ textAlign: "center", fontSize: "2.5rem", color: "white", marginBottom: "2rem" }}>
-        Our Team
-      </h2>
+    <div style={{ width: "85%", margin: "auto", padding: "3rem 0" }}>
       <Slider {...settings}>
         {teamMembers.map((member, index) => (
           <div key={member.name} style={{ padding: "1rem" }}>
             <div
               onClick={() => toggleExpand(index)}
               style={{
-                backgroundColor: expandedIndex === index ? "#222" : "#333",
+                backgroundColor: expandedIndex === index ? "#4A5568" : "#2D3748",
                 color: "white",
-                padding: "1.5rem",
-                borderRadius: "10px",
-                boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
+                padding: "2rem",
+                borderRadius: "15px",
+                boxShadow: "0px 6px 15px rgba(0,0,0,0.3)",
                 cursor: "pointer",
                 textAlign: "center",
                 transition: "all 0.3s ease",
-                minHeight: expandedIndex === index ? "250px" : "150px",
-                overflow: "hidden",
+                minHeight: expandedIndex === index ? "300px" : "200px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                gap: "1rem",
               }}
             >
-              <h3 style={{ marginBottom: "0.5rem" }}>{member.name}</h3>
-              <p style={{ fontStyle: "italic", color: "#ddd", marginBottom: "1rem" }}>{member.role}</p>
-              
-              {expandedIndex === index && (
-                <p style={{ fontSize: "0.9rem", lineHeight: "1.4", color: "#bbb" }}>
-                  {member.bio}
+              <div>
+                <h3
+                  style={{
+                    marginBottom: "0.5rem",
+                    fontSize: "1.5rem",
+                    fontWeight: "bold",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  {member.name}
+                </h3>
+                <p style={{ fontStyle: "italic", color: "#CBD5E0", marginBottom: "1rem" }}>
+                  {member.role}
                 </p>
-              )}
+
+                {expandedIndex === index && (
+                  <p
+                    style={{
+                      fontSize: "1rem",
+                      lineHeight: "1.6",
+                      color: "#E2E8F0",
+                      marginTop: "1rem",
+                    }}
+                  >
+                    {member.bio}
+                  </p>
+                )}
+              </div>
 
               <a
                 href={member.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  marginTop: "1rem",
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "0.5rem",
-                  fontSize: "2rem",
+                  justifyContent: "center",
+                  fontSize: "1.5rem",
                   color: "#0A66C2",
                   textDecoration: "none",
-                  fontWeight: "bold",
-                  padding: "0.25rem ",
+                  padding: "0.3rem",
                   backgroundColor: "white",
-                  borderRadius: "5px",
+                  borderRadius: "50%",
+                  boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
+                  marginTop: "1rem",
+                  width: "40px",
+                  height: "40px",
                 }}
               >
                 <FaLinkedin />
@@ -119,3 +147,5 @@ const TeamCarousel = () => {
 };
 
 export default TeamCarousel;
+
+

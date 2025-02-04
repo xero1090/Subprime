@@ -11,9 +11,7 @@ import logo from "./assets/Black Logo Trans.png";
 import BLogo from "./assets/Blitz Revised Logo-new.png";
 import ULogo from "./assets/2You-new2.png";
 import lendwire from "./assets/P2P-new.png"
-import { FaLinkedin } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TeamCarousel from "./components/TeamCarousel/TeamCarousel"; 
@@ -62,63 +60,6 @@ function App() {
     config: { duration: 500 },
   });
   
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 250,
-    slidesToShow: 3, // Show 3 members at a time (adjust as needed)
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
-
-  const teamMembers = [
-    {
-      name: "Shawn-Marc Melo",
-      role: "Founder & CEO",
-      bio: "Shawn-Marc, Founder & CEO of Subprime Financial Technology Ltd. and Lendwire Inc., is a seasoned mortgage expert with over $250 million in personally funded deals. With 15+ years of experience in door-to-door sales, cold calling, sales management, and serving as Director of Sales at a top firm, he brings unmatched expertise, leadership, and passion to the mortgage industry.",
-      url: "https://www.linkedin.com/in/smarcmelo/",
-    },
-    {
-      name: "Gursahib Preet Singh",
-      role: "Senior Web Developer",
-      bio: "Gursahib Singh, Senior Web Developer at Subprime Financial Technology Ltd., Bright Brokers, and Blitz, is a driving force behind innovative digital solutions. With a Bachelor of Engineering from Manav Rachna and a Post-Graduate certification in Web Development from Conestoga, he thrives in fast-paced tech environments.",
-      url: "https://ca.linkedin.com/in/gursahib-preet-singh-66a11a168",
-    },
-    {
-      name: "Ofir David",
-      role: "Full-Stack Developer",
-      bio: "With a Bachelor’s in Computer Science from Sheridan College, Ofir David brings exceptional technical expertise to Subprime Financial Ltd., driving its FinTech product development. His deep curiosity about seamlessly linking client-facing products with powerful backend systems accelerates Subprime’s technological growth.",
-      url: "https://www.linkedin.com/in/ofir-d/",
-    },
-    {
-      name: "Joey Chan",
-      role: "UI/UX Developer",
-      bio: "Joey Chan is a graduate of the Computer Programming and Analysis Advanced Diploma program at Durham College. He specializes in designing and developing sleek, modern, and user-friendly interfaces for Lendwire's applications, focusing on enhancing user experiences.",
-      url: "https://www.linkedin.com/in/joeychancpa/",
-    },
-    {
-      name: "Kevin Tran",
-      role: "UI/UX Developer | Computer Science Enthusiast",
-      bio: "As a passionate UI/UX Developer with a background in Computer Science, I specialize in crafting unique, visually captivating websites that blend functionality with artistic flair. My approach is rooted in a deep appreciation for user-centered experiences.",
-      url: "https://ca.linkedin.com/in/kevintran1090",
-    },
-  ];
-
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -284,16 +225,18 @@ function App() {
       >
         <animated.h2
           style={{
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
             fontSize: "3rem",
             color: "white",
             zIndex: 2,
-            marginBottom: "2rem",
+            marginTop: "8rem",
             ...createBeamStyle, // Apply animation
           }}
         >
           Our Team
         </animated.h2>
-
         <TeamCarousel/>
       </div>
 
