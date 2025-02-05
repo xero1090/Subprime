@@ -65,7 +65,7 @@ const TeamCarousel = () => {
   };
 
   return (
-    <div style={{ width: "85%", margin: "auto", padding: "3rem 0" }}>
+    <div style={{ width: "85%", margin: "auto", padding: "0rem 0" }}>
       <Slider {...settings}>
         {teamMembers.map((member, index) => (
           <div key={member.name} style={{ padding: "1rem" }}>
