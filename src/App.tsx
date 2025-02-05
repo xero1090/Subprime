@@ -1,5 +1,5 @@
 import { useState, useRef} from "react";
-import { useSpring, animated } from "react-spring";
+//import { useSpring, animated } from "react-spring";
 import "./App.css";
 import PageIndicator from "./components/PageIndicator/PageIndicator";
 import { gsap } from "gsap";
@@ -21,10 +21,10 @@ gsap.registerPlugin(TextPlugin);
 function App() {
   // State
   const [currentPage, setCurrentPage] = useState(0);
-  const [showDiscover, setShowDiscover] = useState(false);
-  const [showCreate, setShowCreate] = useState(false);
-  const [showInnovate, setShowInnovate] = useState(false);
-  const [showFooter, setShowFooter] = useState(false);
+  //const [showDiscover, setShowDiscover] = useState(false);
+  //const [showCreate, setShowCreate] = useState(false);
+  //const [showInnovate, setShowInnovate] = useState(false);
+  //const [showFooter, setShowFooter] = useState(false);
 
   // Refs
   const discoverRef = useRef(null);
@@ -32,7 +32,7 @@ function App() {
   const innovateRef = useRef(null);
   const footerRef = useRef(null);
     
-  // Animation for Discover section
+  /* Animation for Discover section
   const discoverBeamStyle = useSpring({
     opacity: showDiscover ? 1 : 0,
     transform: showDiscover ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
@@ -59,7 +59,7 @@ function App() {
     transform: showFooter ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
     config: { duration: 500 },
   });
-  
+  */
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -98,7 +98,7 @@ function App() {
     const newPage = Math.round(scrollTop / window.innerHeight);
     setCurrentPage(newPage);
 
-    // WORKS as long as the height of the sections is 100vh, should make dynamic
+    /* WORKS as long as the height of the sections is 100vh, should make dynamic
     // Show Discover section
     if (scrollTop >= window.innerHeight) {
       setShowDiscover(true);
@@ -125,7 +125,7 @@ function App() {
       setShowFooter(true);
     } else {
       setShowFooter(false);
-    }
+    }*/
   };
 
   return (
@@ -174,18 +174,17 @@ function App() {
             scrollSnapAlign: "start",
           }}
         >
-          <animated.h2
+          <div 
             style={{
-              fontSize: "3rem",
-              color: "white",
-              zIndex: 2,
-              textAlign: "center", // Ensure text is centered
-              marginBottom: "1rem", // Add space between text and logos
-              ...discoverBeamStyle, // Apply animation style
+            fontSize: "3rem",
+            color: "white",
+            zIndex: 2,
+            textAlign: "center", // Ensure text is centered
+            marginBottom: "1rem", // Add space between text and logos
             }}
           >
             Our Stack
-          </animated.h2>
+          </div>
           
           <div
             style={{
@@ -223,7 +222,7 @@ function App() {
           padding: "2rem 0",
         }}
       >
-        <animated.h2
+        <div
           style={{
             justifyContent: "center",
             flexDirection: "column",
@@ -232,11 +231,10 @@ function App() {
             color: "white",
             zIndex: 2,
             marginTop: "8rem",
-            ...createBeamStyle, // Apply animation
           }}
         >
           Our Team
-        </animated.h2>
+        </div>
         <TeamCarousel/>
       </div>
 
@@ -253,17 +251,16 @@ function App() {
             scrollSnapAlign: "start",
           }}
         >
-          <animated.h2
+          <div
             style={{
               fontSize: "3rem",
               color: "white",
               zIndex: 2,
               marginBottom: "1.5rem", // Space between title and input
-              ...innovateBeamStyle, // Apply animation
             }}
           >
             Subscribe for Updates
-          </animated.h2>
+          </div>
 
           <form
             onSubmit={(e) => {
@@ -325,17 +322,17 @@ function App() {
           marginBottom: "2rem"
         }}
       >
-        <animated.h2
+        <div
           style={{
             fontSize: "3rem",
             color: "white",
             zIndex: 2,
-            ...FooterBeamStyle, // Keep animation for "Reach Out"
+            
           }}
         >
           Reach Out
-        </animated.h2>
-        <animated.form
+        </div>
+        <form
           style={{
             display: "flex",
             marginTop: "2rem",
@@ -399,7 +396,7 @@ function App() {
           >
             Submit
           </button>
-        </animated.form>
+        </form>
       </div>
 
         {/* PAGE INDICATOR */}
