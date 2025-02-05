@@ -202,7 +202,7 @@ function App() {
               <img src={ULogo} alt="2You Logo"/>
             </a>
             <a
-              href="https://lendwire.com/" target="_blank" // Opens in a new tab
+              href="https://lendwire.com/" target="_blank" 
             >
               <img src={lendwire} alt="Lendwire Logo"/>
             </a>
