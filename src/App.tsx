@@ -190,7 +190,7 @@ function App() {
           <div
             style={{
               display: "flex",
-              gap: "2rem", // Space between logos
+              gap: "2rem",
               alignItems: "center",
               justifyContent: "center",
             }}
