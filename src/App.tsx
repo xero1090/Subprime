@@ -269,12 +269,15 @@ function App() {
             }}
             style={{
               display: "flex",
-              gap: "1rem",
+              gap: "0.5rem",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "#333",
-              padding: "0.8rem",
-              borderRadius: "10px",
+              backgroundColor: "#222",
+              padding: "1rem",
+              borderRadius: "12px",
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow for depth
+              maxWidth: "400px",
+              width: "100%",
             }}
           >
             <input
@@ -288,7 +291,12 @@ function App() {
                 borderRadius: "5px",
                 outline: "none",
                 width: "250px",
+                backgroundColor: "#333",
+                color: "#fff",
+                transition: "all 0.3s ease-in-out",
               }}
+              onFocus={(e) => (e.target.style.backgroundColor = "#444")}
+              onBlur={(e) => (e.target.style.backgroundColor = "#333")}
             />
             <button
               type="submit"
@@ -301,7 +309,10 @@ function App() {
                 borderRadius: "5px",
                 cursor: "pointer",
                 fontWeight: "bold",
+                transition: "background 0.3s ease-in-out",
               }}
+              onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
+              onMouseOut={(e) => (e.target.style.backgroundColor = "#007bff")}
             >
               Subscribe
             </button>
@@ -315,66 +326,115 @@ function App() {
           height: "100vh",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#666666",
+          justifyContent: "center",
+          backgroundColor: "#262626",
           scrollSnapAlign: "start",
-          marginBottom: "2rem"
+          padding: "2rem",
         }}
       >
-        <div
+        <h2
           style={{
             fontSize: "3rem",
-            color: "white",
-            zIndex: 2,
-            
+            fontWeight: "bold",
+            color: "#fff",
+            marginBottom: "1rem",
           }}
         >
-          Reach Out
-        </div>
+          Reach Out to Us
+        </h2>
+        <p
+          style={{
+            fontSize: "1.2rem",
+            color: "#ccc",
+            marginBottom: "2rem",
+            textAlign: "center",
+            maxWidth: "500px",
+          }}
+        >
+          Have a question? Send us a message and we'll get back to you!
+        </p>
+
         <form
+          onSubmit={handleSubmit}
           style={{
             display: "flex",
-            marginTop: "2rem",
             flexDirection: "column",
             alignItems: "center",
-            backgroundColor: "#444",
-            padding: "20px",
-            borderRadius: "10px",
-            maxWidth: "400px",
+            gap: "1rem",
             width: "100%",
-            color: "white",
-            gap: "10px"
+            maxWidth: "400px",
+            padding: "1.5rem",
+            backgroundColor: "#1e1e1e",
+            borderRadius: "12px",
+            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
           }}
-          onSubmit={handleSubmit}
         >
           <input
             type="text"
             name="name"
             placeholder="Your Name"
+            required
             value={formData.name}
             onChange={handleInputChange}
-            required
-            style={{ padding: "10px", borderRadius: "5px", width: "100%" }}
+            style={{
+              width: "100%",
+              padding: "0.8rem",
+              fontSize: "1rem",
+              borderRadius: "6px",
+              border: "1px solid #444",
+              backgroundColor: "#333",
+              color: "#fff",
+              outline: "none",
+              transition: "0.3s",
+            }}
+            onFocus={(e) => (e.target.style.borderColor = "#6a5acd")}
+            onBlur={(e) => (e.target.style.borderColor = "#444")}
           />
-
+          
           <input
             type="email"
             name="email"
             placeholder="Your Email"
+            required
             value={formData.email}
             onChange={handleInputChange}
-            required
-            style={{ padding: "10px", borderRadius: "5px", width: "100%", marginTop: "1rem" }}
+            style={{
+              width: "100%",
+              padding: "0.8rem",
+              fontSize: "1rem",
+              borderRadius: "6px",
+              border: "1px solid #444",
+              backgroundColor: "#333",
+              color: "#fff",
+              outline: "none",
+              transition: "0.3s",
+            }}
+            onFocus={(e) => (e.target.style.borderColor = "#6a5acd")}
+            onBlur={(e) => (e.target.style.borderColor = "#444")}
           />
 
           <textarea
             name="message"
             placeholder="Your Message"
+            rows={4}
+            required
             value={formData.message}
             onChange={handleInputChange}
-            required
-            style={{ padding: "10px", borderRadius: "5px", width: "100%", marginTop: "1rem"  }}
+            style={{
+              width: "100%",
+              padding: "0.8rem",
+              fontSize: "1rem",
+              borderRadius: "6px",
+              border: "1px solid #444",
+              backgroundColor: "#333",
+              color: "#fff",
+              resize: "none",
+              outline: "none",
+              transition: "0.3s",
+            }}
+            onFocus={(e) => (e.target.style.borderColor = "#6a5acd")}
+            onBlur={(e) => (e.target.style.borderColor = "#444")}
           />
 
           <ReCAPTCHA
@@ -386,15 +446,22 @@ function App() {
           <button
             type="submit"
             style={{
-              padding: "10px",
-              borderRadius: "5px",
-              backgroundColor: "#0A66C2",
-              color: "white",
+              width: "100%",
+              padding: "0.8rem",
+              fontSize: "1rem",
+              fontWeight: "bold",
+              textTransform: "uppercase",
+              border: "none",
+              borderRadius: "6px",
+              backgroundColor: "#007bff",
+              color: "#fff",
               cursor: "pointer",
-              width: "100%"
+              transition: "0.3s",
             }}
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#7b68ee")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#6a5acd")}
           >
-            Submit
+            Send Message
           </button>
         </form>
       </div>
