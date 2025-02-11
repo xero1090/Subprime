@@ -135,3 +135,8 @@ h1, h2, p {
 .scrollbar-section-1::-webkit-scrollbar-track {
   background: #002244;
 }*/
+
+.header {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}

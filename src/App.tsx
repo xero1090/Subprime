@@ -1,8 +1,9 @@
-import { useState, useRef} from "react";
+import { useState, useRef, useEffect} from "react";
 //import { useSpring, animated } from "react-spring";
 import "./App.css";
 import PageIndicator from "./components/PageIndicator/PageIndicator";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextPlugin } from "gsap/TextPlugin";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
@@ -15,51 +16,21 @@ import ReCAPTCHA from "react-google-recaptcha";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TeamCarousel from "./components/TeamCarousel/TeamCarousel"; 
-
+gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
 function App() {
   // State
   const [currentPage, setCurrentPage] = useState(0);
-  //const [showDiscover, setShowDiscover] = useState(false);
-  //const [showCreate, setShowCreate] = useState(false);
-  //const [showInnovate, setShowInnovate] = useState(false);
-  //const [showFooter, setShowFooter] = useState(false);
 
   // Refs
   const discoverRef = useRef(null);
   const createRef = useRef(null); // Reference for the Create section
   const innovateRef = useRef(null);
   const footerRef = useRef(null);
-    
-  /* Animation for Discover section
-  const discoverBeamStyle = useSpring({
-    opacity: showDiscover ? 1 : 0,
-    transform: showDiscover ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
-    config: { duration: 500 },
-  });
+  const currentPageRef = useRef<number>(0);
 
-  // Animation for Create section
-  const createBeamStyle = useSpring({
-    opacity: showCreate ? 1 : 0,
-    transform: showCreate ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
-    config: { duration: 500 },
-  });
-
-  // Animation for Innovate section
-  const innovateBeamStyle = useSpring({
-    opacity: showInnovate ? 1 : 0,
-    transform: showInnovate ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
-    config: { duration: 500 },
-  });
-
-  // Animation for Footer section
-  const FooterBeamStyle = useSpring({
-    opacity: showFooter ? 1 : 0,
-    transform: showFooter ? "translateY(0)" : "translateY(30px)", // Optional transform for extra animation effect
-    config: { duration: 500 },
-  });
-  */
+  
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -92,41 +63,51 @@ function App() {
     setRecaptchaToken(null);
   };
 
+  const debounce = (func, delay) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), delay);
+    };
+  };
+
   // Scroll handler to update current page
   const handleScroll = (e: any) => {
     const scrollTop = e.target.scrollTop;
     const newPage = Math.round(scrollTop / window.innerHeight);
-    setCurrentPage(newPage);
-
-    /* WORKS as long as the height of the sections is 100vh, should make dynamic
-    // Show Discover section
-    if (scrollTop >= window.innerHeight) {
-      setShowDiscover(true);
-    } else {
-      setShowDiscover(false);
+  
+    if (currentPageRef.current !== newPage) {
+      currentPageRef.current = newPage;
+      setCurrentPage(newPage); // Debounced update
     }
-
-    // Show Create section
-    if (scrollTop >= window.innerHeight * 2) {
-      setShowCreate(true);
-    } else {
-      setShowCreate(false);
-    }
-
-    // Show Innovate section
-    if (scrollTop >= window.innerHeight * 3) {
-      setShowInnovate(true);
-    } else {
-      setShowInnovate(false);
-    }
-
-    // Show Footer section
-    if (scrollTop >= window.innerHeight * 4) {
-      setShowFooter(true);
-    } else {
-      setShowFooter(false);
-    }*/
   };
+
+  useEffect(() => {
+    const headers = document.querySelectorAll(".header");
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Play the animation when the header enters the viewport
+            gsap.fromTo(
+              entry.target,
+              { opacity: 0, y: 50 },
+              { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+            );
+          } else {
+            // Reset the animation state when the header leaves the viewport
+            gsap.set(entry.target, { opacity: 0, y: 50 });
+          }
+        });
+      },
+      { threshold: 0.8, rootMargin: "0px 0px -50px 0px" } // Avoid triggering too early
+    );
+  
+    headers.forEach((header) => observer.observe(header));
+  
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -175,6 +156,7 @@ function App() {
           }}
         >
           <div 
+            className="header"
             style={{
             fontSize: "3rem",
             color: "white",
@@ -223,6 +205,7 @@ function App() {
         }}
       >
         <div
+          className="header"
           style={{
             justifyContent: "center",
             flexDirection: "column",
@@ -252,6 +235,7 @@ function App() {
           }}
         >
           <div
+            className="header"
             style={{
               fontSize: "3rem",
               color: "white",
@@ -334,6 +318,7 @@ function App() {
         }}
       >
         <h2
+          className="header"
           style={{
             fontSize: "3rem",
             fontWeight: "bold",
@@ -344,6 +329,7 @@ function App() {
           Reach Out to Us
         </h2>
         <p
+          className="header"
           style={{
             fontSize: "1.2rem",
             color: "#ccc",
@@ -467,7 +453,7 @@ function App() {
       </div>
 
         {/* PAGE INDICATOR */}
-        <PageIndicator currentPage={currentPage} totalPages={5} />
+        <PageIndicator currentPage={currentPageRef.current} totalPages={5} />
       </main>
     </>
   );
