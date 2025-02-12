@@ -1,55 +1,215 @@
-/* Graffiti Style for Kevin's Card */
-.graffiti-card {
-    font-family: 'Permanent Marker', cursive; /* Graffiti-style font */
-    color: white;
-    background-color: #FFD700; /* Bright background */
-    border: 2px solid #007bff; /* Bold border color */
+/* Graffiti Tech Style for Kevin's Card */
+.ofir-card {
+    font-family: 'Orbitron', sans-serif;  /* Tech-inspired font */
+    background-color: #1F1F1F; /* Dark background for techy feel */
+    border: 2px solid #00FF00; /* Neon green border */
+    padding: 2rem;
     position: relative;
-    padding: 0rem;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-  }
-  
-  .graffiti-card::after {
+    box-shadow: 0px 6px 20px rgba(0, 255, 0, 0.7); /* Neon green glow */
+    transition: transform 0.3s ease-in-out;
+    border-radius: 15px; /* Rounded corners for smooth effect */
+    overflow: visible; /* Allow overflow if needed */
+}
+
+/* Adding a neon glow effect to the name */
+.ofir-card h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #00FF00; /* Neon green color for text */
+    text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00, 0 0 15px #00FF00; /* Glowing effect */
+}
+
+/* Adding animated lines or elements around the card */
+.ofir-card::after {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150%;
-    height: 150%;
-    background-image: url('path_to_your_spray_paint_effect.png'); /* Spray paint effect */
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.1)); /* Dynamic tech lines */
+    background-size: 20px 20px; /* Smoother background pattern */
+    animation: glitch 4s infinite alternate; /* Slower and more subtle animation */
+    pointer-events: none;
+    border-radius: 15px; /* Matching border radius to ensure the effect stays inside the card */
+}
+
+/* Glitch animation effect */
+@keyframes glitch {
+    0% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: translate(-50%, -50%) scale(1.02) rotate(0.5deg);
+        opacity: 0.85;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1) rotate(-0.5deg);
+        opacity: 0.75;
+    }
+    75% {
+        transform: translate(-50%, -50%) scale(1.03) rotate(0deg);
+        opacity: 0.85;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* --- Base Card Styles --- */
+.kevin-card {
+    font-family: 'Orbitron', sans-serif;
+    background: #0a0a0a; /* Dark cyberpunk base background */
+    border: 2px solid #00ffea; /* Neon cyan border */
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0px 8px 25px rgba(0, 255, 234, 0.6); /* Cyan glow */
+    border-radius: 15px;
+    overflow: visible; /* Allow overflow for larger content */
+    height: auto; /* Adjust height to fit content */
+    min-height: 210px; /* Ensure a minimum height */
+    width: 400px; /* Fixed width for horizontal layout */
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text horizontally inside */
+    animation: backgroundAnimation 5s linear infinite; /* Animation for background */
+}
+
+/* --- Animated Background --- */
+@keyframes backgroundAnimation {
+    0% {
+        background-image: linear-gradient(45deg, rgba(0, 255, 234, 0.3), rgba(0, 255, 234, 0.1));
+    }
+    50% {
+        background-image: linear-gradient(45deg, rgba(0, 255, 234, 0.1), rgba(0, 255, 234, 0.3));
+    }
+    100% {
+        background-image: linear-gradient(45deg, rgba(0, 255, 234, 0.3), rgba(0, 255, 234, 0.1));
+    }
+}
+
+/* --- Cyberpunk HUD Overlay --- */
+.kevin-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url("https://www.transparenttextures.com/patterns/circuit-board.png"), 
+        url("https://www.pngall.com/wp-content/uploads/5/Glowing-Pixel-PNG.png"); /* Pixel Glows */
+    background-size: cover;
+    background-blend-mode: screen;
+    opacity: 0.6; /* Increased opacity for more visibility */
+    z-index: 1; /* Ensure it's under the text */
+    animation: pixelGlow 3s linear infinite; /* Animation for pixel glow */
+}
+
+/* --- Glowing Pixel Animation --- */
+@keyframes pixelGlow {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* --- Gaming HUD Elements Overlay --- */
+.kevin-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url("https://www.pngall.com/wp-content/uploads/5/Futuristic-HUD-PNG.png"); /* Sci-fi HUD */
     background-size: contain;
-    opacity: 0.2; /* Light opacity for the paint effect */
-    pointer-events: none; /* Ensures the paint doesn't block interactions */
-  }
-  
-  .graffiti-card h3 {
+    background-repeat: no-repeat;
+    background-position: center;
+    mix-blend-mode: lighten;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 2; /* Ensure it's above the first overlay */
+    animation: hudAnimation 5s ease-in-out infinite; /* HUD animation */
+}
+
+/* --- HUD Animation --- */
+@keyframes hudAnimation {
+    0% {
+        opacity: 0.5;
+        transform: rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(2deg);
+    }
+    100% {
+        opacity: 0.5;
+        transform: rotate(0deg);
+    }
+}
+
+/* --- Glowing Gamer Name --- */
+.kevin-card h3 {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .graffiti-card p {
-    font-style: italic;
-    color: #CBD5E0;
-    margin-bottom: 1rem;
-  }
-  
-  .graffiti-card a {
-    font-size: 1.5rem;
-    color: #0A66C2;
-    text-decoration: none;
-    padding: 0.3rem;
-    background-color: white;
-    border-radius: 50%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 1rem;
-    width: 40px;
-    height: 40px;
-  }
-  
-  .graffiti-card:hover {
-    transform: scale(1.05); /* Slight scaling effect on hover */
-  }
-  
+    color: #00ffea;
+    text-shadow: 3px 3px 10px rgba(0, 255, 234, 1);
+    text-transform: uppercase;
+    z-index: 3;
+    position: relative;
+    margin: 0;
+}
+
+/* --- Glowing LinkedIn Icon --- */
+.kevin-card a {
+    font-size: 1.5rem !important;
+    color: #00ffea !important;
+    text-decoration: none !important;
+    padding: 0.5rem !important;
+    background-color: rgba(0, 255, 234, 0.1) !important;
+    border-radius: 50% !important;
+    box-shadow: 0px 4px 15px rgba(0, 255, 234, 0.8) !important;
+    z-index: 3 !important;
+    position: absolute !important;  
+    right: 10px !important;
+}
+
+/* --- Adjust the Card Container to Make It Fit the Content --- */
+.card-container {
+    display: flex !important;
+    justify-content: space-between !important; /* Space out the cards */
+    flex-wrap: wrap !important; /* Allow wrapping if needed */
+    gap: 20px !important; /* Add space between cards */
+}
+
+
+/* --- Other Cards (For Example, the Ofir Card) --- */
+.ofir-card, .shawn-marc-card {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #1F1F1F;
+    border: 2px solid #00FF00;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0px 6px 20px rgba(0, 255, 0, 0.7);
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    width: 400px !important; /* Same width as kevin-card */
+    height: auto; /* Let the height adjust to fit content */
+    min-height: 210px; /* Ensure minimum height */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
