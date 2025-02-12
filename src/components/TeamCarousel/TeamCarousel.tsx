@@ -54,15 +54,17 @@
     dots: true,
     infinite: true,
     speed: 250,
-    slidesToShow: 3,
+    slidesToShow: 3,  // Keep only 3 visible
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 6000,
+    centerPadding: "0px", // Adjusted for alignment without showing extra cards
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
+      { breakpoint: 1024, settings: { slidesToShow: 2, centerPadding: "50px" } },
+      { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: "20px" } },
     ],
   };
+  
 
   const TeamCarousel = () => {
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -73,9 +75,9 @@
 
     return (
       <div style={{ width: "85%", margin: "auto", padding: "0rem 0" }}>
-        <Slider {...settings}>
+        <Slider {...settings} >
           {teamMembers.map((member, index) => (
-            <div key={member.name} style={{ padding: "1rem" }}>
+            <div key={member.name}>
               <div
                 data-hover
                 onClick={() => toggleExpand(index)}
@@ -85,7 +87,7 @@
                   color: "white",
                   padding: "2rem",
                   borderRadius: "15px",
-                  boxShadow: "0px 6px 15px rgba(0,0,0,0.3)",
+                  boxShadow: "0px 3px 5px rgba(0,0,0,0.3)",
                   cursor: "pointer",
                   textAlign: "center",
                   transition: "all 0.3s ease",
@@ -93,16 +95,8 @@
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  gap: "1rem",
-                  /* Add custom styling for Kevin Tran
-                  ...(member.name === "Kevin Tran" && {
-                    backgroundColor: "ffff",  // Example of a unique background color for Kevin
-                    border: "2px solid #FF6347", // Custom border color for Kevin
-                    //backgroundImage: "url('/path/to/kevin-background.jpg')",
-                    //backgroundSize: "cover",  
-                    transform: "scale(1.05)", // Slight scale effect to make his card pop
-                  }),*/
-                }}
+                  gap: "0rem",
+                 }}
               >
                 <div>
                   <h3

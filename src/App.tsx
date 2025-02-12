@@ -63,14 +63,6 @@ function App() {
     setRecaptchaToken(null);
   };
 
-  const debounce = (func, delay) => {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), delay);
-    };
-  };
-
   // Scroll handler to update current page
   const handleScroll = (e: any) => {
     const scrollTop = e.target.scrollTop;
@@ -295,8 +287,6 @@ function App() {
                 fontWeight: "bold",
                 transition: "background 0.3s ease-in-out",
               }}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#007bff")}
             >
               Subscribe
             </button>
@@ -444,8 +434,6 @@ function App() {
               cursor: "pointer",
               transition: "0.3s",
             }}
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#7b68ee")}
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#6a5acd")}
           >
             Send Message
           </button>

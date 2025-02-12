@@ -1,4 +1,4 @@
-/* Graffiti Tech Style for Kevin's Card */
+/* Graffiti Tech Style for Ofir's Card */
 .ofir-card {
     font-family: 'Orbitron', sans-serif;  /* Tech-inspired font */
     background-color: #1F1F1F; /* Dark background for techy feel */
@@ -36,6 +36,20 @@
     border-radius: 15px; /* Matching border radius to ensure the effect stays inside the card */
 }
 
+/* --- Glowing LinkedIn Icon --- */
+.ofir-card a {
+    font-size: 1.5rem !important;
+    color: #00FF00 !important;
+    text-decoration: none !important;
+    padding: 0.5rem !important;
+    background-color: rgba(0, 255, 234, 0.1) !important;
+    border-radius: 50% !important;
+    box-shadow: 0px 4px 15px rgba(0, 255, 0, 0.7) !important;
+    z-index: 3 !important;
+    position: absolute !important;  
+    right: 10px !important;
+}
+
 /* Glitch animation effect */
 @keyframes glitch {
     0% {
@@ -59,118 +73,72 @@
         opacity: 1;
     }
 }
-
-/* --- Base Card Styles --- */
 .kevin-card {
     font-family: 'Orbitron', sans-serif;
-    background: #0a0a0a; /* Dark cyberpunk base background */
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 234, 0.2), rgba(10, 10, 10, 0.95)); /* Subtle gradient glow */
     border: 2px solid #00ffea; /* Neon cyan border */
     padding: 1rem;
     position: relative;
     box-shadow: 0px 8px 25px rgba(0, 255, 234, 0.6); /* Cyan glow */
     border-radius: 15px;
-    overflow: visible; /* Allow overflow for larger content */
-    height: auto; /* Adjust height to fit content */
-    min-height: 210px; /* Ensure a minimum height */
-    width: 400px; /* Fixed width for horizontal layout */
+    overflow: hidden;
+    height: auto;
+    min-height: 210px;
+    width: 400px;
     display: flex;
-    flex-direction: row; /* Horizontal layout */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    text-align: center; /* Center text horizontally inside */
-    animation: backgroundAnimation 5s linear infinite; /* Animation for background */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* --- Animated Background --- */
-@keyframes backgroundAnimation {
-    0% {
-        background-image: linear-gradient(45deg, rgba(0, 255, 234, 0.3), rgba(0, 255, 234, 0.1));
-    }
-    50% {
-        background-image: linear-gradient(45deg, rgba(0, 255, 234, 0.1), rgba(0, 255, 234, 0.3));
-    }
-    100% {
-        background-image: linear-gradient(45deg, rgba(0, 255, 234, 0.3), rgba(0, 255, 234, 0.1));
-    }
-}
-
-/* --- Cyberpunk HUD Overlay --- */
+/* --- Moving Digital Streaks Effect --- */
 .kevin-card::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: -150%;
+    width: 150%;
     height: 100%;
-    background-image: 
-        url("https://www.transparenttextures.com/patterns/circuit-board.png"), 
-        url("https://www.pngall.com/wp-content/uploads/5/Glowing-Pixel-PNG.png"); /* Pixel Glows */
-    background-size: cover;
-    background-blend-mode: screen;
-    opacity: 0.6; /* Increased opacity for more visibility */
-    z-index: 1; /* Ensure it's under the text */
-    animation: pixelGlow 3s linear infinite; /* Animation for pixel glow */
+    background: linear-gradient(90deg, rgba(0, 255, 234, 0) 0%, rgba(0, 255, 234, 0.3) 50%, rgba(0, 255, 234, 0) 100%);
+    animation: lightStreaks 6s linear infinite;
 }
 
-/* --- Glowing Pixel Animation --- */
-@keyframes pixelGlow {
+@keyframes lightStreaks {
     0% {
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 0.9;
+        left: -150%;
     }
     100% {
-        opacity: 0.5;
+        left: 100%;
     }
 }
-
-/* --- Gaming HUD Elements Overlay --- */
+/* --- Subtle Background Glitch --- */
 .kevin-card::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        url("https://www.pngall.com/wp-content/uploads/5/Futuristic-HUD-PNG.png"); /* Sci-fi HUD */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    mix-blend-mode: lighten;
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: 2; /* Ensure it's above the first overlay */
-    animation: hudAnimation 5s ease-in-out infinite; /* HUD animation */
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background: url("https://www.transparenttextures.com/patterns/circuit-board.png");
+    opacity: 0.2;
+    mix-blend-mode: overlay;
+    animation: glitchEffect 5s infinite alternate;
 }
 
-/* --- HUD Animation --- */
-@keyframes hudAnimation {
+@keyframes glitchEffect {
     0% {
-        opacity: 0.5;
-        transform: rotate(0deg);
+        opacity: 0.2;
+        transform: scale(1);
     }
     50% {
-        opacity: 1;
-        transform: rotate(2deg);
+        opacity: 0.3;
+        transform: scale(1.02);
     }
     100% {
-        opacity: 0.5;
-        transform: rotate(0deg);
+        opacity: 0.2;
+        transform: scale(1);
     }
-}
-
-/* --- Glowing Gamer Name --- */
-.kevin-card h3 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #00ffea;
-    text-shadow: 3px 3px 10px rgba(0, 255, 234, 1);
-    text-transform: uppercase;
-    z-index: 3;
-    position: relative;
-    margin: 0;
 }
 
 /* --- Glowing LinkedIn Icon --- */
@@ -187,29 +155,103 @@
     right: 10px !important;
 }
 
+/* --- Updated Text Glow --- */
+.kevin-card h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ffea;
+    text-shadow: 3px 3px 15px rgba(0, 255, 234, 1), 0 0 20px rgba(0, 255, 234, 0.8);
+    text-transform: uppercase;
+    z-index: 3;
+    position: relative;
+    margin: 0;
+}
+
+.shawn-marc-card {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(10, 10, 10, 0.95)); /* Gold shimmer */
+    border: 3px solid #FFD700; /* Gold border */
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0px 8px 25px rgba(255, 215, 0, 0.6); /* Gold glow */
+    border-radius: 15px;
+    overflow: hidden;
+    height: auto;
+    min-height: 210px;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- Subtle Stock Market Line Movement Effect --- */
+.shawn-marc-card::before {
+    content: "👑 CEO";  /* Crown emoji + text */
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    animation: bossGlow 3s infinite alternate;
+  }
+
+  
+
+  .shawn-marc-card a {
+    font-size: 1.5rem !important;
+    color: gold !important;
+    text-decoration: none !important;
+    padding: 0.5rem !important;
+    background-color: rgba(0, 255, 234, 0.1) !important;
+    border-radius: 50% !important;
+    box-shadow: 0px 4px 15px rgba(0255, 215, 0, 0.6) !important;
+    z-index: 3 !important;
+    position: absolute !important;  
+    right: 10px !important;
+}
+  @keyframes bossGlow {
+    0% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 /* --- Adjust the Card Container to Make It Fit the Content --- */
 .card-container {
     display: flex !important;
-    justify-content: space-between !important; /* Space out the cards */
+    justify-content: center !important; /* Space out the cards */
     flex-wrap: wrap !important; /* Allow wrapping if needed */
-    gap: 20px !important; /* Add space between cards */
+    gap: 0px !important; /* Add space between cards */
 }
 
 
 /* --- Other Cards (For Example, the Ofir Card) --- */
-.ofir-card, .shawn-marc-card {
+.ofir-card, .shawn-marc-card, .gursahib-card, .joey-card, .archit-card, .kevin-card {
     font-family: 'Orbitron', sans-serif;
-    background-color: #1F1F1F;
-    border: 2px solid #00FF00;
-    padding: 2rem;
+    /*background-color: #1F1F1F;
+    border: 2px solid #00FF00; */
+    padding: 1rem;
     position: relative;
     box-shadow: 0px 6px 20px rgba(0, 255, 0, 0.7);
     border-radius: 15px;
     transition: transform 0.3s ease-in-out;
-    width: 400px !important; /* Same width as kevin-card */
     height: auto; /* Let the height adjust to fit content */
+    width: auto;
+    max-width: 450px !important;
     min-height: 210px; /* Ensure minimum height */
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    margin-right: 20px;
+    overflow: hidden !important;
 }
