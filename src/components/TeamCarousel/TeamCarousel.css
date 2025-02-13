@@ -1,4 +1,4 @@
-/* Graffiti Tech Style for Ofir's Card */
+/* Tech Style for Ofir's Card */
 .ofir-card {
     font-family: 'Orbitron', sans-serif;  /* Tech-inspired font */
     background-color: #1F1F1F; /* Dark background for techy feel */
@@ -73,6 +73,7 @@
         opacity: 1;
     }
 }
+
 .kevin-card {
     font-family: 'Orbitron', sans-serif;
     background: radial-gradient(circle at 50% 50%, rgba(0, 255, 234, 0.2), rgba(10, 10, 10, 0.95)); /* Subtle gradient glow */
@@ -112,6 +113,7 @@
         left: 100%;
     }
 }
+
 /* --- Subtle Background Glitch --- */
 .kevin-card::after {
     content: "";
@@ -203,8 +205,6 @@
     animation: bossGlow 3s infinite alternate;
   }
 
-  
-
   .shawn-marc-card a {
     font-size: 1.5rem !important;
     color: gold !important;
@@ -225,6 +225,157 @@
       opacity: 1;
     }
   }
+
+  /* --- Joey's LE SSERAFIM-Inspired Card --- */
+.joey-card {
+    font-family: 'Bebas Neue', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 30%, #1e1e1e 70%);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 15px 40px rgba(255, 255, 255, 0.15);
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    width: 420px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* --- Dynamic Holo-Spotlight Effect --- */
+.joey-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 102, 0.2), rgba(0, 234, 255, 0.1));
+    animation: holoGlow 6s infinite linear;
+    z-index: 0;
+    filter: blur(50px);
+}
+
+@keyframes holoGlow {
+    0% { transform: rotate(0deg) scale(1.2); }
+    50% { transform: rotate(180deg) scale(1.3); }
+    100% { transform: rotate(360deg) scale(1.2); }
+}
+
+/* --- Glowing LinkedIn Icon --- */
+.joey-card a {
+    font-size: 1.5rem !important;
+    color: rgba(255, 0, 102, 0.4) !important;
+    text-decoration: none !important;
+    padding: 0.5rem !important;
+    background-color: rgba(0, 255, 234, 0.1) !important;
+    border-radius: 50% !important;
+    box-shadow: 0px 4px 15px rgba(255, 0, 102, 0.4) !important;
+    z-index: 3 !important;
+    position: absolute !important;  
+    right: 10px !important;
+}
+
+/* --- Chrome 3D Text Effect --- */
+.joey-card h3 {
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #ffffff, #ccc, #ffffff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 2px 8px rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+/* --- FEARLESS Tagline --- */
+.joey-card::after {
+    content: "LE SSERAFIM";
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 15px;
+    background: linear-gradient(90deg, rgba(255, 0, 102, 0.6), rgba(0, 234, 255, 0.8), rgba(255, 0, 102, 0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: joeyGlow 3s infinite alternate;
+}
+
+@keyframes joeyGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Gursahib's Billiards-Inspired Card --- */
+.gursahib-card {
+    font-family: 'Bebas Neue', sans-serif;
+    background: radial-gradient(circle, #145a32 30%, #0d3d1e 70%); /* Green felt effect */
+    border: 3px solid #5B2F13; /* Gold cue stick-inspired border */
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    width: 420px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* --- Glowing Neon Edges --- */
+.gursahib-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #5B2F13;
+}
+
+.gursahib-card a {
+    font-size: 1.5rem !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 0.5rem !important;
+    background-color: black !important;
+    border-radius: 50% !important;
+    box-shadow: 0px 4px 15px #145a32 30% !important;
+    z-index: 3 !important;
+    position: absolute !important;  
+    right: 10px !important;
+}
+
+/* --- Cue Ball Effect at Bottom --- */
+.gursahib-card::after {
+    content: "8-BALL Pro";
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 15px;
+    background: linear-gradient(90deg, #ffffff, #aaa, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sahibGlow 3s infinite alternate;
+}
+
+@keyframes sahibGlow {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
 
 /* --- Adjust the Card Container to Make It Fit the Content --- */
 .card-container {
