@@ -1,77 +1,74 @@
-/* Tech Style for Ofir's Card */
 .ofir-card {
-    font-family: 'Orbitron', sans-serif;  /* Tech-inspired font */
-    background-color: #1F1F1F; /* Dark background for techy feel */
-    border: 2px solid #00FF00; /* Neon green border */
+    font-family: 'Cinzel', serif; /* Ancient runic-style font */
+    background: url(/src/assets/lich.jpg) no-repeat center center/cover;
+    color: #B0E0E6; /* Pale ice-blue text */
+    border: 3px solid rgba(173, 216, 230, 0.6); /* Frosty border */
     padding: 2rem;
     position: relative;
-    box-shadow: 0px 6px 20px rgba(0, 255, 0, 0.7); /* Neon green glow */
-    transition: transform 0.3s ease-in-out;
-    border-radius: 15px; /* Rounded corners for smooth effect */
-    overflow: visible; /* Allow overflow if needed */
+    box-shadow: 0px 0px 20px rgba(173, 216, 230, 0.7); /* Icy glow */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    filter: blur(0px);
 }
 
-/* Adding a neon glow effect to the name */
+/* Runic glowing text */
 .ofir-card h3 {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #00FF00; /* Neon green color for text */
-    text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00, 0 0 15px #00FF00; /* Glowing effect */
+    text-align: center;
+    color: #87CEFA; /* Lighter frost glow */
+    text-shadow: 0 0 10px #87CEFA, 0 0 20px #00BFFF, 0 0 30px #1E90FF;
 }
 
-/* Adding animated lines or elements around the card */
-.ofir-card::after {
+/* Cold mist effect */
+.ofir-card::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(45deg, rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.1)); /* Dynamic tech lines */
-    background-size: 20px 20px; /* Smoother background pattern */
-    animation: glitch 4s infinite alternate; /* Slower and more subtle animation */
-    pointer-events: none;
-    border-radius: 15px; /* Matching border radius to ensure the effect stays inside the card */
+    background: rgba(0, 0, 0, 0.4); /* Darken the image */
+    filter: blur(5px); /* Apply blur only to the background */
+    z-index: -1; /* Ensure it's behind the content */
 }
 
-/* --- Glowing LinkedIn Icon --- */
+.ofir-card::after {
+    content: "Frostmourne Hungers...";
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%; /* Horizontally center */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    background: linear-gradient(90deg, #ffffff, #aaa, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Cinzel', serif; /* Example runic-style font, replace with any runic font you prefer */
+}
+
 .ofir-card a {
     font-size: 1.5rem !important;
-    color: #00FF00 !important;
+    color: #87CEFA !important; /* Light icy blue for the text */
     text-decoration: none !important;
     padding: 0.5rem !important;
-    background-color: rgba(0, 255, 234, 0.1) !important;
+    background-color: rgba(25, 25, 112, 0.1) !important; /* Dark navy blue */
     border-radius: 50% !important;
-    box-shadow: 0px 4px 15px rgba(0, 255, 0, 0.7) !important;
+    box-shadow: 0px 4px 15px rgba(25, 25, 112, 0.1) !important;
     z-index: 3 !important;
     position: absolute !important;  
-    right: 10px !important;
+    right: 12px;
+    top: 12px;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Glitch animation effect */
-@keyframes glitch {
-    0% {
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-        opacity: 1;
-    }
-    25% {
-        transform: translate(-50%, -50%) scale(1.02) rotate(0.5deg);
-        opacity: 0.85;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1) rotate(-0.5deg);
-        opacity: 0.75;
-    }
-    75% {
-        transform: translate(-50%, -50%) scale(1.03) rotate(0deg);
-        opacity: 0.85;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-        opacity: 1;
-    }
+/* Subtle ice cracking effect */
+.ofir-card:hover {
+    box-shadow: 0px 0px 30px rgba(0, 191, 255, 0.9);
+    border-color: rgba(0, 191, 255, 0.9);
 }
 
 .kevin-card {
@@ -154,7 +151,8 @@
     box-shadow: 0px 4px 15px rgba(0, 255, 234, 0.8) !important;
     z-index: 3 !important;
     position: absolute !important;  
-    right: 10px !important;
+    right: 12px;
+    top: 12px;
 }
 
 /* --- Updated Text Glow --- */
@@ -171,41 +169,50 @@
 
 .shawn-marc-card {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(10, 10, 10, 0.95)); /* Gold shimmer */
-    border: 3px solid #FFD700; /* Gold border */
-    padding: 1rem;
+    background: rgba(10, 10, 10, 0.95)!important; /* Sleek dark background */
+    border: 2px solid #FFD700; /* Thin gold accent */
+    padding: 1.2rem;
     position: relative;
-    box-shadow: 0px 8px 25px rgba(255, 215, 0, 0.6); /* Gold glow */
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
-    height: auto;
-    min-height: 210px;
-    width: 400px;
+    width: 380px;
+    min-height: 200px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* --- Subtle Stock Market Line Movement Effect --- */
+/* --- Elegant CEO Badge --- */
 .shawn-marc-card::before {
-    content: "👑 CEO";  /* Crown emoji + text */
+    content: "👑 CEO";
     position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: gold;
-    color: black;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    animation: bossGlow 3s infinite alternate;
-  }
+    top: 10px;
+    left: 15px;
+    background-color: rgba(255, 215, 0, 0.2);
+    color: #FFD700;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
 
-  .shawn-marc-card a {
+/* --- Refined Icon Style --- */
+.shawn-marc-card a {
+    font-size: 1.3rem;
+    color: black !important;
+    text-decoration: none;
+    padding: 0.5rem;
+    background-color: gold !important;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}
+/*.shawn-marc-card a {
     font-size: 1.5rem !important;
     color: gold !important;
     text-decoration: none !important;
@@ -216,16 +223,11 @@
     z-index: 3 !important;
     position: absolute !important;  
     right: 10px !important;
+}*/
+.shawn-marc-card a:hover {
+    background-color: rgba(255, 215, 0, 0.3);
+    transform: scale(1.1);
 }
-  @keyframes bossGlow {
-    0% {
-      opacity: 0.6;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
   /* --- archit's Card --- */
 .archit-card {
     font-family: 'Bebas Neue', sans-serif;
@@ -277,8 +279,8 @@
     box-shadow: 0px 4px 15px rgba(255, 0, 102, 0.4) !important;
     z-index: 3 !important;
     position: absolute !important;  
-    right: 10px !important;
-}
+    right: 12px;
+    top: 12px;}
 
 /* --- Chrome 3D Text Effect --- */
 .archit-card h3 {
@@ -294,7 +296,7 @@
     z-index: 2;
 }
 
-/* --- FEARLESS Tagline --- */
+/* --- Luxury Tagline --- */
 .archit-card::after {
     content: "Luxury";
     font-size: 0.8rem;
@@ -354,8 +356,8 @@
     box-shadow: 0px 4px 15px #145a32 30% !important;
     z-index: 3 !important;
     position: absolute !important;  
-    right: 10px !important;
-}
+    right: 12px;
+    top: 12px;}
 
 /* --- Cue Ball Effect at Bottom --- */
 .gursahib-card::after {
@@ -402,8 +404,8 @@
     box-shadow: 0px 4px 15px rgba(255, 49, 49, 5) !important;
     z-index: 3 !important;
     position: absolute !important;  
-    right: 10px !important;
-}
+    right: 12px;
+    top: 12px;}
 
 .joey-card::after {
     content: "";

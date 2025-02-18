@@ -83,7 +83,7 @@
                 onClick={() => toggleExpand(index)}
                 className={member.customClass}
                 style={{
-                  backgroundColor: expandedIndex === index ? "#4A5568" : "#2D3748",
+                  //backgroundColor: expandedIndex === index ? "#4A5568" : "#2D3748",
                   color: "white",
                   padding: "2rem",
                   borderRadius: "15px",

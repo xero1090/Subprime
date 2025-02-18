@@ -47,21 +47,32 @@ function App() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!recaptchaToken) {
-      alert("Please complete the reCAPTCHA verification.");
-      return;
+        alert("Please complete the reCAPTCHA verification.");
+        return;
     }
 
-    // Submit form logic here (e.g., send data to a backend)
-    console.log("Form submitted:", formData);
+    const response = await fetch("/api/verify-recaptcha", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: recaptchaToken }),
+    });
 
-    // Reset reCAPTCHA after submission
+    const result = await response.json();
+    if (result.success) {
+        console.log("Form submitted successfully!");
+        // Proceed with form submission
+    } else {
+        alert("reCAPTCHA verification failed.");
+    }
+
+    // Reset reCAPTCHA
     recaptchaRef.current?.reset();
     setRecaptchaToken(null);
-  };
+};
 
   // Scroll handler to update current page
   const handleScroll = (e: any) => {
@@ -183,7 +194,7 @@ function App() {
         </div>
 
         {/* CREATE SECTION */}
-        <div
+      <div
         ref={createRef}
         style={{
           height: "100vh",
@@ -199,19 +210,29 @@ function App() {
         <div
           className="header"
           style={{
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
             fontSize: "3rem",
             color: "white",
             zIndex: 2,
-            marginTop: "8rem",
+            textAlign: "center", // Ensure the header text is centered
+            marginBottom: "2rem", // Space between the header and the carousel
           }}
         >
           Our Team
         </div>
-        <TeamCarousel/>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center", // Center the carousel horizontally
+            alignItems: "center", // Center the carousel vertically if necessary
+            width: "100%", // Ensure full width
+            height: "auto", // Let the carousel take its height naturally
+          }}
+        >
+          <TeamCarousel />
+        </div>
       </div>
+
 
         {/* INNOVATE SECTION */}
         <div
@@ -415,7 +436,7 @@ function App() {
 
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey="YOUR_RECAPTCHA_SITE_KEY"
+            sitekey="6Ld6NNsqAAAAAIpwlqtIW6OYBVYwTWefCLTnILXL"
             onChange={handleRecaptchaChange}
           />
 
