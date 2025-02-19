@@ -1,6 +1,6 @@
 .ofir-card {
     font-family: 'Cinzel', serif; /* Ancient runic-style font */
-    background: url(/src/assets/lich.jpg) no-repeat center center/cover;
+    background: url(/src/assets/winter.jpg) no-repeat center center/cover;
     color: #B0E0E6; /* Pale ice-blue text */
     border: 3px solid rgba(173, 216, 230, 0.6); /* Frosty border */
     padding: 2rem;
@@ -35,7 +35,7 @@
 }
 
 .ofir-card::after {
-    content: "Frostmourne Hungers...";
+    content: "";
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -73,7 +73,7 @@
 
 .kevin-card {
     font-family: 'Orbitron', sans-serif;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 234, 0.2), rgba(10, 10, 10, 0.95)); /* Subtle gradient glow */
+    background: url(/src/assets/retro.jpg);
     border: 2px solid #00ffea; /* Neon cyan border */
     padding: 1rem;
     position: relative;
@@ -88,6 +88,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    filter: blur(0px);
 }
 
 /* --- Moving Digital Streaks Effect --- */
@@ -100,6 +101,7 @@
     height: 100%;
     background: linear-gradient(90deg, rgba(0, 255, 234, 0) 0%, rgba(0, 255, 234, 0.3) 50%, rgba(0, 255, 234, 0) 100%);
     animation: lightStreaks 6s linear infinite;
+    filter: blur(5px); /* Apply blur only to the background */
 }
 
 @keyframes lightStreaks {
@@ -108,35 +110,6 @@
     }
     100% {
         left: 100%;
-    }
-}
-
-/* --- Subtle Background Glitch --- */
-.kevin-card::after {
-    content: "";
-    position: absolute;
-    width: 120%;
-    height: 120%;
-    top: -10%;
-    left: -10%;
-    background: url("https://www.transparenttextures.com/patterns/circuit-board.png");
-    opacity: 0.2;
-    mix-blend-mode: overlay;
-    animation: glitchEffect 5s infinite alternate;
-}
-
-@keyframes glitchEffect {
-    0% {
-        opacity: 0.2;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.3;
-        transform: scale(1.02);
-    }
-    100% {
-        opacity: 0.2;
-        transform: scale(1);
     }
 }
 
@@ -169,8 +142,8 @@
 
 .shawn-marc-card {
     font-family: 'Poppins', sans-serif;
-    background: rgba(10, 10, 10, 0.95)!important; /* Sleek dark background */
-    border: 2px solid #FFD700; /* Thin gold accent */
+    background: url(/src/assets/future1.jpg);
+    border: 2px solid #fb5385; /* Thin gold accent */
     padding: 1.2rem;
     position: relative;
     border-radius: 12px;
@@ -202,10 +175,10 @@
 /* --- Refined Icon Style --- */
 .shawn-marc-card a {
     font-size: 1.3rem;
-    color: black !important;
+    color: #0b485c !important;
     text-decoration: none;
     padding: 0.5rem;
-    background-color: gold !important;
+    background-color: #fb5385 !important;
     border-radius: 50%;
     transition: background-color 0.3s ease, transform 0.2s ease;
     position: absolute;
@@ -271,7 +244,7 @@
 /* --- Glowing LinkedIn Icon --- */
 .archit-card a {
     font-size: 1.5rem !important;
-    color: rgba(255, 0, 102, 0.4) !important;
+    color: rgba(255, 0, 102, 0.8) !important;
     text-decoration: none !important;
     padding: 0.5rem !important;
     background-color: rgba(0, 255, 234, 0.1) !important;
@@ -399,7 +372,7 @@
     color: #00ffea !important;
     text-decoration: none !important;
     padding: 0.5rem !important;
-    background-color: rgba(255, 49, 49, 0.3) !important;
+    background-color: rgba(255, 49, 49, 0.5) !important;
     border-radius: 50% !important;
     box-shadow: 0px 4px 15px rgba(255, 49, 49, 5) !important;
     z-index: 3 !important;
@@ -413,6 +386,17 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.3); /* Adjust opacity for darkness */
     z-index: -1;
+}
+
+.joey-card h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ffea;
+    text-shadow: 3px 3px 15px rgba(255, 49, 49, 0.8), 0 0 20px rgba(255, 49, 49, 1);
+    text-transform: uppercase;
+    z-index: 3;
+    position: relative;
+    margin: 0;
 }
 
 /* --- Adjust the Card Container to Make It Fit the Content --- */
