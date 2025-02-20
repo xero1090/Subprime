@@ -51,8 +51,8 @@
     {
       name: "Omar Tahir",
       role: "Fullstack Developer",
-      bio: "",
-      url: "",
+      bio: "Several years of experience working on large scale SAAS products — Passionate about bringing new ideas to life — Someday, he'd like to own a farm",
+      url: "https://www.linkedin.com/in/omar-tahir-478488178",
       customClass: "omar-card",
     }
   ];
