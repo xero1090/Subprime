@@ -8,10 +8,10 @@ import { TextPlugin } from "gsap/TextPlugin";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import SmokeEffect from "./components/SmokeEffect/SmokeEffect";
-import logo from "./assets/Black Logo Trans.png";
-import BLogo from "./assets/Blitz Revised Logo-new.png";
-import ULogo from "./assets/2You-new2.png";
-import lendwire from "./assets/P2P-new.png"
+import logo from "./assets/Black Logo.png";
+import BLogo from "./assets/Blitz Revised Logo.png";
+import ULogo from "./assets/2You.png";
+import lendwire from "./assets/P2P.png"
 import ReCAPTCHA from "react-google-recaptcha";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

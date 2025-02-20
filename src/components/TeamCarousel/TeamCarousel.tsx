@@ -48,6 +48,13 @@
       url: "https://www.linkedin.com/in/architmisra/",
       customClass: "archit-card",  // Unique class for Archit
     },
+    {
+      name: "Omar Tahir",
+      role: "Fullstack Developer",
+      bio: "",
+      url: "",
+      customClass: "omar-card",
+    }
   ];
 
   const settings = {
