@@ -98,7 +98,7 @@ const CustomCursor = () => {
     document.addEventListener("contextmenu", handleContextMenu);
     document.addEventListener("click", restoreCursor);
     //document.addEventListener("contextmenu", disableRightClickCursor);
-    document.querySelectorAll("a, button, [data-hover], .page_indicator__container, form ").forEach((el) => {
+    document.querySelectorAll("a, button, [data-hover], .team-card, .page_indicator__container, form ").forEach((el) => {
       el.addEventListener("mouseenter", handleHover);
       el.addEventListener("mouseleave", handleHoverOut);
     });
@@ -109,7 +109,7 @@ const CustomCursor = () => {
       document.removeEventListener("contextmenu", handleContextMenu);
       document.removeEventListener("click", restoreCursor);
       //document.removeEventListener("contextmenu", disableRightClickCursor);
-      document.querySelectorAll("a, button, [data-hover], .page_indicator__container, form").forEach((el) => {
+      document.querySelectorAll("a, button, [data-hover], .team-card, .page_indicator__container, form").forEach((el) => {
         el.removeEventListener("mouseenter", handleHover);
         el.removeEventListener("mouseleave", handleHoverOut);
       });

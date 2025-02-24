@@ -41,7 +41,7 @@ const teamMembers = [
   },
   {
     name: "Omar Tahir",
-    role: "Fullstack Developer",
+    role: "Full-stack Developer",
     bio: "Several years of experience working on large scale SAAS products — Passionate about bringing new ideas to life — Someday, he'd like to own a farm",
     url: "https://www.linkedin.com/in/omar-tahir-478488178",
     customClass: "omar-card",
@@ -49,30 +49,36 @@ const teamMembers = [
 ];
 
 const TeamGrid = () => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
-  const toggleExpand = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
+  const toggleFlip = (index: number) => {
+    setFlippedIndex(flippedIndex === index ? null : index);
   };
 
   return (
     <div className="team-grid">
       {teamMembers.map((member, index) => (
-        <div
-          key={member.name}
-          className={`team-card ${expandedIndex === index ? "expanded" : ""}`}
-          onClick={() => toggleExpand(index)}
+        <div 
+          key={member.name} 
+          className={`team-card ${flippedIndex === index ? "flipped" : ""}`} 
+          onClick={() => toggleFlip(index)}
+          data-hover
         >
-          <h3 className="team-name">{member.name}</h3>
-          <p className="team-role">{member.role}</p>
-          {expandedIndex === index && (
-            <div className="team-details">
-              <p className="team-bio">{member.bio}</p>
+          <div className="team-card-inner">
+            {/* Front of the card */}
+            <div className="team-card-front">
+              <h3 className="team-name">{member.name}</h3>
+              <p className="team-role">{member.role}</p>
               <a href={member.url} target="_blank" rel="noopener noreferrer" className="linkedin-link">
                 <FaLinkedin />
               </a>
             </div>
-          )}
+
+            {/* Back of the card */}
+            <div className="team-card-back">
+              <p className="team-bio">{member.bio}</p>
+            </div>
+          </div>
         </div>
       ))}
     </div>
