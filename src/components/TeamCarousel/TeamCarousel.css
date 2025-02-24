@@ -45,14 +45,69 @@
 }
 
 .team-card-front {
-  background: #2d3748;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures separation */
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden; /* Ensures clean division */
+}
+
+.flip-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #fff; /* White for contrast */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-card-back .flip-icon {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.team-card.flipped .flip-icon {
+  transform: rotate(180deg); /* Rotate the icon when card is flipped */
+}
+
+.team-info {
+  flex-grow: 1; /* Pushes LinkedIn button down */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.separator {
+  width: 110%;
+  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white line */
+  margin: 10px 0;
 }
 
 .team-card-back {
   background: #1a202c;
   color: #e2e8f0;
   transform: rotateY(180deg);
+}
+.team-header {
+  width: 100%;
+  height: 50%; /* Takes half of the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .team-name {
@@ -63,22 +118,35 @@
 
 .team-role {
   font-style: italic;
-  color: #cbd5e0;
+  color: #f0f0f0;
   margin-bottom: 4px;
 }
+
+.team-footer {
+  width: 100%;
+  height: 50%; /* Takes the bottom half */
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  background: #1a202c; /* Dark background for contrast */
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
 
 .linkedin-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem; /* Larger */
+  font-size: 1.8rem;
   color: #0a66c2;
   background: white;
   border-radius: 50%;
-  width: 50px; /* Adjusted */
+  width: 50px;
   height: 50px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  margin-top: 6px;
+  margin-top: auto; /* Keeps it near the bottom */
+  margin-bottom: 1rem;
 }
 
 .team-bio {

@@ -1,6 +1,19 @@
 import { useState } from "react";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaSyncAlt } from "react-icons/fa";
 import "./TeamCarousel.css";
+
+const colors = [
+  "#FF6B6B", // Vibrant Red
+  "#4D96FF", // Cool Blue
+  "#a009ed", // Deep Purple
+  "#6BCB77", // Soft Green
+  "#36C5F0", // Bold Pink
+  "#FF6AC1", // Cyan Blue
+  "#F4A261", // Warm Orange
+  "#A29BFE", // Soft Lavender
+  "#2EC4B6", // Teal Green
+  "#D72638", // Deep Red
+];
 
 const teamMembers = [
   {
@@ -67,15 +80,31 @@ const TeamGrid = () => {
           <div className="team-card-inner">
             {/* Front of the card */}
             <div className="team-card-front">
-              <h3 className="team-name">{member.name}</h3>
-              <p className="team-role">{member.role}</p>
-              <a href={member.url} target="_blank" rel="noopener noreferrer" className="linkedin-link">
-                <FaLinkedin />
-              </a>
+              <div
+                className="team-header"
+                style={{ background: colors[index % colors.length] }} // Assign unique colors
+              >
+                <h3 className="team-name">{member.name}</h3>
+                <p className="team-role">{member.role}</p>
+              </div>
+              <div className="flip-icon">
+                <FaSyncAlt />
+              </div>
+              <div className="team-footer">
+                <a href={member.url} target="_blank" rel="noopener noreferrer" className="linkedin-link">
+                  <FaLinkedin 
+                  style={{ color: colors[index % colors.length] }}
+                   />
+                </a>
+              </div>
             </div>
+
 
             {/* Back of the card */}
             <div className="team-card-back">
+              <div className="flip-icon">
+                  <FaSyncAlt />
+              </div>
               <p className="team-bio">{member.bio}</p>
             </div>
           </div>
