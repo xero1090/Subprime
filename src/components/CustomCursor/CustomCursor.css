@@ -55,7 +55,6 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glow effect */
     transition: transform 0.05s ease, width 0.1s ease, height 0.1s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     border: 4px solid rgba(150, 210, 230, 1);
-
   }
   
   a:hover, button:hover, [data-hover]:hover {

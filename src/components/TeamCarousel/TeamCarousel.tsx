@@ -1,10 +1,8 @@
-  import { useState } from "react";
-  import Slider from "react-slick";
-  import "slick-carousel/slick/slick.css";
-  import "slick-carousel/slick/slick-theme.css";
-  import { FaLinkedin } from "react-icons/fa";
-  import "./TeamCarousel.css";
+import { useState } from "react";
+import { FaLinkedin, FaSyncAlt } from "react-icons/fa";
+import "./TeamCarousel.css";
 
+<<<<<<< HEAD
   const teamMembers = [
     {
       name: "Shawn-Marc Melo",
@@ -56,114 +54,118 @@
       customClass: "omar-card",
     }
   ];
+=======
+const colors = [
+  "#FF6B6B", // Vibrant Red
+  "#4D96FF", // Cool Blue
+  "#a009ed", // Deep Purple
+  "#6BCB77", // Soft Green
+  "#36C5F0", // Bold Pink
+  "#FF6AC1", // Cyan Blue
+  "#F4A261", // Warm Orange
+  "#A29BFE", // Soft Lavender
+  "#2EC4B6", // Teal Green
+  "#D72638", // Deep Red
+];
+>>>>>>> Corpo_cards
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 250,
-    slidesToShow: 3,  // Keep only 3 visible
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 6000,
-    centerPadding: "0px", // Adjusted for alignment without showing extra cards
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2, centerPadding: "50px" } },
-      { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: "20px" } },
-    ],
+const teamMembers = [
+  {
+    name: "Shawn-Marc Melo",
+    role: "Founder & CEO",
+    bio: "Shawn-Marc, Founder & CEO of Subprime Financial Technology Ltd. and Lendwire Inc., is a seasoned mortgage expert with over $250 million in personally funded deals.",
+    url: "https://www.linkedin.com/in/smarcmelo/",
+  },
+  {
+    name: "Gursahib Preet Singh",
+    role: "Senior Web Developer",
+    bio: "Gursahib Singh, Senior Web Developer at Subprime Financial Technology Ltd., Bright Brokers, and Blitz, is a driving force behind innovative digital solutions.",
+    url: "https://ca.linkedin.com/in/gursahib-preet-singh-66a11a168",
+  },
+  {
+    name: "Ofir David",
+    role: "Full-Stack Developer",
+    bio: "With a Bachelor’s in Computer Science from Sheridan College, Ofir David brings exceptional technical expertise to Subprime Financial Ltd., driving its FinTech product development.",
+    url: "https://www.linkedin.com/in/ofir-d/",
+  },
+  {
+    name: "Joey Chan",
+    role: "UI/UX Developer",
+    bio: "Joey Chan specializes in designing and developing sleek, modern, and user-friendly interfaces for Lendwire's applications.",
+    url: "https://www.linkedin.com/in/joeychancpa/",
+  },
+  {
+    name: "Kevin Tran",
+    role: "UI/UX Developer",
+    bio: "A passionate UI/UX Developer with a background in Computer Science, Kevin specializes in crafting unique, visually captivating websites.",
+    url: "https://ca.linkedin.com/in/kevintran1090",
+  },
+  {
+    name: "Archit Misra",
+    role: "Senior Marketing Manager",
+    bio: "A results-driven marketing professional with an MBA in Marketing, specializing in digital strategy, brand management, and social media growth.",
+    url: "https://www.linkedin.com/in/architmisra/",
+  },
+  {
+    name: "Omar Tahir",
+    role: "Full-stack Developer",
+    bio: "Several years of experience working on large scale SAAS products — Passionate about bringing new ideas to life — Someday, he'd like to own a farm",
+    url: "https://www.linkedin.com/in/omar-tahir-478488178",
+    customClass: "omar-card",
+  }
+];
+
+const TeamGrid = () => {
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+
+  const toggleFlip = (index: number) => {
+    setFlippedIndex(flippedIndex === index ? null : index);
   };
-  
 
-  const TeamCarousel = () => {
-    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
-    const toggleExpand = (index: number) => {
-      setExpandedIndex(expandedIndex === index ? null : index);
-    };
-
-    return (
-      <div style={{ width: "85%", margin: "auto", padding: "0rem 0" }}>
-        <Slider {...settings} >
-          {teamMembers.map((member, index) => (
-            <div key={member.name}>
+  return (
+    <div className="team-grid">
+      {teamMembers.map((member, index) => (
+        <div 
+          key={member.name} 
+          className={`team-card ${flippedIndex === index ? "flipped" : ""}`} 
+          onClick={() => toggleFlip(index)}
+          data-hover
+        >
+          <div className="team-card-inner">
+            {/* Front of the card */}
+            <div className="team-card-front">
               <div
-                data-hover
-                onClick={() => toggleExpand(index)}
-                className={member.customClass}
-                style={{
-                  //backgroundColor: expandedIndex === index ? "#4A5568" : "#2D3748",
-                  color: "white",
-                  padding: "2rem",
-                  borderRadius: "15px",
-                  boxShadow: "0px 3px 5px rgba(0,0,0,0.3)",
-                  cursor: "pointer",
-                  textAlign: "center",
-                  transition: "all 0.3s ease",
-                  minHeight: expandedIndex === index ? "300px" : "200px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  gap: "0rem",
-                 }}
+                className="team-header"
+                style={{ background: colors[index % colors.length] }} // Assign unique colors
               >
-                <div>
-                  <h3
-                    style={{
-                      marginBottom: "0.5rem",
-                      fontSize: "1.5rem",
-                      fontWeight: "bold",
-                      color: "#FFFFFF",
-                    }}
-                  >
-                    {member.name}
-                  </h3>
-                  <p style={{ fontStyle: "italic", color: "#CBD5E0", marginBottom: "1rem" }}>
-                    {member.role}
-                  </p>
-
-                  {expandedIndex === index && (
-                    <p
-                      style={{
-                        fontSize: "1rem",
-                        lineHeight: "1.6",
-                        color: "#E2E8F0",
-                        marginTop: "1rem",
-                      }}
-                    >
-                      {member.bio}
-                    </p>
-                  )}
-                </div>
-
-                <a
-                  href={member.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.5rem",
-                    color: "#0A66C2",
-                    textDecoration: "none",
-                    padding: "0.3rem",
-                    backgroundColor: "white",
-                    borderRadius: "50%",
-                    boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
-                    marginTop: "1rem",
-                    width: "40px",
-                    height: "40px",
-                  }}
-                >
-                  <FaLinkedin />
+                <h3 className="team-name">{member.name}</h3>
+                <p className="team-role">{member.role}</p>
+              </div>
+              <div className="flip-icon">
+                <FaSyncAlt />
+              </div>
+              <div className="team-footer">
+                <a href={member.url} target="_blank" rel="noopener noreferrer" className="linkedin-link">
+                  <FaLinkedin 
+                  style={{ color: colors[index % colors.length] }}
+                   />
                 </a>
               </div>
             </div>
-          ))}
-        </Slider>
-      </div>
-    );
-  };
-
-  export default TeamCarousel;
 
 
+            {/* Back of the card */}
+            <div className="team-card-back">
+              <div className="flip-icon">
+                  <FaSyncAlt />
+              </div>
+              <p className="team-bio">{member.bio}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default TeamGrid;
