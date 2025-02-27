@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-.ofir-card {
-    font-family: 'Cinzel', serif; /* Ancient runic-style font */
-    background: url(/src/assets/winter.jpg) no-repeat center center/cover;
-    color: #B0E0E6; /* Pale ice-blue text */
-    border: 3px solid rgba(173, 216, 230, 0.6); /* Frosty border */
-    padding: 2rem;
-    position: relative;
-    box-shadow: 0px 0px 20px rgba(173, 216, 230, 0.7); /* Icy glow */
-    border-radius: 10px;
-    overflow: hidden;
-    transition: all 0.4s ease-in-out;
-    filter: blur(0px);
-=======
 .team-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(300px, 1fr)); /* Increased width */
@@ -20,7 +6,6 @@
   max-width: 1280px; /* Ensure full container width */
   margin: auto;
   justify-content: center;
->>>>>>> Corpo_cards
 }
 
 .team-card {
@@ -40,37 +25,6 @@
   transition: transform 0.6s ease-in-out;
 }
 
-<<<<<<< HEAD
-.ofir-card::after {
-    content: "";
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: absolute;
-    bottom: 15px;
-    left: 50%; /* Horizontally center */
-    transform: translateX(-50%); /* Adjust for exact centering */
-    background: linear-gradient(90deg, #ffffff, #aaa, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Cinzel', serif; /* Example runic-style font, replace with any runic font you prefer */
-}
-
-.ofir-card a {
-    font-size: 1.5rem !important;
-    color: #87CEFA !important; /* Light icy blue for the text */
-    text-decoration: none !important;
-    padding: 0.5rem !important;
-    background-color: rgba(25, 25, 112, 0.5) !important; /* Dark navy blue */
-    border-radius: 50% !important;
-    box-shadow: 0px 4px 15px rgba(25, 25, 112, 0.1) !important;
-    z-index: 3 !important;
-    position: absolute !important;  
-    right: 12px;
-    top: 12px;
-    transition: all 0.3s ease-in-out;
-=======
 .team-card.flipped .team-card-inner {
   transform: rotateY(180deg);
 }
@@ -88,7 +42,6 @@
   border-radius: 12px;
   padding: 0.5rem; /* Keep padding minimal */
   text-align: center;
->>>>>>> Corpo_cards
 }
 
 .team-card-front {
@@ -102,39 +55,6 @@
   overflow: hidden; /* Ensures clean division */
 }
 
-<<<<<<< HEAD
-.kevin-card {
-    font-family: 'Orbitron', sans-serif;
-    background: url(/src/assets/retro1.jpg);
-    border: 3px solid #00ffea; /* Neon cyan border */
-    padding: 1rem;
-    position: relative;
-    box-shadow: 0px 8px 25px rgba(0, 255, 234, 0.6); /* Cyan glow */
-    border-radius: 15px;
-    overflow: hidden;
-    height: auto;
-    min-height: 210px;
-    width: 400px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    filter: blur(0px);
-}
-
-/* --- Moving Digital Streaks Effect --- */
-.kevin-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 150%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(0, 255, 234, 0) 0%, rgba(0, 255, 234, 0.3) 50%, rgba(0, 255, 234, 0) 100%);
-    animation: lightStreaks 6s linear infinite;
-    filter: blur(5px); /* Apply blur only to the background */
-=======
 .flip-icon {
   position: absolute;
   top: 10px;
@@ -152,28 +72,12 @@
   font-size: 1.5rem;
   color: #fff;
   cursor: pointer;
->>>>>>> Corpo_cards
 }
 
 .team-card.flipped .flip-icon {
   transform: rotate(180deg); /* Rotate the icon when card is flipped */
 }
 
-<<<<<<< HEAD
-/* --- Glowing LinkedIn Icon --- */
-.kevin-card a {
-    font-size: 1.5rem !important;
-    color: #00ffea !important;
-    text-decoration: none !important;
-    padding: 0.5rem !important;
-    background-color: rgba(0, 255, 234, 0.1) !important;
-    border-radius: 50% !important;
-    box-shadow: 0px 4px 15px rgba(0, 255, 234, 0.8) !important;
-    z-index: 3 !important;
-    position: absolute !important;  
-    right: 12px;
-    top: 12px;
-=======
 .team-info {
   flex-grow: 1; /* Pushes LinkedIn button down */
   display: flex;
@@ -204,7 +108,6 @@
   text-align: center;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
->>>>>>> Corpo_cards
 }
 
 .team-name {
@@ -213,29 +116,10 @@
   margin-bottom: 4px;
 }
 
-<<<<<<< HEAD
-.shawn-marc-card {
-    font-family: 'Poppins', sans-serif;
-    background: url(/src/assets/future1.jpg);
-    border: 3px solid #fb5385; /* Thin gold accent */
-    padding: 1.2rem;
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    width: 380px;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-=======
 .team-role {
   font-style: italic;
   color: #f0f0f0;
   margin-bottom: 4px;
->>>>>>> Corpo_cards
 }
 
 .team-footer {
@@ -249,55 +133,6 @@
   border-bottom-right-radius: 12px;
 }
 
-<<<<<<< HEAD
-/* --- Refined Icon Style --- */
-.shawn-marc-card a {
-    font-size: 1.3rem;
-    color: #0b485c !important;
-    text-decoration: none;
-    padding: 0.5rem;
-    background-color: #fb5385 !important;
-    border-radius: 50%;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    position: absolute;
-    right: 12px;
-    top: 12px;
-}
-/*.shawn-marc-card a {
-    font-size: 1.5rem !important;
-    color: gold !important;
-    text-decoration: none !important;
-    padding: 0.5rem !important;
-    background-color: rgba(0, 255, 234, 0.1) !important;
-    border-radius: 50% !important;
-    box-shadow: 0px 4px 15px rgba(0255, 215, 0, 0.6) !important;
-    z-index: 3 !important;
-    position: absolute !important;  
-    right: 10px !important;
-}*/
-.shawn-marc-card a:hover {
-    background-color: rgba(255, 215, 0, 0.3);
-    transform: scale(1.1);
-}
-  /* --- archit's Card --- */
-.archit-card {
-    font-family: 'Bebas Neue', sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 30%, #1e1e1e 70%);
-    border: 3px solid rgba(255, 0, 102, 0.4);
-    box-shadow: 0px 15px 40px rgba(255, 255, 255, 0.15);
-    text-align: center;
-    padding: 2rem;
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-    width: 420px;
-    min-height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-=======
 
 .linkedin-link {
   display: flex;
@@ -312,7 +147,6 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: auto; /* Keeps it near the bottom */
   margin-bottom: 1rem;
->>>>>>> Corpo_cards
 }
 
 .team-bio {
@@ -330,204 +164,6 @@
   }
 }
 
-<<<<<<< HEAD
-/* --- Glowing LinkedIn Icon --- */
-.archit-card a {
-    font-size: 1.5rem !important;
-    color: rgba(255, 0, 102, 0.8) !important;
-    text-decoration: none !important;
-    padding: 0.5rem !important;
-    background-color: rgba(0, 255, 234, 0.01) !important;
-    border-radius: 50% !important;
-    box-shadow: 0px 4px 15px rgba(255, 0, 102, 0.4) !important;
-    z-index: 3 !important;
-    position: absolute !important;  
-    right: 12px;
-    top: 12px;}
-
-/* --- Chrome 3D Text Effect --- */
-.archit-card h3 {
-    font-size: 3rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    background: linear-gradient(90deg, #ffffff, #ccc, #ffffff, #aaa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0px 2px 8px rgba(255, 255, 255, 0.2);
-    position: relative;
-    z-index: 2;
-}
-
-/* --- Luxury Tagline --- */
-.archit-card::after {
-    content: "Luxury";
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: absolute;
-    bottom: 15px;
-    background: linear-gradient(90deg, #ffffff, #aaa, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: architGlow 3s infinite alternate;
-}
-
-@keyframes architGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* --- Gursahib's Billiards-Inspired Card --- */
-.gursahib-card {
-    font-family: 'Bebas Neue', sans-serif;
-    background: radial-gradient(circle, #145a32 30%, #0d3d1e 70%); /* Green felt effect */
-    border: 3px solid #5B2F13; /* Gold cue stick-inspired border */
-    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    padding: 2rem;
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-    width: 420px;
-    min-height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* --- Glowing Neon Edges --- */
-.gursahib-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #5B2F13;
-}
-
-.gursahib-card a {
-    font-size: 1.5rem !important;
-    color: white !important;
-    text-decoration: none !important;
-    padding: 0.5rem !important;
-    background-color: black !important;
-    border-radius: 50% !important;
-    box-shadow: 0px 4px 15px #145a32 30% !important;
-    z-index: 3 !important;
-    position: absolute !important;  
-    right: 12px;
-    top: 12px;}
-
-/* --- Cue Ball Effect at Bottom --- */
-.gursahib-card::after {
-    content: "8-BALL Pro";
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: absolute;
-    bottom: 15px;
-    background: linear-gradient(90deg, #ffffff, #aaa, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: sahibGlow 3s infinite alternate;
-}
-
-@keyframes sahibGlow {
-    0% { opacity: 0.6; }
-    100% { opacity: 1; }
-}
-
-.joey-card {
-    background: url(/src/assets/neon.png) center/cover no-repeat;
-    filter: blur(0px);
-    border: 3px solid rgba(255, 49, 49, 0.9); /* Gold cue stick-inspired border */
-  }
-
-.joey-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: inherit;
-    filter: blur(3px);
-    z-index: -1;
-}
-
-.joey-card a {
-    font-size: 1.5rem !important;
-    color: #00ffea !important;
-    text-decoration: none !important;
-    padding: 0.5rem !important;
-    background-color: rgba(255, 49, 49, 0.5) !important;
-    border-radius: 50% !important;
-    box-shadow: 0px 4px 15px rgba(255, 49, 49, 5) !important;
-    z-index: 3 !important;
-    position: absolute !important;  
-    right: 12px;
-    top: 12px;}
-
-.joey-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3); /* Adjust opacity for darkness */
-    z-index: -1;
-}
-
-.joey-card h3 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #00ffea;
-    text-shadow: 3px 3px 15px rgba(255, 49, 49, 0.8), 0 0 20px rgba(255, 49, 49, 1);
-    text-transform: uppercase;
-    z-index: 3;
-    position: relative;
-    margin: 0;
-}
-
-/* --- Adjust the Card Container to Make It Fit the Content --- */
-.card-container {
-    display: flex !important;
-    justify-content: center !important; /* Space out the cards */
-    flex-wrap: wrap !important; /* Allow wrapping if needed */
-    gap: 0px !important; /* Add space between cards */
-}
-
-
-/* --- Other Cards (For Example, the Ofir Card) --- */
-.ofir-card, .shawn-marc-card, .gursahib-card, .archit-card, .joey-card, .kevin-card {
-    font-family: 'Orbitron', sans-serif;
-    /*background-color: #1F1F1F;
-    border: 2px solid #00FF00; */
-    padding: 1rem;
-    position: relative;
-    box-shadow: 0px 6px 20px rgba(0, 255, 0, 0.7);
-    border-radius: 15px;
-    transition: transform 0.3s ease-in-out;
-    height: auto; /* Let the height adjust to fit content */
-    width: auto;
-    max-width: 450px !important;
-    min-height: 210px; /* Ensure minimum height */
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    margin-right: 20px;
-    overflow: hidden !important;
-}
-
-.team-slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 1400px; /* Adjust if necessary */
-    margin: 0 auto;
-    position: relative;
-=======
 @media (max-width: 1000px) {
   .team-grid {
       grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 2 per row */
@@ -542,7 +178,6 @@
   .team-card {
       max-width: 100%;
       height: 210px;
->>>>>>> Corpo_cards
   }
 }
 
