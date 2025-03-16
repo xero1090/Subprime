@@ -12,7 +12,7 @@ import logo from "./assets/Black Logo.png";
 import BLogo from "./assets/Blitz Revised Logo.png";
 import ULogo from "./assets/2You.png";
 import lendwire from "./assets/P2P.png"
-import deepidv from "./assets/DeepIDV2.svg"
+import deepidv from "./assets/DeepIDV.png"
 import ReCAPTCHA from "react-google-recaptcha";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -117,12 +117,14 @@ function App() {
     <>
     <CustomCursor />
     <AnimatedBackground />    
+    
     <main
       id="app"
       className={`scrollbar-section-${currentPage}`}
       style={{
         height: "100vh",
         overflowY: "scroll",
+        overflowX: "hidden",
         scrollSnapType: "y mandatory",
       }}
       onScroll={handleScroll}
@@ -173,8 +175,10 @@ function App() {
           </div>
           
           <div
+          className="our-stack"
             style={{
               display: "flex",
+              flexWrap: "wrap",
               gap: "2rem",
               alignItems: "center",
               justifyContent: "center",
@@ -225,15 +229,19 @@ function App() {
         </div>
 
         <div
+          className="cards"
           style={{
             display: "flex",
             justifyContent: "center", // Center the carousel horizontally
             alignItems: "center", // Center the carousel vertically if necessary
             width: "100%", // Ensure full width
             height: "auto", // Let the carousel take its height naturally
+            overflow: "hidden"
           }}
         >
-          <TeamCarousel />
+          <div className="carousel-wrapper">
+            <TeamCarousel />
+          </div>
         </div>
       </div>
 

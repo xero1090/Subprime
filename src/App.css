@@ -140,3 +140,87 @@ h1, h2, p {
   will-change: transform, opacity;
   transform: translateZ(0);
 }
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  gap: 10px; /* Adds spacing between items */
+}
+
+.carousel-wrapper {
+  width: 100%;
+  max-width: 1500px; /* Adjust based on your layout */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .cards {
+    flex-wrap: nowrap; /* Prevent wrapping on desktop */
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Center align text and reduce header size */
+  .header {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .carousel-wrapper {
+    max-width: 80%;
+  }
+
+  .carousel-item {
+    flex: 0 0 auto; /* Prevent items from squishing */
+    width: 80%; /* Adjust size for mobile */
+    scroll-snap-align: start; /* Align smoothly */
+  }
+  
+  .cards {
+    flex-direction: row; /* Keep in a row */
+    overflow-x: auto; /* Allow horizontal scroll */
+    scroll-snap-type: x mandatory; /* Smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cards::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for a cleaner look */
+  }
+
+  /* Adjust layout for responsiveness */
+  main {
+    overflow-y: auto;
+  }
+
+  /* Stack elements in "Our Stack" section */
+  .our-stack {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  /* Adjust logo sizes */
+  .our-stack img {
+    max-width: 120px;
+    height: auto;
+  }
+
+  /* Make buttons more touch-friendly */
+  button {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  /* Ensure input fields fit smaller screens */
+  input {
+    width: 90%;
+    font-size: 1rem;
+  }
+}
