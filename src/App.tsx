@@ -31,7 +31,6 @@ function App() {
   const footerRef = useRef(null);
   const currentPageRef = useRef<number>(0);
 
-  
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef  } from "react";
 import { FaLinkedin, FaSyncAlt } from "react-icons/fa";
 import "./TeamCarousel.css";
 
@@ -27,7 +27,7 @@ const teamMembers = [
     url: "https://www.linkedin.com/in/smarcmelo/",
   },
   {
-    name: "Gursahib Preet Singh",
+    name: "Gursahib P. Singh",
     role: "Senior Web Developer",
     bio: "Gursahib Singh, Senior Web Developer at Subprime Financial Technology Ltd., Bright Brokers, and Blitz, is a driving force behind innovative digital solutions.",
     url: "https://ca.linkedin.com/in/gursahib-preet-singh-66a11a168",
@@ -67,13 +67,25 @@ const teamMembers = [
 
 const TeamGrid = () => {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (gridRef.current) {
+      setTimeout(() => {
+        gridRef.current?.scrollTo({
+          left: 0,
+          behavior: "smooth", // Ensures smooth scrolling
+        });
+      }, 100); // Small delay to ensure it applies after render
+    }
+  }, []);
 
   const toggleFlip = (index: number) => {
     setFlippedIndex(flippedIndex === index ? null : index);
   };
 
   return (
-    <div className="team-grid">
+    <div className="team-grid" ref={gridRef}>
       {teamMembers.map((member, index) => (
         <div 
           key={member.name} 
@@ -82,11 +94,10 @@ const TeamGrid = () => {
           data-hover
         >
           <div className="team-card-inner">
-            {/* Front of the card */}
             <div className="team-card-front">
               <div
                 className="team-header"
-                style={{ background: colors[index % colors.length] }} // Assign unique colors
+                style={{ background: colors[index % colors.length] }}
               >
                 <h3 className="team-name">{member.name}</h3>
                 <p className="team-role">{member.role}</p>
@@ -102,9 +113,6 @@ const TeamGrid = () => {
                 </a>
               </div>
             </div>
-
-
-            {/* Back of the card */}
             <div className="team-card-back">
               <div className="flip-icon">
                   <FaSyncAlt />

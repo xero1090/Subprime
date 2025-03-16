@@ -183,10 +183,10 @@ h1, h2, p {
   }
   
   .cards {
-    flex-direction: row; /* Keep in a row */
-    overflow-x: auto; /* Allow horizontal scroll */
-    scroll-snap-type: x mandatory; /* Smooth scrolling */
-    -webkit-overflow-scrolling: touch;
+    flex-direction: column; /* Stack cards vertically */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    height: auto; /* Ensure all cards fit */
+    max-height: none; /* Remove height restriction */
   }
 
   .cards::-webkit-scrollbar {
