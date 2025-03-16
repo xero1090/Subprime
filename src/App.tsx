@@ -12,6 +12,7 @@ import logo from "./assets/Black Logo.png";
 import BLogo from "./assets/Blitz Revised Logo.png";
 import ULogo from "./assets/2You.png";
 import lendwire from "./assets/P2P.png"
+import deepidv from "./assets/DeepIDV2.svg"
 import ReCAPTCHA from "react-google-recaptcha";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -189,6 +190,9 @@ function App() {
               href="https://lendwire.com/" target="_blank" 
             >
               <img src={lendwire} alt="Lendwire Logo"/>
+            </a>
+            <a href="">
+              <img src={deepidv} alt="DeepIDV Logo"/>
             </a>
           </div>
         </div>

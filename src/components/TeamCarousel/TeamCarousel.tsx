@@ -3,16 +3,14 @@ import { FaLinkedin, FaSyncAlt } from "react-icons/fa";
 import "./TeamCarousel.css";
 
 const colors = [
+  "#D72638", // Deep Red
   "#FF6B6B", // Vibrant Red
   "#4D96FF", // Cool Blue
   "#a009ed", // Deep Purple
   "#6BCB77", // Soft Green
-  "#36C5F0", // Bold Pink
-  "#FF6AC1", // Cyan Blue
+  "#36C5F0", // Cyan Blue
+  "#FF6AC1", // Bold Pink
   "#F4A261", // Warm Orange
-  "#A29BFE", // Soft Lavender
-  "#2EC4B6", // Teal Green
-  "#D72638", // Deep Red
 ];
 
 const teamMembers = [
@@ -20,6 +18,12 @@ const teamMembers = [
     name: "Shawn-Marc Melo",
     role: "Founder & CEO",
     bio: "Shawn-Marc, Founder & CEO of Subprime Financial Technology Ltd. and Lendwire Inc., is a seasoned mortgage expert with over $250 million in personally funded deals.",
+    url: "https://www.linkedin.com/in/smarcmelo/",
+  },
+  {
+    name: "Chris Alemao",
+    role: "CTO",
+    bio: "Chris Alemao, CTO of Subprime Financial Technology Ltd., is a seasoned lead expert with over several projects successfully launched.",
     url: "https://www.linkedin.com/in/smarcmelo/",
   },
   {
