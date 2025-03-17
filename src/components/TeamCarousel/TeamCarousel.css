@@ -171,14 +171,18 @@
 }
 
 @media (max-width: 768px) {
-  .team-grid {
-    /*display: flex;*/
-    grid-template-columns: repeat(1, 1fr); /* 1 per row */
-    overflow-y: auto; /* Enable horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Smooth scrolling between cards */
-    -webkit-overflow-scrolling: touch; /* Improve mobile scrolling */
-    padding: 1rem; /* Prevent content from touching edges */
+  .team-section {
+    display: block;
+    height: 100vh;
+    overflow-y: auto; /* Enables vertical scrolling */
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
 
+  .team-grid {
+    display: block;
+    width: 100%;
+    padding-bottom: 2rem; /* Spacing at bottom */
   }
 
   .team-grid::-webkit-scrollbar {
@@ -186,13 +190,10 @@
   }
 
   .team-card {
-    flex: 0 0 80%; /* Each card takes 80% of the screen width */
-    scroll-snap-align: center; /* Snap alignment */
-    background: #222;
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto 1.5rem; /* Center cards */
+    scroll-snap-align: start;
   }
 }
 

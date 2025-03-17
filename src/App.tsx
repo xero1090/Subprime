@@ -200,7 +200,7 @@ function App() {
           </div>
         </div>
 
-        {/* CREATE SECTION */}
+        {/* CREATE SECTION 
       <div
         ref={createRef}
         style={{
@@ -226,7 +226,7 @@ function App() {
         >
           Our Team
         </div>
-
+           This is a correct comment inside JSX 
         <div
           className="cards"
           style={{
@@ -242,7 +242,7 @@ function App() {
             <TeamCarousel />
           </div>
         </div>
-      </div>
+      </div>*/}
 
 
         {/* INNOVATE SECTION */}
@@ -473,7 +473,7 @@ function App() {
       </div>
 
         {/* PAGE INDICATOR */}
-        <PageIndicator currentPage={currentPageRef.current} totalPages={5} />
+        <PageIndicator currentPage={currentPageRef.current} totalPages={4} />
       </main>
     </>
   );
