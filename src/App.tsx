@@ -16,7 +16,7 @@ import deepidv from "./assets/DeepIDV.png"
 import ReCAPTCHA from "react-google-recaptcha";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import TeamCarousel from "./components/TeamCarousel/TeamCarousel"; 
+//import TeamCarousel from "./components/TeamCarousel/TeamCarousel"; 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
@@ -26,7 +26,7 @@ function App() {
 
   // Refs
   const discoverRef = useRef(null);
-  const createRef = useRef(null); // Reference for the Create section
+  //const createRef = useRef(null); // Reference for the Create section
   const innovateRef = useRef(null);
   const footerRef = useRef(null);
   const currentPageRef = useRef<number>(0);
