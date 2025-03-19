@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useRef, useEffect} from "react";
-//import { useSpring, animated } from "react-spring";
 import "./App.css";
 import PageIndicator from "./components/PageIndicator/PageIndicator";
 import { gsap } from "gsap";
@@ -16,7 +16,7 @@ import deepidv from "./assets/DeepIDV.png"
 import ReCAPTCHA from "react-google-recaptcha";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-//import TeamCarousel from "./components/TeamCarousel/TeamCarousel"; 
+import ResponsiveCards from "./components/ResponsiveCards/ResponsiveCards";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
@@ -26,7 +26,7 @@ function App() {
 
   // Refs
   const discoverRef = useRef(null);
-  //const createRef = useRef(null); // Reference for the Create section
+  const createRef = useRef(null); // Reference for the Create section
   const innovateRef = useRef(null);
   const footerRef = useRef(null);
   const currentPageRef = useRef<number>(0);
@@ -143,9 +143,9 @@ function App() {
       >
         <SmokeEffect />
         <div>
-        <img src={logo} alt="Subprime Logo"/>
+          <img src={logo} alt="Subprime Logo" className="w-auto h-auto sm:max-w-[80%] mx-auto" />
+        </div>
       </div>
-    </div>
 
         {/* DISCOVER SECTION */}
         <div
@@ -200,7 +200,7 @@ function App() {
           </div>
         </div>
 
-        {/* CREATE SECTION 
+        {/* CREATE SECTION */}
       <div
         ref={createRef}
         style={{
@@ -226,7 +226,6 @@ function App() {
         >
           Our Team
         </div>
-           This is a correct comment inside JSX 
         <div
           className="cards"
           style={{
@@ -239,10 +238,10 @@ function App() {
           }}
         >
           <div className="carousel-wrapper">
-            <TeamCarousel />
+            <ResponsiveCards />
           </div>
         </div>
-      </div>*/}
+      </div>
 
 
         {/* INNOVATE SECTION */}
@@ -473,7 +472,7 @@ function App() {
       </div>
 
         {/* PAGE INDICATOR */}
-        <PageIndicator currentPage={currentPageRef.current} totalPages={4} />
+        <PageIndicator currentPage={currentPageRef.current} totalPages={5} />
       </main>
     </>
   );

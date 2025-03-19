@@ -2,7 +2,7 @@ import { useState, useEffect, useRef  } from "react";
 import { FaLinkedin, FaSyncAlt } from "react-icons/fa";
 import "./TeamCarousel.css";
 
-const colors = [
+export const colors = [
   "#D72638", // Deep Red
   "#FF6B6B", // Vibrant Red
   "#4D96FF", // Cool Blue
@@ -13,7 +13,7 @@ const colors = [
   "#F4A261", // Warm Orange
 ];
 
-const teamMembers = [
+export const teamMembers = [
   {
     name: "Shawn-Marc Melo",
     role: "Founder & CEO",
