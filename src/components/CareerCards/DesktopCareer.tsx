@@ -1,6 +1,6 @@
 import { FaArrowRight } from "react-icons/fa";
 import "../TeamCarousel/TeamCarousel.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const careers = [
   {
@@ -28,7 +28,8 @@ const careers = [
 
 const colors = ["#FF5733", "#33A1FF", "#28A745", "#D72638"]; // Example colors
 
-const TeamCard = () => {
+const DesktopCareer = () => {
+const navigate = useNavigate();
   return (
     <div className="career-grid">
       {careers.map((career, index) => (
@@ -44,9 +45,9 @@ const TeamCard = () => {
             </div>
           </div>
           <div className="career-footer">
-            <a href="#" className="arrow-link">
-              <FaArrowRight style={{ color: colors[index % colors.length] }} />
-            </a>
+          <a className="arrow-link" onClick={() => navigate("/careers")}>
+            <FaArrowRight style={{ color: colors[index % colors.length] }} />
+          </a>
           </div>
         </div>
       ))}
@@ -54,4 +55,4 @@ const TeamCard = () => {
   );
 };
 
-export default TeamCard;
+export default DesktopCareer;
