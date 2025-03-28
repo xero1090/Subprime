@@ -17,6 +17,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ResponsiveCards from "./components/ResponsiveCards/ResponsiveCards";
+import DesktopCareer from "./components/CareerCards/DesktopCareer";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
@@ -29,6 +30,7 @@ function App() {
   const createRef = useRef(null); // Reference for the Create section
   const innovateRef = useRef(null);
   const footerRef = useRef(null);
+  const careerRef = useRef(null);
   const currentPageRef = useRef<number>(0);
 
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
@@ -200,7 +202,7 @@ function App() {
           </div>
         </div>
 
-        {/* CREATE SECTION */}
+      {/* CREATE SECTION */}
       <div
         ref={createRef}
         style={{
@@ -243,6 +245,49 @@ function App() {
         </div>
       </div>
 
+
+      {/* CAREER SECTION */}
+      <div
+        ref={careerRef}
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#333333",
+          scrollSnapAlign: "start",
+          padding: "2rem 0",
+        }}
+      >
+        <div
+          className="header"
+          style={{
+            fontSize: "3rem",
+            color: "white",
+            zIndex: 2,
+            textAlign: "center", // Ensure the header text is centered
+            marginBottom: "2rem", // Space between the header and the carousel
+          }}
+        >
+          Careers
+        </div>
+        <div
+          className="cards"
+          style={{
+            display: "flex",
+            justifyContent: "center", // Center the carousel horizontally
+            alignItems: "center", // Center the carousel vertically if necessary
+            width: "100%", // Ensure full width
+            height: "auto", // Let the carousel take its height naturally
+            overflow: "hidden"
+          }}
+        >
+          <div className="carousel-wrapper">
+            <DesktopCareer />
+          </div>
+        </div>
+      </div>
 
         {/* INNOVATE SECTION */}
         <div
@@ -472,7 +517,7 @@ function App() {
       </div>
 
         {/* PAGE INDICATOR */}
-        <PageIndicator currentPage={currentPageRef.current} totalPages={5} />
+        <PageIndicator currentPage={currentPageRef.current} totalPages={6} />
       </main>
     </>
   );
