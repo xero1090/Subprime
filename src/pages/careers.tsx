@@ -14,7 +14,7 @@ const handleScroll = (e: any) => {
   
     if (currentPageRef.current !== newPage) {
       currentPageRef.current = newPage;
-      setCurrentPage(newPage); // Debounced update
+      setCurrentPage(newPage);
     }
   };
   return (
