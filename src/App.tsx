@@ -446,7 +446,7 @@ function App() {
 
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey="6Ld6NNsqAAAAAIpwlqtIW6OYBVYwTWefCLTnILXL"
+            sitekey="6LdtzwIrAAAAAMccueLhdfiWn6nwi2d2UTDq18uJ"
             onChange={handleRecaptchaChange}
           />
 
