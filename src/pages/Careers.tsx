@@ -1,5 +1,4 @@
 import './Careers.css';
-import SmokeEffect from '../components/SmokeEffect/SmokeEffect';  // Import the SmokeEffect component
 import PageIndicator from "../components/PageIndicator/PageIndicator";
 import {useRef, useState} from "react";
 import { Link } from 'react-router-dom';
@@ -7,15 +6,6 @@ import { Link } from 'react-router-dom';
 const Careers = () => {
 const [currentPage, setCurrentPage] = useState(0);
 const currentPageRef = useRef<number>(0);
-const RunningText = () => {
-  return (
-    <div className="running-text-container">
-      <div className="running-text">
-        🚀 Join our team and make an impact! | We are hiring top talent! | Apply now and grow with us! 🚀
-      </div>
-    </div>
-  );
-};
 
 const handleScroll = (e: any) => {
     const scrollTop = e.target.scrollTop;
