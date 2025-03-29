@@ -300,7 +300,7 @@ function Home() {
             alignItems: "center", // Center the carousel vertically if necessary
             width: "100%", // Ensure full width
             height: "auto", // Let the carousel take its height naturally
-            overflow: "hidden"
+            overflow: "hidden",
           }}
         >
           <div className="carousel-wrapper">
@@ -318,7 +318,7 @@ function Home() {
             flexDirection: "column", // Stack elements vertically
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "#4d4d4d",
+            background: 'linear-gradient(to right,rgb(8, 89, 177),rgb(10, 85, 165))',
             scrollSnapAlign: "start",
           }}
         >

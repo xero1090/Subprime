@@ -7,6 +7,16 @@ import { Link } from 'react-router-dom';
 const Careers = () => {
 const [currentPage, setCurrentPage] = useState(0);
 const currentPageRef = useRef<number>(0);
+const RunningText = () => {
+  return (
+    <div className="running-text-container">
+      <div className="running-text">
+        🚀 Join our team and make an impact! | We are hiring top talent! | Apply now and grow with us! 🚀
+      </div>
+    </div>
+  );
+};
+
 const handleScroll = (e: any) => {
     const scrollTop = e.target.scrollTop;
     const newPage = Math.round(scrollTop / window.innerHeight);
@@ -40,35 +50,47 @@ const handleScroll = (e: any) => {
           position: 'relative',
         }}
       >
-        <SmokeEffect/>
-        <div className="hero-overlay">
-          <div className="hero-content">
-            <h1 className="hero-title">Join Our Team at <span style={{color: `rgba(173, 216, 230,1)`}}>SUBPRIME</span></h1>
-            <p className="hero-subtitle">
-              We're a passionate team working on [Your Industry]. Explore our job openings and join us on this journey.
-            </p>
-            <button className="cta-button">See Open Roles</button>
-          </div>
+      {/* Running Text Box */}
+      <div className="running-text-box">
+        <div className="running-text">
+          Welcome to SUBPRIME - Innovating Finance for the Future 🚀 | Join Our Team Today! 🌟 | Empowering Careers in FinTech 💡
         </div>
-        <Link
-            to="/"
-            style={{
-              position: 'absolute',
-              top: '20px',
-              right: '20px',
-              backgroundColor: "#50cffa",
-              color: 'white',
-              padding: '10px 20px',
-              borderRadius: '5px',
-              fontSize: '16px',
-              textDecoration: 'none',
-              fontWeight: 'bold',
-              transition: 'background 0.3s ease',
-            }}
-          >
-            Home
-        </Link>
-      </section>
+      </div>
+    
+      {/* Hero Content Box */}
+      <div className="hero-box">
+        <h1 className="hero-title">Join Our Team!</h1>
+        <p className="hero-subtitle">
+          We're a passionate team working on creating innovative technologies to enhance products and services in the financial industry.
+        </p>
+        <p className="hero-subtitle">
+          Explore our job openings and join us on this journey.
+        </p>
+        <div style={{display: 'flex'}}>
+          <button className="cta-button">Apply Now</button>
+          <button className="cta-button">See Open Roles</button>
+        </div>
+      </div>
+    
+      <Link
+        to="/"
+        style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          backgroundColor: "#50cffa",
+          color: 'white',
+          padding: '10px 20px',
+          borderRadius: '5px',
+          fontSize: '16px',
+          textDecoration: 'none',
+          fontWeight: 'bold',
+          transition: 'background 0.3s ease',
+        }}
+      >
+        Home
+      </Link>
+    </section>
     
     {/* WHY MAKE FINTECH BETTER FOR ALL */}
     <section
@@ -85,88 +107,235 @@ const handleScroll = (e: any) => {
         textAlign: 'center',
     }}
     >
-    <div className="fintech-info" style={{
-        maxWidth: '900px', // Prevents text from stretching too wide on larger screens
-        width: '100%',
-        padding: '20px',
-    }}>
-        <h2 style={{
-        fontSize: '5rem', // Large font for the heading
-        fontWeight: 'bold',
-        lineHeight: '1.2',
-        textTransform: 'uppercase',
-        letterSpacing: '2px',
-        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', // Adds depth to the text
-        marginBottom: '20px',
-        wordBreak: 'break-word', // Prevents text from overflowing
-        color: 'white',
-        marginTop: '0', // Remove unnecessary top margin
-        }}>
-        Make Fintech Better for All
-        </h2>
-        <p style={{
-        fontSize: '1.5rem', // Larger font size for the paragraph
-        lineHeight: '1.8',
-        letterSpacing: '0.5px',
-        color: '#ddd', // Slightly lighter color for readability
-        margin: '0 auto',
-        maxWidth: '700px', // Limit width for readability on large screens
-        }}>
-        We believe that financial technology should be accessible, transparent, and effective for everyone. Our mission is to create solutions that bridge the gap, empowering individuals and businesses globally.
-        </p>
-    </div>
+    <div className="gradient-window">  
+      <div className="fintech-info" style={{
+          maxWidth: '900px', // Prevents text from stretching too wide on larger screens
+          width: '100%',
+          padding: '20px',
+      }}>
+          <h2 style={{
+          fontSize: '5rem', // Large font for the heading
+          fontWeight: 'bold',
+          lineHeight: '1.2',
+          textTransform: 'uppercase',
+          letterSpacing: '2px',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', // Adds depth to the text
+          marginBottom: '20px',
+          wordBreak: 'break-word', // Prevents text from overflowing
+          color: 'Black',
+          marginTop: '0', // Remove unnecessary top margin
+          }}>
+          <span>Make</span>
+          <span>Fintech</span>
+          <span>Better</span>
+          <span>for</span>
+          <span>All.</span>
+          </h2>
+        </div>
+      </div>
     </section>
 
 
       {/* COMPANY OVERVIEW */}
-    <section
-    className="company-overview"
-    style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#1a1a1a',
-        color: 'white',
-        scrollSnapAlign: 'start',
-        padding: '20px', // Adds space around the content
-        textAlign: 'center',
-    }}
-    >
-    <div className="company-info" style={{
-        maxWidth: '900px', // Prevents text from stretching too wide on larger screens
-        width: '100%',
-        padding: '20px',
-    }}>
-        <h2 style={{
-        fontSize: '5rem', // Large font for the heading
-        fontWeight: 'bold',
-        lineHeight: '1.2',
-        textTransform: 'uppercase',
-        letterSpacing: '2px',
-        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', // Adds depth to the text
-        marginBottom: '20px',
-        wordBreak: 'break-word', // Prevents text from overflowing
-        color: 'white',
-        marginTop: '0', // Remove unnecessary top margin
-        }}>
-        Why Work With Us?
-        </h2>
-        <p style={{
-        fontSize: '1.5rem', // Larger font size for the paragraph
-        lineHeight: '1.8',
-        letterSpacing: '0.5px',
-        color: '#ddd', // Slightly lighter color for readability
-        margin: '0 auto',
-        maxWidth: '700px', // Limit width for readability on large screens
-        }}>
-        At <span style={{ color: 'rgba(173, 216, 230, 1)' }}>SUBPRIME</span>, we focus on fostering a dynamic and innovative work environment where every team member thrives. [Insert your company’s mission statement and values here].
-        </p>
-    </div>
-    </section>
+      <section
+          className="company-overview"
+          style={{
+              height: '100vh',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#1a1a1a',
+              color: 'white',
+              scrollSnapAlign: 'start',
+              padding: '20px',
+              textAlign: 'center',
+          }}
+        >
+            <div className="company-info" style={{
+                maxWidth: '900px',
+                width: '100%',
+                padding: '20px',
+            }}>
+                {/* Smaller "What we do" header */}
+                <h3 style={{
+                    fontSize: '2rem', // Smaller header size
+                    fontWeight: 'bold',
+                    color: '#50cffa', // Color to make it stand out
+                    marginBottom: '10px', // Space between the headers    
+                    textAlign: "left",
+                }}>
+                    What We Do
+                </h3>
+                
+                {/* Main Fintech header */}
+                <h2 style={{
+                    fontSize: '3rem', // Reduced font size
+                    fontWeight: 'bold',
+                    lineHeight: '1.2',
+                    textTransform: 'uppercase',
+                    letterSpacing: '2px',
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
+                    marginBottom: '20px',
+                    wordBreak: 'break-word',
+                    color: 'white',
+                    marginTop: '0',
+                }}>
+                    Innovative Solutions in Fintech
+                </h2>
+                
+                {/* Paragraph Text */}
+                <p style={{
+                    fontSize: '1.2rem', // Smaller font size
+                    lineHeight: '1.8',
+                    letterSpacing: '0.5px',
+                    color: '#ddd', // Light color for readability
+                    margin: '0',
+                    maxWidth: '700px', // Prevents text from stretching too wide
+                }}>
+                    We are dedicated to bridging the gap in financial technology, creating solutions that empower businesses and individuals alike. Our goal is to provide accessible and effective financial tools for everyone.
+                </p>
+                {/* Paragraph Text */}
+                <p style={{
+                    fontSize: '1.2rem', // Smaller font size
+                    lineHeight: '1.8',
+                    letterSpacing: '0.5px',
+                    color: '#ddd', // Light color for readability
+                    marginTop: 'auto',
+                    maxWidth: '700px', // Prevents text from stretching too wide
+                }}>
+                  We believe that financial technology should be accessible, transparent, and effective for everyone. Our mission is to create solutions that bridge the gap, empowering individuals and businesses globally.
+                </p>
+            </div>
+        </section>
+
+        {/* CALL TO ACTION */}
+        <section
+          className="cta-section"
+          style={{
+            height: '100vh', // Full viewport height
+            display: 'flex',
+            flexDirection: 'column', // Stacks the sections vertically
+            scrollSnapAlign: 'start',
+            justifyContent: 'center', // Centers content vertically
+            alignItems: 'center', // Centers content horizontally
+          }}
+        >
+          {/* Upper Half (Black Background) */}
+          <div style={{
+            backgroundColor: 'black',
+            color: 'white',
+            width: '90%', // Full width of the container
+            height: '50%', // Takes up the top half of the section
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            textAlign: 'left',
+            padding: '40px',
+          }}>
+            {/* Smaller Header Above Main Header */}
+            <h3 style={{
+              fontSize: '1.5rem',
+              color: '#888',
+              marginBottom: '10px',
+            }}>
+              Where we hire
+            </h3>
+
+            {/* Two Columns */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%',
+            }}>
+              {/* Left Column (Header) */}
+              <div style={{
+                flex: '1', // Ensures the header takes up its own space
+                paddingRight: '20px', // Space between columns
+              }}>
+                <h2 style={{
+                  fontSize: '2.5rem',
+                  marginBottom: '20px',
+                }}>
+                  Empowering Fintech Innovation
+                </h2>
+              </div>
+
+              {/* Right Column (Text Paragraph) */}
+              <div style={{
+                flex: '2', // Takes up more space than the header
+              }}>
+                <p style={{
+                  fontSize: '1.2rem',
+                  lineHeight: '1.8',
+                  letterSpacing: '0.5px',
+                }}>
+                  We are driving change in the financial industry through innovative technologies and transformative solutions that enhance the fintech ecosystem.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Lower Half (White Background) */}
+          <div style={{
+            backgroundColor: 'white',
+            color: 'black',
+            width: '90%', // Full width of the container
+            height: '50%', // Takes up the bottom half of the section
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            textAlign: 'left',
+            padding: '40px',
+          }}>
+            {/* Smaller Header Above Main Header */}
+            <h3 style={{
+              fontSize: '1.5rem',
+              color: '#888',
+              marginBottom: '10px',
+            }}>
+              Who we hire
+            </h3>
+
+            {/* Two Columns */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%',
+            }}>
+              {/* Left Column (Header) */}
+              <div style={{
+                flex: '1', // Ensures the header takes up its own space
+                paddingRight: '20px', // Space between columns
+              }}>
+                <h4 style={{
+                  fontSize: '2.5rem',
+                  marginBottom: '20px',
+                }}>
+                  Empowering Individuals & Businesses
+                </h4>
+              </div>
+
+              {/* Right Column (Text Paragraph) */}
+              <div style={{
+                flex: '2', // Takes up more space than the header
+              }}>
+                <p style={{
+                  fontSize: '1.2rem',
+                  lineHeight: '1.8',
+                  letterSpacing: '0.5px',
+                }}>
+                  We believe in accessible, transparent, and effective financial technology that bridges gaps and empowers individuals and businesses to thrive.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
 
-      {/* JOB LISTINGS */}
+
+        {/* JOB LISTINGS */}
         <section
         className="job-listings"
         style={{
@@ -280,86 +449,7 @@ const handleScroll = (e: any) => {
             {/* Add more job items if needed */}
         </div>
         </section>
-
-        {/* CALL TO ACTION */}
-        <section
-        className="cta-section"
-        style={{
-            height: '100vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            background: 'linear-gradient(to right, #007bff, #0056b3)',
-            scrollSnapAlign: 'start',
-            padding: '50px 20px',
-            textAlign: 'center',
-        }}
-        >
-        <div>
-            <h2 className="cta-title" style={{
-            fontSize: '3rem',
-            color: 'white',
-            marginBottom: '30px',
-            }}>
-            Ready to Make an Impact?
-            </h2>
-            <button className="cta-button" style={{
-            padding: '12px 30px',
-            fontSize: '1.2rem',
-            color: 'white',
-            backgroundColor: '#0056b3',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s ease',
-            }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#003f7f'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0056b3'}>
-            Join Our Team
-            </button>
-        </div>
-        </section>
-
-        {/* FOOTER */}
-        <footer
-        className="footer"
-        style={{
-            height: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#262626',
-            scrollSnapAlign: 'start',
-            padding: '50px 20px',
-            textAlign: 'center',
-        }}
-        >
-        <p style={{ color: '#ccc', fontSize: '1.2rem', marginBottom: '20px' }}>
-            Have questions? Contact us at{' '}
-            <a href="mailto:careers@yourcompany.com" style={{ color: '#007bff', textDecoration: 'none' }}>
-            careers@yourcompany.com
-            </a>
-        </p>
-        <div className="social-links" style={{ display: 'flex', gap: '20px' }}>
-            <a href="https://www.linkedin.com/company/yourcompany" style={{
-            color: '#ccc',
-            fontSize: '1.2rem',
-            textDecoration: 'none',
-            transition: 'color 0.3s ease',
-            }} onMouseEnter={(e) => e.currentTarget.style.color = '#007bff'} onMouseLeave={(e) => e.currentTarget.style.color = '#ccc'}>
-            LinkedIn
-            </a>
-            <a href="https://twitter.com/yourcompany" style={{
-            color: '#ccc',
-            fontSize: '1.2rem',
-            textDecoration: 'none',
-            transition: 'color 0.3s ease',
-            }} onMouseEnter={(e) => e.currentTarget.style.color = '#007bff'} onMouseLeave={(e) => e.currentTarget.style.color = '#ccc'}>
-            Twitter
-            </a>
-            {/* Add more social links as necessary */}
-        </div>
-        </footer>
-      <PageIndicator currentPage={currentPageRef.current} totalPages={6} />
+      <PageIndicator currentPage={currentPageRef.current} totalPages={5} />
     </div>
   );
 };

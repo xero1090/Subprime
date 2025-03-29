@@ -11,20 +11,40 @@
     text-align: center;
     padding: 100px 20px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
   }
   
   .hero-title {
     font-size: 3rem;
     font-weight: bold;
+    text-align: left;
+
   }
   
   .hero-subtitle {
     font-size: 1.5rem;
     margin-top: 10px;
+    text-align: left;
+  }
+
+  .hero-box {
+    width: 60%; /* Adjust width as needed */
+    border: 2px solid white; /* White border */
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1; /* Ensures it's on top of background */
   }
   
   .cta-button {
-    background-color: #007bff;
+    background-color: #50cffa;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -32,6 +52,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     margin-top: 20px;
+    margin-right: 20px;
   }
   
   .cta-button:hover {
@@ -42,17 +63,21 @@
   .company-overview {
     padding: 60px 20px;
     background-color: #f9f9f9;
-    text-align: center;
+    text-align: left;
   }
   
   .company-info h2 {
     font-size: 2rem;
     margin-bottom: 10px;
+    text-align: left;
+
   }
   
   .company-info p {
     font-size: 1rem;
     line-height: 1.5;
+    text-align: left;
+
   }
   
   /* Job Listings */
@@ -109,7 +134,7 @@
   /* CTA Section */
   .cta-section {
     padding: 60px 20px;
-    background-color: #007bff;
+    background-color: #262626;
     color: white;
     text-align: center;
   }
@@ -141,10 +166,109 @@
   color: white;
 }
 
-.fintech-info{
-    font-size:xx-large;
+.fintech-info {
+  max-width: 700px;
+  width: 100%;
+  padding: 20px;
+  text-align: left; /* Align text to the left */
 }
 
-.cta-button{
-    background-color: #50cffa;
+/* Heading */
+.fintech-info h2 {
+  font-size: 5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  word-break: break-word;
+  color: white;
+  margin-top: 0;
 }
+
+.fintech-info h2 span {
+  display: block; /* Makes each span block-level, forcing a new line */
+  margin-bottom: 10px; /* Optional: Adjust spacing between words */
+}
+
+/* Paragraph */
+.fintech-info p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  color: #ddd;
+  max-width: 700px;
+}
+
+.fintech-mission {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #232323;
+  color: white;
+  scroll-snap-align: start;
+  padding: 20px;
+  position: relative;
+}
+
+.gradient-window {
+  width: 80%;
+  max-width: 900px;
+  height: 70%;  /* Adjust the height as needed */
+  background: linear-gradient(90deg,rgb(124, 221, 235) 0%, rgb(181, 238, 130) 80%);
+  /*border: 2px solid white;*/
+  border-radius: 15px;
+  position: relative;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.gradient-window-background {
+  width: 300px; /* Adjust the size of the circle */
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.6) 80%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Running Text Box */
+.running-text-box {
+  width: 58.7%; /* Full width */
+  overflow: hidden;
+  position: absolute;
+  top: 28.8%; /* Adjusts positioning slightly above the hero content */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  border: 2px solid white; /* White border */
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+}
+
+.running-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+

@@ -26,7 +26,7 @@ const careers = [
   },
 ];
 
-const colors = ["#FF5733", "#33A1FF", "#28A745", "#D72638"]; // Example colors
+const colors = ["#FF5733", "#33A1FF", "#28A745", "#D72638"]; 
 
 const DesktopCareer = () => {
 const navigate = useNavigate();
