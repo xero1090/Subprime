@@ -40,25 +40,28 @@ const handleScroll = (e: any) => {
           position: 'relative',
         }}
       >
-      {/* Running Text Box */}
-      <div className="running-text-box">
-        <div className="running-text">
-          Welcome to SUBPRIME - Innovating Finance for the Future 🚀 | Join Our Team Today! 🌟 | Empowering Careers in FinTech 💡
+      {/* Combined Hero Container */}
+      <div className="hero-container">
+        {/* Running Text Box */}
+        <div className="running-text-box">
+          <div className="running-text">
+            Innovating Finance for the Future 🚀 | Join Our Team Today! 🌟 | Empowering Careers in FinTech 💡
+          </div>
         </div>
-      </div>
-    
-      {/* Hero Content Box */}
-      <div className="hero-box">
-        <h1 className="hero-title">Join Our Team!</h1>
-        <p className="hero-subtitle">
-          We're a passionate team working on creating innovative technologies to enhance products and services in the financial industry.
-        </p>
-        <p className="hero-subtitle">
-          Explore our job openings and join us on this journey.
-        </p>
-        <div style={{display: 'flex'}}>
-          <button className="cta-button">Apply Now</button>
-          <button className="cta-button">See Open Roles</button>
+
+        {/* Hero Content Box */}
+        <div className="hero-box">
+          <h1 className="hero-title">Join Our Team!</h1>
+          <p className="hero-subtitle">
+            We're a passionate team working on creating innovative technologies to enhance products and services in the financial industry.
+          </p>
+          <p className="hero-subtitle">
+            Explore our job openings and join us on this journey.
+          </p>
+          <div className="button-container">
+            <button className="cta-button">Apply Now</button>
+            <button className="cta-button">See Open Roles</button>
+          </div>
         </div>
       </div>
     

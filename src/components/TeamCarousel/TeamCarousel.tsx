@@ -11,6 +11,9 @@ export const colors = [
   "#36C5F0", // Cyan Blue
   "#FF6AC1", // Bold Pink
   "#F4A261", // Warm Orange
+  "#4c4c75", // Dark Navy (Adds depth)
+  "#FFC857", // Bright Yellow (Contrast & Energy)
+  "#8E44AD", // Rich Purple (Complements Deep Purple)
 ];
 
 export const teamMembers = [
@@ -61,7 +64,24 @@ export const teamMembers = [
     role: "Full-Stack Developer",
     bio: "Several years of experience working on large scale SAAS products — Passionate about bringing new ideas to life — Someday, he'd like to own a farm",
     url: "https://www.linkedin.com/in/omar-tahir-478488178",
-    customClass: "omar-card",
+  },
+  {
+    name: "Luka Piplica",
+    role: "Full-Stack Developer",
+    bio: "With a background in full-stack development, Luka is ready to take subprimed to the next level",
+    url: "https://www.linkedin.com/in/luka-piplica-1b5028185/",
+  },
+  {
+    name: "Zian Zhou",
+    role: "Full-Stack Developer",
+    bio: "With a background in full-stack development, Zian is ready to make a large splash in the fintech world",
+    url: "https://www.linkedin.com/in/zian-zhou/",
+  },
+  {
+    name: "Shawthan Kanagasababathy",
+    role: "UI/UX Developer",
+    bio: "With a background in front-end development, Shawthan Kanagasababathy utilizes his unique and creative ideas, translating them into practical and effective websites.",
+    url: "https://www.linkedin.com/in/shawthan/",
   }
 ];
 

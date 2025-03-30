@@ -3,167 +3,196 @@
     font-family: Arial, sans-serif;
     color: #333;
   }
-  
-  /* Hero Section */
-  .hero-section {
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    padding: 100px 20px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    scroll-snap-align: start;
-    position: relative;
-  }
-  
-  .hero-title {
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: left;
 
-  }
-  
-  .hero-subtitle {
-    font-size: 1.5rem;
-    margin-top: 10px;
-    text-align: left;
-  }
+/* Hero Section */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+}
 
-  .hero-box {
-    width: 60%; /* Adjust width as needed */
-    border: 2px solid white; /* White border */
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    text-align: center;
-    color: white;
-    position: relative;
-    z-index: 1; /* Ensures it's on top of background */
-  }
+/* Combined Hero Container */
+.hero-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;
+  border: 2px solid white;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  overflow: hidden;
+}
+
+/* Running Text Box */
+.running-text-box {
+  width: 100%; /* Match hero-box width */
+  padding: 10px 0;
+  background: rgba(255, 255, 255, 0.2); /* Light semi-transparent background */
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid white; /* Divider effect */
+}
+
+.running-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Hero Content Box */
+.hero-box {
+  width: 100%;
+  padding: 30px;
+  text-align: left;
+  color: white;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.cta-button {
+  background-color: #50cffa;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start; /* Align buttons to the left */
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px;
+}
   
-  .cta-button {
-    background-color: #50cffa;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-right: 20px;
-  }
-  
-  .cta-button:hover {
+.cta-button:hover {
     background-color: #0056b3;
-  }
+}
   
-  /* Company Overview */
-  .company-overview {
+/* Company Overview */
+.company-overview {
     padding: 60px 20px;
     background-color: #f9f9f9;
     text-align: left;
-  }
+}
   
-  .company-info h2 {
+.company-info h2 {
     font-size: 2rem;
     margin-bottom: 10px;
     text-align: left;
 
-  }
+}
   
-  .company-info p {
+.company-info p {
     font-size: 1rem;
     line-height: 1.5;
     text-align: left;
 
-  }
+}
   
-  /* Job Listings */
-  .job-listings {
+/* Job Listings */
+.job-listings {
     padding: 60px 20px;
     background-color: #fff;
-  }
+}
   
-  .job-listings .section-title {
+.job-listings .section-title {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 30px;
-  }
+}
   
-  .job-list {
+.job-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     justify-items: center;
-  }
+}
   
-  .job-item {
+.job-item {
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     width: 100%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  .job-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
+.job-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
   
-  .job-item p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-  
-  .apply-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .apply-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* CTA Section */
-  .cta-section {
-    padding: 60px 20px;
-    background-color: #262626;
-    color: white;
-    text-align: center;
-  }
-  
-  .cta-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  /* Footer */
-  .footer {
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    text-align: center;
-  }
-  
-  .footer a {
-    color: #007bff;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  .footer a:hover {
-    text-decoration: underline;
-  }
-  
-  .company-info {
+.job-item p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.apply-button {
+  background-color: #007bff;
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.apply-button:hover {
+  background-color: #0056b3;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 60px 20px;
+  background-color: #262626;
+  color: white;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.company-info {
+color: white;
 }
 
 .fintech-info {
@@ -238,37 +267,5 @@
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: 0;
-}
-
-/* Running Text Box */
-.running-text-box {
-  width: 58.7%; /* Full width */
-  overflow: hidden;
-  position: absolute;
-  top: 28.8%; /* Adjusts positioning slightly above the hero content */
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  border: 2px solid white; /* White border */
-  padding: 10px 0;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-}
-
-.running-text {
-  display: inline-block;
-  white-space: nowrap;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ffffff;
-  animation: marquee 10s linear infinite;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
 }
 
