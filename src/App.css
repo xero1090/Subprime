@@ -177,7 +177,7 @@ h1, h2, p {
   }
 
   .carousel-item {
-    flex: 0 0 auto; /* Prevent items from squishing */
+    flex: 0 0 auto; 
     width: 80%; /* Adjust size for mobile */
     scroll-snap-align: start; /* Align smoothly */
   }
