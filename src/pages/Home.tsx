@@ -17,7 +17,6 @@ import ReCAPTCHA from "react-google-recaptcha";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ResponsiveCards from "../components/ResponsiveCards/ResponsiveCards";
-import DesktopCareer from "../components/CareerCards/DesktopCareer";
 import { Link } from 'react-router-dom';
 import ResponsiveCareer from "../components/CareerCards/ResponsiveCareer";
 gsap.registerPlugin(ScrollTrigger);

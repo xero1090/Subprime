@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import Slider from "react-slick";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
