@@ -179,7 +179,7 @@ function Home() {
             flexDirection: "column", // Stack elements vertically
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "#1a1a1a",
+            backgroundColor: "#0d0d0d",
             scrollSnapAlign: "start",
           }}
         >
@@ -232,7 +232,7 @@ function Home() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#333333",
+          backgroundColor: "#1a1a1a",
           scrollSnapAlign: "start",
           padding: "2rem 0",
         }}
@@ -276,7 +276,7 @@ function Home() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#333333",
+          backgroundColor: "#262626",
           scrollSnapAlign: "start",
           padding: "2rem 0",
         }}
@@ -319,7 +319,7 @@ function Home() {
             flexDirection: "column", // Stack elements vertically
             justifyContent: "center",
             alignItems: "center",
-            background: 'linear-gradient(to right,rgb(8, 89, 177),rgb(10, 85, 165))',
+            backgroundColor: "#333333",
             scrollSnapAlign: "start",
           }}
         >
@@ -399,7 +399,7 @@ function Home() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#262626",
+          background: "linear-gradient(to right,rgb(8, 89, 177),rgb(10, 85, 165))",
           scrollSnapAlign: "start",
           padding: "2rem",
         }}
