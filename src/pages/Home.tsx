@@ -19,6 +19,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ResponsiveCards from "../components/ResponsiveCards/ResponsiveCards";
 import DesktopCareer from "../components/CareerCards/DesktopCareer";
 import { Link } from 'react-router-dom';
+import ResponsiveCareer from "../components/CareerCards/ResponsiveCareer";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
@@ -304,7 +305,7 @@ function Home() {
           }}
         >
           <div className="carousel-wrapper">
-            <DesktopCareer />
+            <ResponsiveCareer />
           </div>
         </div>
       </div>

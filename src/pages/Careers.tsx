@@ -85,7 +85,7 @@ const handleScroll = (e: any) => {
       </Link>
     </section>
     
-    {/* WHY MAKE FINTECH BETTER FOR ALL */}
+    {/* MAKE FINTECH BETTER FOR ALL */}
     <section
     className="fintech-mission"
     style={{
@@ -107,7 +107,7 @@ const handleScroll = (e: any) => {
           padding: '20px',
       }}>
           <h2 style={{
-          fontSize: '5rem', // Large font for the heading
+          fontSize: '4rem', // Large font for the heading
           fontWeight: 'bold',
           lineHeight: '1.2',
           textTransform: 'uppercase',
@@ -362,7 +362,7 @@ const handleScroll = (e: any) => {
             <p style={{ color: '#bbb', marginBottom: '15px' }}>Location: Remote</p>
             <button className="apply-button" style={{
                 padding: '10px 20px',
-                backgroundColor: '#007bff',
+                backgroundColor: '#50cffa',
                 color: 'white',
                 border: 'none',
                 borderRadius: '5px',
@@ -384,7 +384,7 @@ const handleScroll = (e: any) => {
             <p style={{ color: '#bbb', marginBottom: '15px' }}>Location: New York, NY</p>
             <button className="apply-button" style={{
                 padding: '10px 20px',
-                backgroundColor: '#007bff',
+                backgroundColor: '#50cffa',
                 color: 'white',
                 border: 'none',
                 borderRadius: '5px',
@@ -406,7 +406,7 @@ const handleScroll = (e: any) => {
             <p style={{ color: '#bbb', marginBottom: '15px' }}>Location: Whitby, ON</p>
             <button className="apply-button" style={{
                 padding: '10px 20px',
-                backgroundColor: '#007bff',
+                backgroundColor: '#50cffa',
                 color: 'white',
                 border: 'none',
                 borderRadius: '5px',
@@ -428,7 +428,7 @@ const handleScroll = (e: any) => {
             <p style={{ color: '#bbb', marginBottom: '15px' }}>Location: Whitby, ON</p>
             <button className="apply-button" style={{
                 padding: '10px 20px',
-                backgroundColor: '#007bff',
+                backgroundColor: '#50cffa',
                 color: 'white',
                 border: 'none',
                 borderRadius: '5px',

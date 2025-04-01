@@ -78,7 +78,7 @@ export const teamMembers = [
     url: "https://www.linkedin.com/in/zian-zhou/",
   },
   {
-    name: "Shawthan Kanagasababathy",
+    name: "Shawthan Kanagasa...",
     role: "UI/UX Developer",
     bio: "With a background in front-end development, Shawthan Kanagasababathy utilizes his unique and creative ideas, translating them into practical and effective websites.",
     url: "https://www.linkedin.com/in/shawthan/",
