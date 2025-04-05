@@ -1,0 +1,69 @@
+/* careerSection.css */
+
+.career-section {
+    width: 100%;
+    padding: 2rem;
+    background: transparent;
+  }
+  
+  /* Desktop: Use a grid layout */
+  .career-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+  }
+  
+  @media (min-width: 768px) {
+    .career-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Mobile: Horizontal carousel with hidden scrollbar */
+  @media (max-width: 768px) {
+    .career-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 2rem; /* space for dots */
+      
+      /* Hide scrollbar for Firefox */
+      scrollbar-width: none;
+    }
+    /* Hide scrollbar for Chrome, Safari, Opera */
+    .career-grid::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .career-card {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      width: 80%; /* or adjust as needed */
+      max-width: none;
+    }
+  }
+  
+  /* Dot indicator container and styles */
+  .carousel-dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+  }
+  
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  .carousel-dot.active {
+    background-color: #333;
+  }
+  

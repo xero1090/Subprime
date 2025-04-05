@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: bolder;
@@ -115,6 +116,21 @@ h1, h2, p {
 .scrollbar-section-0::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #3c94f1, #75fcfb);
 }
+
+
+.logo-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 90%; /* Default size on larger screens */
+}
+
+/* On mobile devices, reduce the logo size */
+@media only screen and (max-width: 768px) {
+  .logo-image {
+    max-width: 80%;
+  }
+}
+
 
 .scrollbar-section-1::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #ff5733, #ffbd69);

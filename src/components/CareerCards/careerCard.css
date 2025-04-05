@@ -1,0 +1,93 @@
+/* careerCard.css */
+
+.career-card {
+    /* Overall card styling */
+    width: 100%;
+    max-width: 700px;        /* Adjust to desired max width */
+    border-radius: 12px;     /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ddd;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.2s ease;
+  }
+  
+  .career-card:hover {
+    /* Slight hover effect */
+    transform: translateY(-2px);
+  }
+  
+  /* Header with gradient background */
+  .career-card-header {
+    background: linear-gradient(90deg, #9be8df 0%, #cce9f7 100%);
+    padding: 16px;
+  }
+  
+  .career-card-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333;
+  }
+  
+  /* Card body area */
+  .career-card-body {
+    padding: 16px;
+  }
+  
+  .career-card-description {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Roles title */
+  .career-card-roles-title {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  /* Role chips */
+  .career-card-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .career-card-role {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #f0f0f0;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    color: #333;
+  }
+  
+  /* "Explore" button link */
+  .career-card-explore {
+    background: none;
+    border: none;
+    color: #000;      /* Adjust to your preferred color */
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    padding: 0;
+    text-decoration: underline;
+    transition: transform 0.2s;
+  }
+  
+  .career-card-explore span {
+    margin-left: 4px;
+    transition: transform 0.2s;
+  }
+  
+  .career-card-explore:hover span {
+    transform: translateX(3px);
+  }
+  
