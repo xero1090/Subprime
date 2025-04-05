@@ -31,8 +31,8 @@ export const teamMembers = [
   },
   {
     name: "Gursahib P. Singh",
-    role: "Senior Web Developer",
-    bio: "Gursahib Singh, Senior Web Developer at Subprime Financial Technology Ltd., Bright Brokers, and Blitz, is a driving force behind innovative digital solutions.",
+    role: "Web Developer",
+    bio: "Gursahib, Web Developer at Subprime Financial Technology Ltd., Bright Brokers, and Blitz, is a driving force behind innovative digital solutions.",
     url: "https://ca.linkedin.com/in/gursahib-preet-singh-66a11a168",
   },
   {

@@ -5,7 +5,7 @@
   padding: 10px;
   max-width: 1280px; /* Ensure full container width */
   margin: auto;
-  justify-content: center;
+  justify-content: start; /* Changed from center to start */
 }
 
 .career-grid {
@@ -107,9 +107,10 @@
   color: #e2e8f0;
   transform: rotateY(180deg);
 }
+
 .team-header {
   width: 100%;
-  height: 50%; /* Takes half of the card */
+  height: 20%; /* Takes half of the card */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,6 +119,7 @@
   text-align: center;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
+  flex-grow: 1;
 }
 
 .team-name {
@@ -145,10 +147,9 @@
 
 .career-footer {
   width: 100%;
-  height: 50%; /* Takes the bottom half */
+  height: 60%; /* Takes the bottom half */
   display: flex;
-  justify-content: start; /* Centers horizontally */
-  align-items: end; /* Centers vertically */
+  justify-content: start; /* Aligns content at the start horizontally */
   background: #1a202c; /* Dark background for contrast */
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -158,7 +159,6 @@
   margin-left: 8%;
   margin-bottom: 4%;
 }
-
 
 .linkedin-link {
   display: flex;
@@ -238,9 +238,7 @@
     justify-content: space-between;
   }
   
-  .team-header {
-    flex-grow: 1;
-  }
+  
   
   .career-footer {
     height: 20%;
@@ -296,6 +294,7 @@
   display: flex;
   width: 100%;
   transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+  align-items: flex-start; /* Added to align items at the top */
 }
 
 /*.team-grid {
