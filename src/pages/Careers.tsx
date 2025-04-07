@@ -1,11 +1,14 @@
 import "./Careers.css";
 import PageIndicator from "../components/PageIndicator/PageIndicator";
+import CareerSection from "../components/CareerCards/careerSection";
+import Dropdowns from "../components/Dropdown/dropdowns";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Careers = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const currentPageRef = useRef<number>(0);
+  const jobListingsRef = useRef<HTMLDivElement | null>(null);
 
   const handleScroll = (e: any) => {
     const scrollTop = e.target.scrollTop;
@@ -16,9 +19,19 @@ const Careers = () => {
     }
   };
 
+  const scrollToJobListings = () => {
+    jobListingsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div
       className={`careers-page scrollbar-section-${currentPage}`}
+      style={{
+        height: "100vh",
+        overflowY: "scroll",
+        overflowX: "hidden",
+        scrollSnapType: "y mandatory",
+      }}
       onScroll={handleScroll}
     >
       {/* HERO SECTION */}
@@ -29,6 +42,7 @@ const Careers = () => {
               Innovating Finance for the Future 🚀 | Join Our Team Today! 🌟 | Empowering Careers in FinTech 💡
             </div>
           </div>
+
           <div className="hero-box">
             <h1 className="hero-title">Join Our Team!</h1>
             <p className="hero-subtitle">
@@ -39,11 +53,29 @@ const Careers = () => {
             </p>
             <div className="button-container">
               <button className="cta-button">Apply Now</button>
-              <button className="cta-button">See Open Roles</button>
+              <button className="cta-button" onClick={scrollToJobListings}>
+                See Open Roles
+              </button>
             </div>
           </div>
         </div>
-        <Link to="/" className="home-link">
+        <Link
+          to="/"
+          className="home-link"
+          style={{
+            position: "absolute",
+            top: "20px",
+            right: "20px",
+            backgroundColor: "#50cffa",
+            color: "white",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            fontSize: "16px",
+            textDecoration: "none",
+            fontWeight: "bold",
+            transition: "background 0.3s ease",
+          }}
+        >
           Home
         </Link>
       </section>
@@ -53,11 +85,11 @@ const Careers = () => {
         <div className="gradient-window">
           <div className="fintech-info">
             <h2>
-              <span>Make</span>
-              <span>Fintech</span>
-              <span>Better</span>
-              <span>for</span>
-              <span>All.</span>
+              <span>MAKE</span>
+              <span>FINTECH</span>
+              <span>BETTER</span>
+              <span>FOR</span>
+              <span>ALL.</span>
             </h2>
           </div>
         </div>
@@ -80,7 +112,7 @@ const Careers = () => {
       {/* CALL TO ACTION */}
       <section className="cta-section">
         <div className="cta-upper">
-          <h3>Where we hire</h3>
+          <h4>Where we hire</h4>
           <div className="cta-columns">
             <div className="cta-left">
               <h2>Empowering Fintech Innovation</h2>
@@ -93,10 +125,10 @@ const Careers = () => {
           </div>
         </div>
         <div className="cta-lower">
-          <h3>Who we hire</h3>
+          <h4>Who we hire</h4>
           <div className="cta-columns">
             <div className="cta-left">
-              <h4>Empowering Individuals & Businesses</h4>
+              <h2>Empowering Individuals & Businesses</h2>
             </div>
             <div className="cta-right">
               <p>
@@ -108,11 +140,16 @@ const Careers = () => {
       </section>
 
       {/* JOB LISTINGS */}
-      <section className="job-listings">
+      <section className="job-listings" ref={jobListingsRef}>
         <h2 className="section-title">Current Openings</h2>
         <div className="job-list">
           {/* Your job items here */}
         </div>
+
+        <CareerSection />
+
+          <Dropdowns />
+    
       </section>
 
       <PageIndicator currentPage={currentPageRef.current} totalPages={5} />
