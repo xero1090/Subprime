@@ -3,12 +3,10 @@
 export const careerData = [
   {
     title: "Engineering & Data",
-    description: "Build the future of commerce.",
+    description: "Build the future of Finance Industry.",
     roles: [
       "Software Engineering",
       "Applied ML Engineering",
-      "Infrastructure Engineering",
-      "Product Data Science",
     ],
     gradient: "from-gray-700 to-gray-600", // Example hue for card #1
   },
@@ -18,8 +16,6 @@ export const careerData = [
     roles: [
       "Content Design",
       "Industrial Design",
-      "UX Design",
-      "UX Management",
     ],
     gradient: "from-gray-700 to-gray-600", // Example hue for card #2
   },
@@ -35,7 +31,6 @@ export const careerData = [
     roles: [
       "Account Executives",
       "Sales Operations",
-      "Sales Acquisition",
     ],
     gradient: "from-gray-700 to-gray-600",
   },

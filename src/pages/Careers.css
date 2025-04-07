@@ -23,7 +23,7 @@
 }
 
 .hero-container {
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,39 +103,37 @@
 
 /* ------------------ FINTECH MISSION ------------------ */
 .fintech-mission {
-  background-color: #232323;
-  color: white;
-  scroll-snap-align: start;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; 
+  padding-left: 30%;
+  align-items: center;
+  padding: 20px;
+  color: black;
+  scroll-snap-align: start;
 }
 
-.gradient-window {
-  width: 80%;
-  max-width: 900px;
-  height: 70%;
+/* Full background gradient via pseudo-element */
+.fintech-mission::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(90deg, rgb(124, 221, 235) 0%, rgb(181, 238, 130) 80%);
-  border-radius: 15px;
-  padding: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: -1;
+}
+
+.fintech-info {
+  text-align: left;
+  max-width: 600px; 
 }
 
 .fintech-info h2 {
-  font-size: 4rem;
-  font-weight: bold;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
-  word-break: break-word;
-  color: black;
-  margin-top: 0;
+  font-size: 5rem;  /* larger font size on desktop */
 }
 
 .fintech-info h2 span {
@@ -193,7 +191,7 @@
 }
 
 .company-info p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.8;
   letter-spacing: 0.5px;
   color: #ddd;
@@ -260,7 +258,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .section-title {
@@ -357,8 +355,14 @@
 
   /* Fintech Mission: Maintain full-screen height */
   .fintech-mission {
+    background: linear-gradient(90deg, rgb(124, 221, 235) 0%, rgb(181, 238, 130) 80%);
+    color: black;
+    scroll-snap-align: start;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    padding: 90px 10px;
   }
   .gradient-window {
     height: 70%;
