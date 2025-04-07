@@ -223,22 +223,7 @@ function Home() {
                 Q3 2025
               </figcaption>
             </figure>
-            <figure className="flex flex-col items-center text-center">
-              <a href="">
-                <img
-                  src={lendwire}
-                  alt="Lendwire Logo"
-                  height={140}
-                  className="block mx-auto"
-                />
-              </a>
-              <figcaption
-                className="mt-2 text-white"
-                style={{ color: "white" }}
-              >
-                Q3 2026
-              </figcaption>
-            </figure>
+            
             <figure className="flex flex-col items-center text-center">
               <a href="">
                 <img
@@ -253,6 +238,22 @@ function Home() {
                 style={{ color: "white" }}
               >
                 Q3 2025
+              </figcaption>
+            </figure>
+            <figure className="flex flex-col items-center text-center">
+              <a href="">
+                <img
+                  src={lendwire}
+                  alt="Lendwire Logo"
+                  height={140}
+                  className="block mx-auto"
+                />
+              </a>
+              <figcaption
+                className="mt-2 text-white"
+                style={{ color: "white" }}
+              >
+                Q3 2026
               </figcaption>
             </figure>
             <figure className="flex flex-col items-center text-center">

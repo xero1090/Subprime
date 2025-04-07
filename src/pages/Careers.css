@@ -1,57 +1,56 @@
-/* General Styles */
+/* ------------------ General Styles ------------------ */
 .careers-page {
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
+  font-family: Arial, sans-serif;
+  color: #333;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+}
 
-/* Hero Section */
+/* ------------------ HERO SECTION (Desktop) ------------------ */
 .hero-section {
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  padding: 100px 20px;
-  color: white;
+  background: linear-gradient(to bottom, #000000, #1a1a1a);
+  scroll-snap-align: start;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  scroll-snap-align: start;
-  position: relative;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
 }
 
-/* Combined Hero Container */
 .hero-container {
   width: 60%;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
+  flex-direction: column;
   align-items: center;
   border: 2px solid white;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.7);
   overflow: hidden;
+  padding: 20px;
 }
 
-/* Running Text Box */
 .running-text-box {
-  width: 100%; /* Match hero-box width */
+  width: 100%;
   padding: 10px 0;
-  background: rgba(255, 255, 255, 0.2); /* Light semi-transparent background */
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid white;
   text-align: center;
   font-weight: bold;
-  border-bottom: 2px solid white; /* Divider effect */
 }
 
 .running-text {
   font-size: 1.2rem;
-  font-weight: bold;
   color: white;
 }
 
-/* Hero Content Box */
 .hero-box {
   width: 100%;
   padding: 30px;
   text-align: left;
-  color: white;
 }
 
 .hero-title {
@@ -66,6 +65,13 @@
   text-align: left;
 }
 
+.button-container {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
 .cta-button {
   background-color: #50cffa;
   color: white;
@@ -74,74 +80,218 @@
   border-radius: 5px;
   font-size: 1.2rem;
   cursor: pointer;
-
+  transition: background 0.3s ease;
 }
 
-.button-container {
-  display: flex;
-  justify-content: flex-start; /* Align buttons to the left */
-  gap: 15px; /* Space between buttons */
-  margin-top: 20px;
-}
-  
 .cta-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
-  
-/* Company Overview */
+
+.home-link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #50cffa;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+/* ------------------ FINTECH MISSION ------------------ */
+.fintech-mission {
+  background-color: #232323;
+  color: white;
+  scroll-snap-align: start;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.gradient-window {
+  width: 80%;
+  max-width: 900px;
+  height: 70%;
+  background: linear-gradient(90deg, rgb(124, 221, 235) 0%, rgb(181, 238, 130) 80%);
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fintech-info h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  word-break: break-word;
+  color: black;
+  margin-top: 0;
+}
+
+.fintech-info h2 span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.fintech-info p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  color: #ddd;
+  max-width: 700px;
+}
+
+/* ------------------ COMPANY OVERVIEW ------------------ */
 .company-overview {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: left;
+  background-color: #1a1a1a;
+  color: white;
+  scroll-snap-align: start;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
 }
-  
+
+.company-info {
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+}
+
+.company-info h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #50cffa;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
 .company-info h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    text-align: left;
-
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  word-break: break-word;
+  color: white;
+  margin-top: 0;
 }
-  
+
 .company-info p {
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  color: #ddd;
+  max-width: 700px;
+}
 
-}
-  
-/* Job Listings */
-.job-listings {
-    padding: 60px 20px;
-    background-color: #fff;
-}
-  
-.job-listings .section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 30px;
-}
-  
-.job-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-  
-.job-item {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+/* ------------------ CALL TO ACTION ------------------ */
+@media only screen and (max-width: 768px) {
+  .cta-columns {
+    flex-direction: column;
+    align-items: flex-start; /* or center, if you prefer centered text */
+  }
+
+  .cta-left,
+  .cta-right {
     width: 100%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;  /* adds spacing between heading & paragraph */
+    padding-right: 0;     /* remove any right padding */
+  }
 }
-  
+
+
+.cta-section {
+  background-color: #262626;
+  color: white;
+  scroll-snap-align: start;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.cta-upper,
+.cta-lower {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.cta-columns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cta-left {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.cta-right {
+  flex: 2;
+}
+
+/* ------------------ JOB LISTINGS ------------------ */
+.job-listings {
+  background-color: #333333;
+  scroll-snap-align: start;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.section-title {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.job-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .job-item h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
-  
+
 .job-item p {
   font-size: 1rem;
   margin-bottom: 20px;
@@ -154,26 +304,14 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .apply-button:hover {
   background-color: #0056b3;
 }
 
-/* CTA Section */
-.cta-section {
-  padding: 60px 20px;
-  background-color: #262626;
-  color: white;
-  text-align: center;
-}
-
-.cta-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-/* Footer */
+/* ------------------ FOOTER ------------------ */
 .footer {
   padding: 20px;
   background-color: #333;
@@ -191,81 +329,77 @@
   text-decoration: underline;
 }
 
-.company-info {
-color: white;
-}
+/* ------------------ MOBILE OVERRIDES ------------------ */
+@media only screen and (max-width: 768px) {
+  /* Hero Section: Maintain full-screen height but reduce padding and text sizes */
+  .hero-section {
+    height: 100vh; /* Still full-screen */
+    padding: 20px 10px;
+  }
+  .hero-container {
+    width: 95%;
+    padding: 10px;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-box {
+    padding: 20px;
+  }
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 
-.fintech-info {
-  max-width: 700px;
-  width: 100%;
-  padding: 20px;
-  text-align: left; /* Align text to the left */
-}
+  /* Fintech Mission: Maintain full-screen height */
+  .fintech-mission {
+    height: 100vh;
+    padding: 90px 10px;
+  }
+  .gradient-window {
+    height: 70%;
+    padding: 20px;
+  }
+  .fintech-info h2 {
+    font-size: 3rem;
+  }
+  .fintech-info p {
+    font-size: 1rem;
+  }
 
-/* Heading */
-.fintech-info h2 {
-  font-size: 5rem;
-  font-weight: bold;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
-  word-break: break-word;
-  color: white;
-  margin-top: 0;
-}
+  /* Company Overview: Adjust for mobile */
+  .company-overview {
+    height: 100vh;
+    padding: 20px 10px;
+    text-align: center;
+  }
+  .company-info {
+    max-width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+  .company-info h3,
+  .company-info h2,
+  .company-info p {
+    text-align: center;
+  }
 
-.fintech-info h2 span {
-  display: block; /* Makes each span block-level, forcing a new line */
-  margin-bottom: 10px; /* Optional: Adjust spacing between words */
-}
+  /* CTA Section: Maintain full-screen height but reduce padding */
+  .cta-section {
+    height: 100vh;
+    padding: 30px 10px;
+  }
 
-/* Paragraph */
-.fintech-info p {
-  font-size: 1.5rem;
-  line-height: 1.8;
-  letter-spacing: 0.5px;
-  color: #ddd;
-  max-width: 700px;
+  /* Job Listings: Adjust for mobile layout */
+  .job-listings {
+    height: 100vh;
+    padding: 30px 10px;
+  }
+  .job-list {
+    grid-template-columns: 1fr; /* Single column layout on mobile */
+  }
 }
-
-.fintech-mission {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #232323;
-  color: white;
-  scroll-snap-align: start;
-  padding: 20px;
-  position: relative;
-}
-
-.gradient-window {
-  width: 80%;
-  max-width: 900px;
-  height: 70%;  /* Adjust the height as needed */
-  background: linear-gradient(90deg,rgb(124, 221, 235) 0%, rgb(181, 238, 130) 80%);
-  /*border: 2px solid white;*/
-  border-radius: 15px;
-  position: relative;
-  padding: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.gradient-window-background {
-  width: 300px; /* Adjust the size of the circle */
-  height: 300px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.6) 80%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 0;
-}
-
