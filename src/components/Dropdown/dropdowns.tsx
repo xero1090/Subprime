@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Dropdowns.css';
+import '../Dropdown/dropdowns.css';
 
 interface Job {
   title: string;
