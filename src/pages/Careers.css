@@ -223,6 +223,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 60px;
   height: 100vh;
 }
 
@@ -256,11 +257,26 @@
   padding: 50px 20px;
   display: flex;
   flex-direction: column;
+  overflow: visible;
   justify-content: center;
   align-items: center;
   /* height: 100vh; */
 }
-
+@media only screen and (max-width: 768px) {
+  /* Adjust Job Listings Section for Mobile */
+  .job-listings {
+    padding: 60px 10px 30px; /* extra top padding to separate from CTA */
+    margin-top: 0; /* if you prefer padding over margin */
+    padding: 60px 10px 30px;     /* Increase top padding (from 30px to 60px) */
+    overflow: visible;          /* Allow content to be fully visible */
+  }
+  
+  /* Ensure the heading has its own breathing space */
+  .section-title {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+}
 .section-title {
   color: white;
   font-size: 2.5rem;
