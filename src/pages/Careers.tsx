@@ -148,7 +148,7 @@ const Careers = () => {
 
         <CareerSection />
 
-          <Dropdowns />
+        <Dropdowns />
     
       </section>
 

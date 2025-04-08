@@ -24,12 +24,6 @@ export const teamMembers = [
     url: "https://www.linkedin.com/in/smarcmelo/",
   },
   {
-    name: "Chris Alemao",
-    role: "CTO",
-    bio: "Chris Alemao, CTO of Subprime Financial Technology Ltd., is a seasoned lead expert with over several projects successfully launched.",
-    url: "https://www.linkedin.com/in/smarcmelo/",
-  },
-  {
     name: "Gursahib P. Singh",
     role: "Web Developer",
     bio: "Gursahib, Web Developer at Subprime Financial Technology Ltd., Bright Brokers, and Blitz, is a driving force behind innovative digital solutions.",
