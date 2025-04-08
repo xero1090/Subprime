@@ -1,0 +1,140 @@
+html, body {
+    overflow: visible;
+  }
+
+.application-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: sans-serif;
+  }
+  
+  .application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .application-form label {
+    font-weight: bold;
+  }
+  
+  .application-form input[type="text"],
+  .application-form input[type="email"],
+  .application-form input[type="url"],
+  .application-form select,
+  .application-form textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .status-message {
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+  .required {
+    color: red;
+  }
+  
+  .extraordinary-text {
+    color: #00bc8c; /* or any highlight color */
+    display: inline-block; 
+    padding-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .extraordinary-text {
+      display: block;         /* Let it take up its own line */
+      font-size: 2rem;      /* Adjust to a size that works better on mobile */
+      text-align: center;     /* Center the text on mobile */
+      padding-bottom: 1.5rem; /* Reduce the padding if needed */
+    }
+    
+    /* Optionally, adjust the container's h1 as well so the entire heading looks centered */
+    .application-form-container h1 {
+      text-align: center;
+      font-size: 2rem; /* For instance, adjust the overall heading size */
+    }
+  }
+
+  
+  .location-suggestions {
+    list-style: none;
+    background: #fff;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 0.25rem;
+    padding-left: 0;
+  }
+  
+  .location-suggestions li {
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .location-suggestions li:hover {
+    background-color: #f2f2f2;
+  }
+
+  .submit-button {
+    background-color: #181a1b;
+    color: #00bc8c;
+    border: 2px solid #00bc8c;
+    padding: 0.75rem 1.5rem; /* Remove the extra padding-bottom */
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #00bc8c;
+    color: #181a1b; /* Switch to dark text on hover for contrast */
+  }
+
+  input[type="checkbox"] {
+    -webkit-appearance: none;  /* Remove default iOS styles */
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    background-color: #fff;
+    transition: border 0.2s ease, background-color 0.2s ease;
+  }
+  
+  /* Checkbox when hovered or focused */
+  input[type="checkbox"]:hover,
+  input[type="checkbox"]:focus {
+    border-color: #00bc8c;
+  }
+  
+  /* Checked state */
+  input[type="checkbox"]:checked {
+    background-color: #00bc8c; /* The fill color when checked */
+    border-color: #00bc8c;
+    /* Optionally show an icon or checkmark (ASCII, custom glyph, background image, etc.) */
+  }
+  
+  /* If you want a "checkmark" symbol */
+  input[type="checkbox"]:checked::after {
+    content: '✓';        /* Could be a "✔", or any other symbol */
+    display: block;
+    color: #fff;         /* White check against green background */
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;   /* Match the checkbox height so it centers nicely */
+  }
