@@ -414,11 +414,6 @@
     padding: 30px 10px;
   }
 
-  /* Job Listings: Adjust for mobile layout */
-  .job-listings {
-    height: 100vh;
-    padding: 30px 10px;
-  }
   .job-list {
     grid-template-columns: 1fr; /* Single column layout on mobile */
   }

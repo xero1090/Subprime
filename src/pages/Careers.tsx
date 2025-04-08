@@ -52,7 +52,9 @@ const Careers = () => {
               Explore our job openings and join us on this journey.
             </p>
             <div className="button-container">
-              <button className="cta-button">Apply Now</button>
+              <Link to="/application">
+                <button className="cta-button">Apply Now</button>
+              </Link>
               <button className="cta-button" onClick={scrollToJobListings}>
                 See Open Roles
               </button>
