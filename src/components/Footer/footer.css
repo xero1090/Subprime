@@ -1,0 +1,52 @@
+.footer {
+    position: relative;
+    z-index: 1;
+    background: white !important;
+    padding: 40px 20px;
+    font-family: sans-serif;
+    border-top: 1px solid white;
+    width: 100vw;
+    height: 100vh; /* Full screen height */
+    box-sizing: border-box;
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* vertically center */
+    align-items: center;      /* horizontally center */
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: black; /* Ensure header text is black */
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 8px;
+    color: black; /* Make list item text black */
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    color: black; /* Footer bottom text black */
+  }
+  

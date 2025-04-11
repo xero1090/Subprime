@@ -51,6 +51,7 @@
   .dropdown-short-desc {
     font-size: 0.9rem;
     color: #555;
+    width: 200px;
   }
   
   /* Toggle icon container with animation */

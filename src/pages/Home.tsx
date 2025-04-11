@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import "../App.css";
 import PageIndicator from "../components/PageIndicator/PageIndicator";
 import { gsap } from "gsap";
@@ -19,12 +19,17 @@ import "slick-carousel/slick/slick-theme.css";
 import ResponsiveCards from "../components/ResponsiveCards/ResponsiveCards";
 import { Link } from "react-router-dom";
 import CareerSection from "../components/CareerCards/careerSection";
+import { CountryContext } from "../CountryContext"; // Import your country context
+import Footer from "../components/Footer/footer"
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
 function Home() {
   // State
   const [currentPage, setCurrentPage] = useState(0);
+
+  // Get country context state (defaults to "US" if not set)
+  const { country, setCountry } = useContext(CountryContext);
 
   // Refs
   const discoverRef = useRef(null);
@@ -117,6 +122,11 @@ function Home() {
     return () => observer.disconnect();
   }, []);
 
+  // Function to toggle country: if "US", switch to "CAN" and vice versa.
+  // const toggleCountry = () => {
+  //   setCountry(country === "US" ? "CAN" : "US");
+  // };
+
   return (
     <>
       <CustomCursor />
@@ -150,25 +160,59 @@ function Home() {
           <div>
             <img src={logo} alt="Subprime Logo" className="logo-image" />
           </div>
-          {/* Button to Navigate to Careers Page */}
-          <Link
-            to="/careers"
+          {/* Top right controls */}
+          <div
             style={{
               position: "absolute",
               top: "20px",
               right: "20px",
-              backgroundColor: "#50cffa",
-              color: "white",
-              padding: "10px 20px",
-              borderRadius: "5px",
-              fontSize: "16px",
-              textDecoration: "none",
-              fontWeight: "bold",
-              transition: "background 0.3s ease",
+              display: "flex",
+              gap: "10px",
+              alignItems: "center",
             }}
           >
-            Careers
-          </Link>
+            {/* Careers Button */}
+            <Link
+              to="/careers"
+              style={{
+                backgroundColor: "#50cffa",
+                color: "white",
+                padding: "10px 20px",
+                borderRadius: "5px",
+                fontSize: "16px",
+                textDecoration: "none",
+                fontWeight: "bold",
+                transition: "background 0.3s ease",
+              }}
+            >
+              Careers
+            </Link>
+            {/* Country Selection Button */}
+            <select
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              style={{
+                backgroundColor: "#007bff",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                padding: "10px 15px",
+                fontSize: "16px",
+                cursor: "pointer",
+                transition: "background 0.3s ease",
+                appearance: "none", // removes default arrow in some browsers
+                textAlign: "center",         // centers content in some browsers
+                textAlignLast: "center",       // centers the selected option in browsers like Chrome
+              }}
+            >
+              <option value="US" style={{ color: "black" }}>
+                🇺🇸 US
+              </option>
+              <option value="CAN" style={{ color: "black" }}>
+                🇨🇦 Canada
+              </option>
+            </select>
+          </div>
         </div>
 
         {/* DISCOVER SECTION */}
@@ -196,7 +240,6 @@ function Home() {
           >
             Our Stack
           </div>
-
           <div
             className="our-stack"
             style={{
@@ -338,16 +381,12 @@ function Home() {
               color: "white",
               zIndex: 2,
               textAlign: "center",
-              // marginBottom: "2rem",
             }}
           >
             Careers
           </div>
-
           <CareerSection />
         </div>
-
-
 
         {/* INNOVATE SECTION */}
         <div
@@ -373,7 +412,6 @@ function Home() {
           >
             Subscribe for Updates
           </div>
-
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -387,7 +425,7 @@ function Home() {
               backgroundColor: "#222",
               padding: "1rem",
               borderRadius: "12px",
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow for depth
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
               maxWidth: "400px",
               width: "100%",
             }}
@@ -467,7 +505,6 @@ function Home() {
           >
             Have a question? Send us a message and we'll get back to you!
           </p>
-
           <form
             onSubmit={handleSubmit}
             style={{
@@ -504,7 +541,6 @@ function Home() {
               onFocus={(e) => (e.target.style.borderColor = "#6a5acd")}
               onBlur={(e) => (e.target.style.borderColor = "#444")}
             />
-
             <input
               type="email"
               name="email"
@@ -526,7 +562,6 @@ function Home() {
               onFocus={(e) => (e.target.style.borderColor = "#6a5acd")}
               onBlur={(e) => (e.target.style.borderColor = "#444")}
             />
-
             <textarea
               name="message"
               placeholder="Your Message"
@@ -549,13 +584,11 @@ function Home() {
               onFocus={(e) => (e.target.style.borderColor = "#6a5acd")}
               onBlur={(e) => (e.target.style.borderColor = "#444")}
             />
-
             <ReCAPTCHA
               ref={recaptchaRef}
               sitekey="6LdtzwIrAAAAAMccueLhdfiWn6nwi2d2UTDq18uJ"
               onChange={handleRecaptchaChange}
             />
-
             <button
               type="submit"
               style={{
@@ -576,7 +609,21 @@ function Home() {
             </button>
           </form>
         </div>
-
+        <div
+          ref={footerRef}
+          style={{
+            height: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "white", // Changed from gradient to grey
+            scrollSnapAlign: "start",
+            padding: "2rem",
+          }}
+        >
+          <Footer />
+        </div>
         {/* PAGE INDICATOR */}
         <PageIndicator currentPage={currentPageRef.current} totalPages={6} />
       </main>
