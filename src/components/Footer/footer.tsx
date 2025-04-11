@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CountryContext } from "../../CountryContext"; 
-import "./Footer.css";
+import "../Footer/footer.css";
 
 const Footer: React.FC = () => {
   const { country } = useContext(CountryContext); // ✅ correct key
